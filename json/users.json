@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "type": "User",
+      "id": "6f1b4e8e-c9c9-4693-a6bf-27c1f09056b6",
+      "firstName": "Emily",
+      "lastName": "Carter",
+      "birthDate": "1990-07-22",
+      "email": "emily.carter@example.com",
+      "userName": "ecarter",
+      "password": "hashed_password_here",
+      "location": {
+        "zipCode": 29403
+      }
+    },
+    {
+      "type": "Volunteer",
+      "id": "6572ac4f-0d45-4f15-8ca0-d0ae447c3720",
+      "firstName": "Maria",
+      "lastName": "Lopez",
+      "birthDate": "1994-03-12",
+      "email": "maria.lopez@example.com",
+      "userName": "mlopez94",
+      "password": "hashed_password_here",
+      "location": {
+        "zipCode": 29406
+      },
+      "tools": ["CHAINSAW", "FLASHLIGHT", "RADIO"],
+      "vehicles": ["TRUCK"],
+      "certifications": ["CPR", "AED"]
+    },
+    {
+      "type": "ShelterManager",
+      "id": "cb83825f-61ed-459e-878b-9925e4da71fb",
+      "firstName": "Derek",
+      "lastName": "Nguyen",
+      "birthDate": "1988-01-30",
+      "email": "derek.nguyen@example.com",
+      "userName": "dnguyen",
+      "password": "hashed_password_here",
+      "location": {
+        "zipCode": 29401
+      },
+      "shelterVolunteers": [
+        "6572ac4f-0d45-4f15-8ca0-d0ae447c3720"
+      ]
+    },
+    {
+      "type": "Admin",
+      "id": "02e8a47d-bcef-4f74-82ce-9535ea03dd3a",
+      "firstName": "James",
+      "lastName": "Whitfield",
+      "birthDate": "1985-11-02",
+      "email": "james.whitfield@example.com",
+      "userName": "jwhitfield",
+      "password": "hashed_password_here",
+      "location": {
+        "zipCode": 29401
+      },
+      "pendingVolunteers": [],
+      "activeReliefRequests": [],
+      "currentShelterStatus": [],
+      "currentHurricaneStatus": null
+    }
+  ]
+}
