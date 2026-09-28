@@ -32,6 +32,21 @@
                 "zipCode": 29072
             },
             "id": "1b703f22-61be-42c2-9857-39037d23bb02"
+        },
+        {
+            "shelterName": "Conway Community Shelter",
+            "filters": [
+                "FOOD",
+                "WATER",
+                "FULL_CAPACITY"
+            ],
+            "shelterManagers": [],
+            "currentCapacity": 50,
+            "residents": [],
+            "location": {
+                "zipCode": 29528
+            },
+            "id": "e65bf8a9-9b26-4cbc-b268-dc1d4e9d5f4b"
         }
     ]
 }
