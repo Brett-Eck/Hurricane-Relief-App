@@ -18,7 +18,7 @@ Users can create relief requests, view available shelters, and receive assistanc
 
 ## Project Board
 
-[Project Board](https://github.com/users/Brett-Eck/projects/2) 
+[Project Board](https://github.com/users/Brett-Eck/projects/2/views/2) 
 
 ## Prototype
 
