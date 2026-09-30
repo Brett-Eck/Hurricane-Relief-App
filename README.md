@@ -18,11 +18,11 @@ Users can create relief requests, view available shelters, and receive assistanc
 
 ## Project Board
 
-[Project Board](PROJECT-BOARD-LINK-HERE) //will do once we get link
+[Project Board](https://github.com/users/Brett-Eck/projects/2) 
 
 ## Prototype
 
-[Prototype](PROTOTYPE-LINK-HERE) //will do once we get link
+[Prototype](PROTOTYPE-LINK-HERE) //will do once we get one
 
 ## Our Team
 
