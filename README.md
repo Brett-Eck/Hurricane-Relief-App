@@ -10,11 +10,11 @@ Users can create relief requests, view available shelters, and receive assistanc
 
 ## Code Design
 
-[UML Class Diagram](docs/Xx_HURRICANE_RELIEFER_3000_xX.pdf)
+[UML Class Diagram](docs/uml_class_diagram.pdf)
 
-[User Sequence Diagram](docs/UserSequenceDiagram.pdf)
+[User Sequence Diagram](docs/uml_sequence-diagram1.pdf)
 
-[Volunteer Sequence Diagram](docs/VolunteerSequenceDiagram.pdf)
+[Volunteer Sequence Diagram](docs/uml_sequence_diagram2.pdf)
 
 ## Project Board
 
