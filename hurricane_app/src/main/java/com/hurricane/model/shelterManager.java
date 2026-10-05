@@ -1,3 +1,5 @@
+package com.hurricane.model;
+
 import java.util.ArrayList;
 
 public class ShelterManager {
