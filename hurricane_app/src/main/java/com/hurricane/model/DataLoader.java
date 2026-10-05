@@ -1,15 +1,12 @@
 package com.hurricane.model;
 
-import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 
 public class DataLoader {
      public static void main(String[] args) {
@@ -38,4 +35,5 @@ public class DataLoader {
     public ArrayList<ReliefRequest> getReliefRequests() {
         
         return reliefRequests;
+    }
     }
