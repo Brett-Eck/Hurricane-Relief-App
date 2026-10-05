@@ -1,3 +1,4 @@
+package com.hurricane.model;
 /**
  * @author Nyesh1
  * Pet class representing a pet in the hurricane relief application
