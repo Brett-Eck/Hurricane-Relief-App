@@ -82,4 +82,42 @@ public class DataLoader extends DataConstants{
         }
         return reliefRequests;
     }
+
+    public ArrayList<Hurricane> getHurricanes() {
+    ArrayList<Hurricane> hurricanes = new ArrayList<>();
+
+    try {
+        FileReader reader = new FileReader("../json/hurricanes.json");
+
+        JSONObject root = (JSONObject)(new JSONParser()).parse(reader);
+        JSONArray hurricanesJSON = (JSONArray)root.get("hurricanes");
+
+        for(int i = 0; i < hurricanesJSON.size(); ++i) {
+            JSONObject hurricaneJSON = (JSONObject)hurricanesJSON.get(i);
+
+            String hurricaneName = (String)hurricaneJSON.get("hurricaneName");
+
+            JSONObject locationJSON = (JSONObject)hurricaneJSON.get("location");
+            int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
+            Location location = new Location(zipCode);
+
+            int category = ((Long)hurricaneJSON.get("category")).intValue();
+            double windSpeed = ((Number)hurricaneJSON.get("windSpeed")).doubleValue();
+            double diameter = ((Number)hurricaneJSON.get("diameter")).doubleValue();
+
+            hurricanes.add(new Hurricane(
+                hurricaneName,
+                location,
+                category,
+                windSpeed,
+                diameter
+            ));
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return hurricanes;
+}
 }
