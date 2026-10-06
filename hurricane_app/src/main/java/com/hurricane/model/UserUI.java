@@ -1,40 +1,29 @@
 package com.hurricane.model;
 
-import java.util.Scanner;
+import java.time.LocalDate;
 
 public class UserUI {
-    private final UserSystem userSystem;
-    private final Scanner scanner;
+    private UserSystem userSystem = new UserSystem();
 
-    public UserUI() {
-        userSystem = new UserSystem();
-        scanner = new Scanner(System.in);
+    public void run(){
+
     }
 
-    public void start() {
-        System.out.println("Hurricane Relief App");
-
-        User user = login();
-
-        if (user != null) {
-            System.out.println("\nWelcome, " + user.getFirstName() + "!");
+    public void scenario1(){
+        userSystem.login("greggoat", "passwordevilmode");
+        if (userSystem.login("greggoat", "passwordevilmode") != null){
+            System.out.println("Login successful");
         } else {
-            System.out.println("\nInvalid username or password.");
+            System.out.println("Login failed");
         }
     }
 
-    private User login() {
-        System.out.print("Username: ");
-        String username = scanner.nextLine();
-
-        System.out.print("Password: ");
-        String password = scanner.nextLine();
-
-        return userSystem.login(username, password);
-    }
-
-    public static void main(String[] args) {
-        UserUI userUI = new UserUI();
-        userUI.start();
+    public void scenario2(){
+        userSystem.signup("John", "Doe", LocalDate.of(1995, 5, 15), "johndoe", "password123", "jondoe@example.com");
+        if (userSystem.login("johndoe", "password123") != null){
+            System.out.println("Signup successful");
+        } else {
+            System.out.println("Signup failed");
+        }
     }
 }

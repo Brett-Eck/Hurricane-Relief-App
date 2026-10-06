@@ -2,6 +2,7 @@ package com.hurricane.model;
 
 import java.util.ArrayList;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Manages users in the system. Singleton to make sure only one instance of user list exists.
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 */
 
 public class UserList {
+    LocalDate date = LocalDate.now();
     private static UserList userList = new UserList();
     private ArrayList<User> users = new ArrayList<>();
 
