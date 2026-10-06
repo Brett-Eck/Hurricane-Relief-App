@@ -1,3 +1,4 @@
+package com.hurricane.model;
 /**
  * @author Nyesh1
  * Victim class representing a victim in the hurricane relief application
