@@ -9,7 +9,6 @@ public class Shelter {
     private ArrayList<Filter> filters;
     private ArrayList<ShelterManager> shelterManagers;
     private int currentCapacity;
-    private List<Person> residents;
     private Location location;
     private UUID id;
 
@@ -19,7 +18,6 @@ public class Shelter {
         this.location = location;
         this.filters = new ArrayList<>();
         this.shelterManagers = new ArrayList<>();
-        this.residents = new ArrayList<>();
         this.id = UUID.randomUUID();
     }
 
