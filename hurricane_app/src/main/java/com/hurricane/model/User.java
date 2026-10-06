@@ -1,6 +1,6 @@
 package com.hurricane.model;
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 /* User class representing a user in the hurricane relief application */
@@ -11,7 +11,7 @@ import java.util.UUID;
 public class User {
     private String firstName;
     private String lastName;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String email;
     private String password;
     private String userName;
@@ -19,36 +19,46 @@ public class User {
     private UUID id;
     private ArrayList<ReliefRequest> requests;
 
-    public User(String firstName, String lastName, Date birthDate,
+    public User(String firstName, String lastName, LocalDate birthDate,
                 String email, String password, String username) {
-        // TODO: implement
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.email = email;
+        this.password = password;
+        this.userName = username;
+        this.id = UUID.randomUUID();
+        this.requests = new ArrayList<>();
     }
 
     public boolean isMatch(String userName, String password) {
-        return false;
+        return this.userName != null
+            && this.password != null
+            && this.userName.equals(userName)
+            && this.password.equals(password);
     }
 
     public String getFirstName() {
-        return null;
+        return firstName;
     }
 
     public String getLastName() {
-        return null;
+        return lastName;
     }
 
-    public Date getBirthDate() {
-        return null;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
     public String getEmail() {
-        return null;
+        return email;
     }
 
     public String getPassword() {
-        return null;
+        return password;
     }
 
     public String getUsername() {
-        return null;
+        return userName;
     }
 }
