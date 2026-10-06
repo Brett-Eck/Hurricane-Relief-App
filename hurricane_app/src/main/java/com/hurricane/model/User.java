@@ -41,14 +41,14 @@ public class User {
     }
 
     public String getEmail() {
-        return null;
+        return email;
     }
 
     public String getPassword() {
-        return null;
+        return password;
     }
 
     public String getUsername() {
-        return null;
+        return userName;
     }
 }
