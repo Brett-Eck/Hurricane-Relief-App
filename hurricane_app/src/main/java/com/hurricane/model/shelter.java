@@ -17,7 +17,6 @@ public class Shelter {
         this.shelterName = shelterName;
         this.currentCapacity = currentCapacity;
         this.location = location;
-
         this.filters = new ArrayList<>();
         this.shelterManagers = new ArrayList<>();
         this.residents = new ArrayList<>();
