@@ -25,7 +25,7 @@ public class DataLoader extends DataConstants{
                 String lastName = (String)personJSON.get("lastName");
                 int age = ((Long)personJSON.get("age")).intValue();
                 String phoneNumber = (String)personJSON.get("phoneNumber");
-                users.add(new User(id, userName, firstName, lastName, age, phoneNumber));
+                users.add(new User(//TODO));
             }
  
         } catch (Exception e) {
@@ -46,11 +46,8 @@ public class DataLoader extends DataConstants{
                 JSONObject shelterJSON = (JSONObject)sheltersJSON.get(i);
                 UUID id = UUID.fromString((String)shelterJSON.get("id"));
                 String name = (String)shelterJSON.get("name");
-                String address = (String)shelterJSON.get("address");
-                String city = (String)shelterJSON.get("city");
-                String state = (String)shelterJSON.get("state");
                 String zipCode = (String)shelterJSON.get("zipCode");
-                shelters.add(new Shelter(id, name, address, city, state, zipCode));
+                shelters.add(new Shelter(//TODO));
             }
  
         } catch (Exception e) {
@@ -74,7 +71,7 @@ public class DataLoader extends DataConstants{
                 String lastName = (String)requestJSON.get("lastName");
                 int age = ((Long)requestJSON.get("age")).intValue();
                 String phoneNumber = (String)requestJSON.get("phoneNumber");
-                reliefRequests.add(new ReliefRequest(id, userName, firstName, lastName, age, phoneNumber));
+                reliefRequests.add(new ReliefRequest(//TODO));
             }
  
         } catch (Exception e) {
