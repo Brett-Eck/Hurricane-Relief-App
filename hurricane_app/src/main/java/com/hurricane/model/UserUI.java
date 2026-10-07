@@ -6,7 +6,7 @@ public class UserUI {
     private UserSystem userSystem = new UserSystem();
 
     public void run(){
-
+        
     }
 
     public void scenario1(){
