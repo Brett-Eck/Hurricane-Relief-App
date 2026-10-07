@@ -8,5 +8,4 @@ public enum HAZARD {
     DEBRIS,
     STRUCTURAL_DAMAGE,
     ROAD_BLOCKAGE
-
 }
