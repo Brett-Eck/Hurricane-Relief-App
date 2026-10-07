@@ -5,8 +5,14 @@ import java.time.LocalDate;
 public class UserUI {
     private UserSystem userSystem = new UserSystem();
 
+    public static void main(String[] args){
+        UserUI userUI = new UserUI();
+        userUI.run();
+    }
+
     public void run(){
-        
+        scenario1();
+        scenario2();
     }
 
     public void scenario1(){
