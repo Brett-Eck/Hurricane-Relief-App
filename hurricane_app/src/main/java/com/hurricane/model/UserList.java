@@ -39,6 +39,10 @@ public class UserList {
         return true;
     }
 
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
     /**
      * No database yet, just true for now. Replace later.
      * @return
