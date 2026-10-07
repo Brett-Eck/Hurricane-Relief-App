@@ -1,6 +1,6 @@
 package com.hurricane.model;
 
-public enum Vehicle {
+public enum VEHICLE {
     TRUCK,
     CAR,
     BOAT,

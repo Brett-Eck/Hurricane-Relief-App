@@ -6,7 +6,7 @@ public class ReliefRequest {
     private ArrayList<Victim> victims;
     private ArrayList<HAZARD> hazards;
     private String photo;
-    private ArrayList<ASSISTANCETYPE> assistanceTypes;
+    private ArrayList<ASSISTANCE_TYPE> assistanceTypes;
     private Status status;
     private String description;
     private String phoneNumber;
@@ -14,7 +14,7 @@ public class ReliefRequest {
     private Location location;
     private boolean isAccepted;
 
-    public ReliefRequest(ArrayList<Victim> victims, ArrayList<HAZARD> hazards, String photo, ArrayList<ASSISTANCETYPE> assistanceTypes, Status status, String description, String phoneNumber, UUID id, Location location) {
+    public ReliefRequest(ArrayList<Victim> victims, ArrayList<HAZARD> hazards, String photo, ArrayList<ASSISTANCE_TYPE> assistanceTypes, Status status, String description, String phoneNumber, UUID id, Location location) {
         this.victims = victims;
         this.hazards = hazards;
         this.photo = photo;
@@ -38,7 +38,7 @@ public class ReliefRequest {
         this.photo = photo;
     }
 
-    public void addAssistanceType(ASSISTANCETYPE assistanceType) {
+    public void addAssistanceType(ASSISTANCE_TYPE assistanceType) {
         assistanceTypes.add(assistanceType);
     }
 

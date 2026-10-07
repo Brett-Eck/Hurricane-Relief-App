@@ -1,6 +1,6 @@
 package com.hurricane.model;
 
-public enum Status {
+public enum STATUS {
     AWAITING_ASSISTANCE,
     IN_PROGRESS,
     COMPLETED

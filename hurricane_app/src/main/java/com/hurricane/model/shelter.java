@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class Shelter {
     private String shelterName;
-    private ArrayList<Filter> filters;
+    private ArrayList<FILTER> filters;
     private ArrayList<ShelterManager> shelterManagers;
     private int currentCapacity;
     private Location location;
@@ -30,11 +30,11 @@ public class Shelter {
         this.shelterName = shelterName;
     }
 
-    public ArrayList<Filter> getFilters() {
+    public ArrayList<FILTER> getFilters() {
         return filters;
     }
 
-    public void addFilter(Filter filter) {
+    public void addFilter(FILTER filter) {
         this.filters.add(filter);
     }
 

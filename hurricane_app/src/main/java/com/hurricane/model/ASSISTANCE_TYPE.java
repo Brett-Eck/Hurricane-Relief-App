@@ -1,6 +1,6 @@
 package com.hurricane.model;
 
-public enum AssistanceType {
+public enum ASSISTANCE_TYPE {
     MEDICAL,
     TRANSPORTAION,
     VETERINARY,

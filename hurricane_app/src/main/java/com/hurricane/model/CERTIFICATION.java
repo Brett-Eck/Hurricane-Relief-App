@@ -1,6 +1,6 @@
 package com.hurricane.model;
 
-public enum Certifications {
+public enum CERTIFICATION {
     CPR,
     AED,
     PFA,
