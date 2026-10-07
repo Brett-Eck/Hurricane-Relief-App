@@ -10,6 +10,7 @@ public class Shelter {
     private ArrayList<ShelterManager> shelterManagers;
     private int currentCapacity;
     private Location location;
+    private Availability availability;
     private UUID id;
 
     public Shelter(String shelterName, int currentCapacity, Location location) {
@@ -21,12 +22,48 @@ public class Shelter {
         this.id = UUID.randomUUID();
     }
 
+    public String getShelterName() {
+        return shelterName;
+    }
+
+    public void setShelterName(String shelterName) {
+        this.shelterName = shelterName;
+    }
+
+    public ArrayList<Filter> getFilters() {
+        return filters;
+    }
+
+    public void addFilter(Filter filter) {
+        this.filters.add(filter);
+    }
+
+    public ArrayList<ShelterManager> getShelterManagers() {
+        return shelterManagers;
+    }
+
+    public void addShelterManager(ShelterManager shelterManager) {
+        this.shelterManagers.add(shelterManager);
+    }
+
+    public int getCurrentCapacity() {
+        return currentCapacity;
+    }
+
+    public void setCurrentCapacity(int currentCapacity) {
+        this.currentCapacity = currentCapacity;
+    }
+
     public void setCapacity(int capacity) {
         currentCapacity = capacity;
     }
 
-    public int getAvailableSpaces() {
-        return currentCapacity - residents.size();
+    public Availability getAvailability() {
+        return availability;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 
     public UUID getId() {
