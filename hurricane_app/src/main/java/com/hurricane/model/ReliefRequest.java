@@ -12,6 +12,7 @@ public class ReliefRequest {
     private String phoneNumber;
     private UUID id;
     private Location location;
+    private boolean isAccepted;
 
     public ReliefRequest(ArrayList<Victim> victims, ArrayList<HAZARD> hazards, String photo, ArrayList<ASSISTANCETYPE> assistanceTypes, Status status, String description, String phoneNumber, UUID id, Location location) {
         this.victims = victims;
@@ -67,6 +68,18 @@ public class ReliefRequest {
 
     public Location getLocation() {
         return location;
+    }
+
+    public ArrayList<Victim> getVictims() {
+        return victims;
+    }
+
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
+    }
+
+    public boolean isAccepted() {
+        return isAccepted;
     }
 
 }
