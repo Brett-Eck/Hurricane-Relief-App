@@ -1,5 +1,6 @@
 package com.hurricane.model;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Current Admin Stub
