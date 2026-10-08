@@ -1,7 +1,6 @@
 package com.hurricane.model;
 
 import java.util.ArrayList;
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class Shelter {
