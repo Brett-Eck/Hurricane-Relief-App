@@ -61,4 +61,8 @@ public class User {
     public String getUsername() {
         return userName;
     }
+
+    public String getId() {
+        return id.toString();
+    }
 }
