@@ -1,6 +1,6 @@
 package com.hurricane.model;
 
-public enum FILTER {
+public enum Filter {
     PET_FRIENDLY,
     FOOD,
     WATER,

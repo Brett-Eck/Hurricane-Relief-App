@@ -4,9 +4,9 @@ import java.util.*;
 public class ReliefRequest {
     
     private ArrayList<Victim> victims;
-    private ArrayList<HAZARD> hazards;
+    private ArrayList<Hazard> hazards;
     private String photo;
-    private ArrayList<ASSISTANCE_TYPE> assistanceTypes;
+    private ArrayList<Assistance_Type> assistanceTypes;
     private Status status;
     private String description;
     private String phoneNumber;
@@ -14,7 +14,7 @@ public class ReliefRequest {
     private Location location;
     private boolean isAccepted;
 
-    public ReliefRequest(ArrayList<Victim> victims, ArrayList<HAZARD> hazards, String photo, ArrayList<ASSISTANCE_TYPE> assistanceTypes,
+    public ReliefRequest(ArrayList<Victim> victims, ArrayList<Hazard> hazards, String photo, ArrayList<Assistance_Type> assistanceTypes,
          Status status, String description, String phoneNumber, UUID id, Location location) {
         this.victims = victims;
         this.hazards = hazards;
@@ -31,7 +31,7 @@ public class ReliefRequest {
         victims.add(victim);
     }
 
-    public void addHazard(HAZARD hazard) {
+    public void addHazard(Hazard hazard) {
         hazards.add(hazard);
     }
 
@@ -39,7 +39,7 @@ public class ReliefRequest {
         this.photo = photo;
     }
 
-    public void addAssistanceType(ASSISTANCE_TYPE assistanceType) {
+    public void addAssistanceType(Assistance_Type assistanceType) {
         assistanceTypes.add(assistanceType);
     }
 

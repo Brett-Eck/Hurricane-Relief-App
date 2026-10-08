@@ -1,6 +1,6 @@
 package com.hurricane.model;
 
-public enum HAZARD {
+public enum Hazard {
     FLOODING,
     FIRE,
     DOWNED_POWER_LINES,

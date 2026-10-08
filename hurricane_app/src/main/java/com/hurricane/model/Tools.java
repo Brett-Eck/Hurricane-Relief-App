@@ -1,6 +1,6 @@
 package com.hurricane.model;
 
-public enum TOOL {
+public enum Tools {
     CHAINSAW,
     SAW,
     HAMMER,
