@@ -70,9 +70,9 @@ public class DataLoader extends DataConstants{
                 JSONObject requestJSON = (JSONObject)requestsJSON.get(i);
                 UUID id = UUID.fromString((String)requestJSON.get("id"));
                 ArrayList<Victim> victims = ((JSONArray)requestJSON.get("victims"));
-                ArrayList<HAZARD> hazards = ((JSONArray)requestJSON.get("hazards"));
+                ArrayList<Hazard> hazards = ((JSONArray)requestJSON.get("hazards"));
                 String photo = (String)requestJSON.get("photo") != null ? (String)requestJSON.get("photo") : null;
-                ArrayList<ASSISTANCE_TYPE> assistanceTypes = ((JSONArray)requestJSON.get("assistanceTypes"));
+                ArrayList<AssistanceType> assistanceTypes = ((JSONArray)requestJSON.get("assistanceTypes"));
                 Status status = (Status)requestJSON.get("status");
                 String description = (String)requestJSON.get("description");
                 String phoneNumber = (String)requestJSON.get("phoneNumber");
