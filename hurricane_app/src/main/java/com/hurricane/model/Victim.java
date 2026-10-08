@@ -7,9 +7,9 @@ public class Victim {
     private String description;
     private String gender;
     private int age;
-    private VICTIM_STATUS victimStatus;
+    private VictimStatus victimStatus;
 
-    public Victim(String firstName, VICTIM_STATUS victimStatus) {
+    public Victim(String firstName, VictimStatus victimStatus) {
         this.firstName = firstName;
         this.victimStatus = victimStatus;
     }
@@ -34,11 +34,11 @@ public class Victim {
         return age;
     }
 
-    public VICTIM_STATUS getVictimStatus() {
+    public VictimStatus getVictimStatus() {
         return victimStatus;
     }
 
-    public void setVictimStatus(VICTIM_STATUS status) {
+    public void setVictimStatus(VictimStatus status) {
         victimStatus = status;
     }
 }
