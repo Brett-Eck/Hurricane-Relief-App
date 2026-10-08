@@ -24,4 +24,4 @@ public class ShelterManager {
     public void updateShelterCapacity(Shelter shelter, int capacity) {
         shelter.setCapacity(capacity);
     }
-}
+}   
