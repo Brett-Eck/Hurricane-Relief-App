@@ -7,7 +7,7 @@ package com.hurricane.model;
 public class Pet extends Victim {
     private String species;
 
-    public Pet(Victim_Status victimStatus, String species) {
+    public Pet(VictimStatus victimStatus, String species) {
         super(null, victimStatus);
         this.species = species;
     }
