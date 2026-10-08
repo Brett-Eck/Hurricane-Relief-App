@@ -7,7 +7,7 @@ public class Location {
         this.zipCode = zipCode;
     }
 
-    public int getZip() {
+    public int getZipCode() {
         return zipCode;
     }
 }

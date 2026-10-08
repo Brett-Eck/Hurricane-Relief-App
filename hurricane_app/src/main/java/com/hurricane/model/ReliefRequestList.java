@@ -20,6 +20,10 @@ public class ReliefRequestList {
         reliefRequests.add(reliefRequest);
     }
 
+    public ArrayList<ReliefRequest> getReliefRequests() {
+        return new ArrayList<>(reliefRequests);
+    }
+
     public ArrayList<ReliefRequest> getReliefRequest() {
         return new ArrayList<>(reliefRequests);
     }
