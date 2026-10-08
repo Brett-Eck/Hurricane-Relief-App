@@ -1,11 +1,12 @@
 package com.hurricane.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ShelterManager extends User {
     private ArrayList<Volunteer> shelterVolunteers;
 
-    public ShelterManager() {
+    public ShelterManager(String firstName, String lastName, LocalDate birthDate, String email, String password, String username) {
         super(firstName, lastName, birthDate, email, password, username);
         this.shelterVolunteers = new ArrayList<>();
     }
