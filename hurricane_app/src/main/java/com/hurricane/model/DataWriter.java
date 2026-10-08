@@ -96,7 +96,7 @@ public class DataWriter {
     public static JSONObject getReliefRequestJSON(ReliefRequest reliefRequest) {
         JSONObject jsonReliefRequest = new JSONObject();
         jsonReliefRequest.put("id", reliefRequest.getId().toString());
-        jsonReliefRequest.put("requesterName", reliefRequest.getRequesterName());
+        jsonReliefRequest.put("phoneNumber", reliefRequest.getPhoneNumber());
         jsonReliefRequest.put("location", reliefRequest.getLocation().toString());
         jsonReliefRequest.put("status", reliefRequest.getStatus().toString());
         return jsonReliefRequest;

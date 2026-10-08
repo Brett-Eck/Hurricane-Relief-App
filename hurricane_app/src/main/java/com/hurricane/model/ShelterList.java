@@ -19,11 +19,15 @@ public class ShelterList {
         for (Shelter shelter : shelters) {
             Location shelterLocation = shelter.getLocation();
 
-            if (shelter.getShelterName().equals(shelterName) && shelterLocation != null && location != null && shelterLocation.getZip() == location.getZip()) {
+            if (shelter.getShelterName().equals(shelterName) && shelterLocation != null && location != null && shelterLocation.getZipCode() == location.getZipCode()) {
                 return shelter;
             }
         }
         return null;
+    }
+
+    public ArrayList<Shelter> getShelters() {
+        return new ArrayList<>(shelters);
     }
 
     public void addShelter(Shelter shelter) {
