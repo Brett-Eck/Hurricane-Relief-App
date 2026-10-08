@@ -43,6 +43,16 @@ public class UserList {
         return users;
     }
 
+    public ArrayList<Volunteer> getVolunteers() {
+        ArrayList<Volunteer> volunteers = new ArrayList<>();
+        for (User user : users) {
+            if (user instanceof Volunteer) {
+                volunteers.add((Volunteer) user);
+            }
+        }
+        return volunteers;
+    }
+
     /**
      * No database yet, just true for now. Replace later.
      * @return

@@ -87,7 +87,7 @@ public class DataWriter {
     public static JSONObject getShelterJSON(Shelter shelter) {
         JSONObject jsonShelter = new JSONObject();
         jsonShelter.put("id", shelter.getId().toString());
-        jsonShelter.put("name", shelter.getName());
+        jsonShelter.put("name", shelter.getShelterName());
         jsonShelter.put("zipCode", shelter.getLocation().getZipCode());
         jsonShelter.put("capacity", shelter.getCapacity());
         return jsonShelter;
@@ -96,7 +96,7 @@ public class DataWriter {
     public static JSONObject getReliefRequestJSON(ReliefRequest reliefRequest) {
         JSONObject jsonReliefRequest = new JSONObject();
         jsonReliefRequest.put("id", reliefRequest.getId().toString());
-        jsonReliefRequest.put("requesterName", reliefRequest.getRequesterName());
+        jsonReliefRequest.put("phoneNumber", reliefRequest.getPhoneNumber());
         jsonReliefRequest.put("location", reliefRequest.getLocation().toString());
         jsonReliefRequest.put("status", reliefRequest.getStatus().toString());
         return jsonReliefRequest;

@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class HurricaneList {
+    private static final HurricaneList hurricaneList = new HurricaneList();
     private ArrayList<Hurricane> hurricanes = new ArrayList<>();
 
     public void addHurricane(String hurricaneName, Location location, int category, double windSpeed, double diameter) {
         hurricanes.add(new Hurricane(hurricaneName, location, category, windSpeed, diameter));
+    }
+
+    public static HurricaneList getInstance() {
+        return hurricaneList;
     }
 
     public void updateHurricane(UUID id, Location newLocation, int newCategory, double newWindSpeed, double newDiameter) {
@@ -20,6 +25,10 @@ public class HurricaneList {
                 return;
             }
         }
+    }
+
+    public ArrayList<Hurricane> getHurricanes() {
+        return new ArrayList<>(hurricanes);
     }
 
     public void removeHurricane(UUID id) {
