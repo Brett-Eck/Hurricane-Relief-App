@@ -3,22 +3,30 @@ package com.hurricane.model;
 import java.util.ArrayList;
 
 public class ShelterList {
-    private ShelterList shelterList;
+    private static final ShelterList shelterList = new ShelterList();
+
     private ArrayList<Shelter> shelters;
 
-    public ShelterList(){
-
+    public ShelterList() {
+        shelters = new ArrayList<>();
     }
 
-    public static ShelterList getInstance(){
-
+    public static ShelterList getInstance() {
+        return shelterList;
     }
 
-    public User getShelter(String shelterName, Location location){
+    public Shelter getShelter(String shelterName, Location location) {
+        for (Shelter shelter : shelters) {
+            Location shelterLocation = shelter.getLocation();
 
+            if (shelter.getShelterName().equals(shelterName) && shelterLocation != null && location != null && shelterLocation.getZip() == location.getZip()) {
+                return shelter;
+            }
+        }
+        return null;
     }
 
-    public User addUser(UUID Id){
-        
+    public void addShelter(Shelter shelter) {
+        shelters.add(shelter);
     }
 }

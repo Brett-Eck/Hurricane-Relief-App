@@ -10,7 +10,7 @@ public class Shelter {
     private ArrayList<ShelterManager> shelterManagers;
     private int capacity;
     private Location location;
-    private Availability availability;
+    private AVAILABILITY availability;
     private UUID id;
 
     public Shelter(String shelterName, int capacity, Location location) {
@@ -58,7 +58,7 @@ public class Shelter {
         this.capacity = capacity;
     }
 
-    public Availability getAvailability() {
+    public AVAILABILITY getAvailability() {
         return availability;
     }
 

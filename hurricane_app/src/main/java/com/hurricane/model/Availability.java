@@ -1,6 +1,6 @@
 package com.hurricane.model;
 
-public enum Availability {
+public enum AVAILABILITY {
     AVAILABLE,
     FULL
 }
