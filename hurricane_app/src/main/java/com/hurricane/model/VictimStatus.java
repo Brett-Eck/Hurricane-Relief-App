@@ -1,6 +1,6 @@
 package com.hurricane.model;
 
-public enum Victim_Status {
+public enum VictimStatus {
     LOST,
     MINOR_INJURY,
     MAJOR_INJURY,
