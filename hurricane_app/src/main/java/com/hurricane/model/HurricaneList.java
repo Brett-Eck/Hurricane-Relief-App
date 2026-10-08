@@ -1,19 +1,28 @@
 package com.hurricane.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class HurricaneList {
-    private ArrayList<Hurricane> hurricanes;
+    private ArrayList<Hurricane> hurricanes = new ArrayList<>();
 
-    public void addHurricane(String hurricaneName, Location location, int category, double windSpeed, double diameter){
-
+    public void addHurricane(String hurricaneName, Location location, int category, double windSpeed, double diameter) {
+        hurricanes.add(new Hurricane(hurricaneName, location, category, windSpeed, diameter));
     }
 
-    public void updateHurricane(UUID id, Location newLocation, int newCategory, double newWindspeed, double newDiameter){
-
+    public void updateHurricane(UUID id, Location newLocation, int newCategory, double newWindSpeed, double newDiameter) {
+        for (Hurricane hurricane : hurricanes) {
+            if (hurricane.getId().equals(id)) {
+                hurricane.setLocation(newLocation);
+                hurricane.setCategory(newCategory);
+                hurricane.setWindSpeed(newWindSpeed);
+                hurricane.setDiameter(newDiameter);
+                return;
+            }
+        }
     }
 
-    public void removeHurricane(UUID id){
-        
+    public void removeHurricane(UUID id) {
+        hurricanes.removeIf(hurricane -> hurricane.getId().equals(id));
     }
 }
