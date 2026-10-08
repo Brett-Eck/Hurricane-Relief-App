@@ -35,6 +35,14 @@ public class Hurricane {
         this.category = category;
     }
 
+    public void setWindSpeed(double windSpeed) {
+        this.windSpeed = windSpeed;
+    }
+
+    public void setDiameter(double diameter) {
+        this.diameter = diameter;
+    }
+
     public String getHurricaneName() {
         return hurricaneName;
     }
