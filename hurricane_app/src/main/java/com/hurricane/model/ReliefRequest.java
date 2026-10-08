@@ -14,7 +14,8 @@ public class ReliefRequest {
     private Location location;
     private boolean isAccepted;
 
-    public ReliefRequest(ArrayList<Victim> victims, ArrayList<HAZARD> hazards, String photo, ArrayList<ASSISTANCE_TYPE> assistanceTypes, STATUS status, String description, String phoneNumber, UUID id, Location location) {
+    public ReliefRequest(ArrayList<Victim> victims, ArrayList<HAZARD> hazards, String photo, ArrayList<ASSISTANCE_TYPE> assistanceTypes,
+         STATUS status, String description, String phoneNumber, UUID id, Location location) {
         this.victims = victims;
         this.hazards = hazards;
         this.photo = photo;
