@@ -21,4 +21,28 @@ public class UserSystem {
         userList.addUser(firstName, lastName, birthDate, userName, password, email);
         return userList.getUser(userName, password);
     }
+
+    public ArrayList<User> getUsers() {
+        return userList.getUsers();
+    }
+
+    public ArrayList<Shelter> getShelters() {
+        return ShelterList.getInstance().getShelters();
+    }
+
+    public ArrayList<ShelterManager> getShelterManagers(Shelter shelter) {
+        return shelter.getShelterManagers();
+    }
+
+    public ArrayList<Volunteer> getVolunteers() {
+        return userList.getVolunteers();
+    }
+
+    public ArrayList<ReliefRequest> getReliefRequests() {
+        return reliefRequests;
+    }
+
+    public void acceptReliefRequest(ReliefRequest request) {
+        request.setStatus(Status.IN_PROGRESS);
+    }
 }

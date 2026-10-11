@@ -53,6 +53,16 @@ public class UserList {
         return volunteers;
     }
 
+    public ArrayList<User> getShelterManagers() {
+        ArrayList<User> shelterManagers = new ArrayList<>();
+        for (User user : users) {
+            if (user instanceof ShelterManager) {
+                shelterManagers.add(user);
+            }
+        }
+        return shelterManagers;
+    }
+
     /**
      * No database yet, just true for now. Replace later.
      * @return
