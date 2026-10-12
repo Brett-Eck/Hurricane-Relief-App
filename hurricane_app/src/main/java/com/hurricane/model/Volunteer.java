@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Volunteer extends User {
 
-    private ArrayList<TOOL> tools;
-    private ArrayList<VEHICLE> vehicles;
-    private ArrayList<CERTIFICATION> certifications;
+    private ArrayList<Tools> tools;
+    private ArrayList<Vehicle> vehicles;
+    private ArrayList<Certification> certifications;
 
 
     public Volunteer(String firstName, String lastName, java.time.LocalDate birthDate,
@@ -25,27 +25,27 @@ public class Volunteer extends User {
         return null;
     }
 
-    public ArrayList<TOOL> getTools() {
+    public ArrayList<Tools> getTools() {
         return tools;
     }
 
-    public ArrayList<VEHICLE> getVehicles() {
+    public ArrayList<Vehicle> getVehicles() {
         return vehicles;
     }
 
-    public ArrayList<CERTIFICATION> getCertifications() {
+    public ArrayList<Certification> getCertifications() {
         return certifications;
     }
 
-    public void addTool(TOOL tool) {
+    public void addTool(Tools tool) {
         this.tools.add(tool);
     }
 
-    public void addVehicle(VEHICLE vehicle) {
+    public void addVehicle(Vehicle vehicle) {
         this.vehicles.add(vehicle);
     }
 
-    public void addCertification(CERTIFICATION certification) {
+    public void addCertification(Certification certification) {
         this.certifications.add(certification);
     }
 }

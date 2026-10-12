@@ -18,7 +18,7 @@ public class UserList {
      * Hard coded user for testing. Replace later.
      */
     public UserList(){
-        users.add(new User("Greg", "Goat", null, "greggoat", "passwordevilmode", "greggoat@example.com"));
+        users.add(new User("Greg", "Goat", null, "greggoat@example.com", "passwordevilmode", "greggoat"));
     }
 
     public static UserList getInstance(){
@@ -31,6 +31,7 @@ public class UserList {
                 return user;
             }
         }
+        System.out.println("User not found or password incorrect");
         return null;
     }
 

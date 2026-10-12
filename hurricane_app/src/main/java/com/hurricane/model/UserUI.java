@@ -13,15 +13,16 @@ public class UserUI {
     public void run(){
         scenario1();
         scenario2();
+        scenario3();
     }
 
     public void scenario1(){
         userSystem.login("greggoat", "passwordevilmode");
         if (userSystem.login("greggoat", "passwordevilmode") != null){
-            System.out.println(userSystem.getUser().getFirstName() + " " + userSystem.getCurrentUser().getLastName());
+            System.out.println(userSystem.getUser().getFirstName() + " " + userSystem.getUser().getLastName());
             System.out.println("Login successful");
         } else {
-            System.out.println("Login failed");
+            System.out.println("Login failed: user not found or password incorrect");
         }
     }
 
@@ -33,5 +34,19 @@ public class UserUI {
         } else {
             System.out.println("Signup failed");
         }
+    }
+
+    public void scenario3(){
+        userSystem.login("greggoat", "passwordevilmode");
+        if (userSystem.login("greggoat", "passwordevilmode") != null){
+            System.out.println(userSystem.getUser().getFirstName() + " " + userSystem.getUser().getLastName());
+            System.out.println("Login successful");
+        } else {
+            System.out.println("Login failed: user not found or password incorrect");
+        }
+        for (Shelter shelter : userSystem.getShelters()){
+            System.out.println(shelter.getShelterName());
+        }
+
     }
 }

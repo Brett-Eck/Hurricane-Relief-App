@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class ShelterList {
     private static final ShelterList shelterList = new ShelterList();
 
-    private ArrayList<Shelter> shelters;
+    private ArrayList<Shelter> shelters = new ArrayList<>();
 
     public ShelterList() {
-        shelters = new ArrayList<>();
+        shelters.add(new Shelter("Shelter A", 150, new Location(12345)));
     }
 
     public static ShelterList getInstance() {
@@ -27,7 +27,7 @@ public class ShelterList {
     }
 
     public ArrayList<Shelter> getShelters() {
-        return new ArrayList<>(shelters);
+        return shelters;
     }
 
     public void addShelter(Shelter shelter) {

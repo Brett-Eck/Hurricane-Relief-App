@@ -22,6 +22,10 @@ public class UserSystem {
         currentUser = null;
     }
 
+    public User getUser() {
+        return currentUser;
+    }
+
     public User signup(String firstName, String lastName, LocalDate birthDate,
             String userName, String password, String email) {
         userList.addUser(firstName, lastName, birthDate, userName, password, email);
