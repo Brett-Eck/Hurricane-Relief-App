@@ -1,23 +1,29 @@
 package com.hurricane.model;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class UserSystem {
     private UserList userList = UserList.getInstance();
+    private ReliefRequestList reliefRequestList = ReliefRequestList.getInstance();
+    private ShelterList shelterList = ShelterList.getInstance();
+    private HurricaneList hurricaneList = HurricaneList.getInstance();
+
     private User currentUser;
-    private ArrayList<ReliefRequest> reliefRequests = ReliefRequestList.getInstance().getReliefRequests();
-    private ArrayList<Shelter> shelters = ShelterList.getInstance().getShelters();
-    private ArrayList<Volunteer> volunteers = UserList.getInstance().getVolunteers();
     private Hurricane currentHurricane;
-    
 
-
-    public User login(String userName, String password){
+    public User login(String userName, String password) {
         currentUser = userList.getUser(userName, password);
         return currentUser;
     }
 
-    public User signup(String firstName, String lastName, LocalDate birthDate, String userName, String password, String email){
+    public void logout() {
+        currentUser = null;
+    }
+
+    public User signup(String firstName, String lastName, LocalDate birthDate,
+            String userName, String password, String email) {
         userList.addUser(firstName, lastName, birthDate, userName, password, email);
         return userList.getUser(userName, password);
     }
@@ -27,7 +33,7 @@ public class UserSystem {
     }
 
     public ArrayList<Shelter> getShelters() {
-        return ShelterList.getInstance().getShelters();
+        return shelterList.getShelters();
     }
 
     public ArrayList<ShelterManager> getShelterManagers(Shelter shelter) {
@@ -39,10 +45,75 @@ public class UserSystem {
     }
 
     public ArrayList<ReliefRequest> getReliefRequests() {
-        return reliefRequests;
+        return reliefRequestList.getReliefRequests();
+    }
+
+    public Hurricane getHurricane() {
+        return currentHurricane;
+    }
+
+    public Hurricane getHurricane(Location location) {
+        if (location == null) {
+            currentHurricane = null;
+            return null;
+        }
+
+        for (Hurricane hurricane : hurricaneList.getHurricanes()) {
+            Location hurricaneLocation = hurricane.getLocation();
+
+            if (hurricaneLocation != null
+                    && hurricaneLocation.getZipCode() == location.getZipCode()) {
+                currentHurricane = hurricane;
+                return currentHurricane;
+            }
+        }
+
+        currentHurricane = null;
+        return null;
+    }
+
+    public ReliefRequest createReliefRequest(ArrayList<Victim> victims, ArrayList<Hazard> hazards,
+            String photo, ArrayList<AssistanceType> assistanceTypes, Status status,
+            String description, String phoneNumber, UUID id, Location location) {
+        return new ReliefRequest(victims, hazards, photo, assistanceTypes, status,
+                description, phoneNumber, id, location);
+    }
+
+    public void submitReliefRequest(ReliefRequest request) {
+        reliefRequestList.addReliefRequest(request);
+    }
+
+    public void editReliefRequest(ReliefRequest request, String description, Status status) {
+        request.setDescription(description);
+        request.setStatus(status);
+    }
+
+    public boolean assignUserToShelter(Shelter shelter, Volunteer volunteer) {
+        if (shelter.getShelterManagers().isEmpty()) {
+            return false;
+        }
+
+        shelter.getShelterManagers().get(0).addShelterVolunteer(volunteer);
+        return true;
     }
 
     public void acceptReliefRequest(ReliefRequest request) {
         request.setStatus(Status.IN_PROGRESS);
+    }
+
+    public void acceptRequest(Volunteer volunteer, ReliefRequest request) {
+        volunteer.acceptRequest(request);
+
+        if (request != null && request.isAccepted()) {
+            request.setStatus(Status.IN_PROGRESS);
+        }
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public User getUser(String userName, String password) {
+        return userList.getUser(userName, password);
     }
 }
