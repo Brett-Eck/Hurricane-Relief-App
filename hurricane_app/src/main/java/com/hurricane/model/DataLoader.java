@@ -11,12 +11,6 @@ import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants{
 
-    public static void main(String[] args) {
-        ArrayList<User> users = getUsers();
-        for (User user : users) {
-            System.out.println(user.getFirstName());
-        }
-    }
     
      public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>();
