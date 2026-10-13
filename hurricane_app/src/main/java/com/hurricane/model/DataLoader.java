@@ -20,6 +20,7 @@ public class DataLoader extends DataConstants{
 
             for(int i = 0; i < peopleJSON.size(); ++i) {
                 JSONObject personJSON = (JSONObject)peopleJSON.get(i);
+                String type = (String)personJSON.get("type");
                 UUID id = UUID.fromString((String)personJSON.get("id"));
                 LocalDate birthDate = LocalDate.parse((String)personJSON.get("birthDate"));
                 String email = (String)personJSON.get("email");
@@ -27,7 +28,18 @@ public class DataLoader extends DataConstants{
                 String userName = (String)personJSON.get("userName");
                 String firstName = (String)personJSON.get("firstName");
                 String lastName = (String)personJSON.get("lastName");
-                users.add(new User(firstName, lastName, birthDate, email, password, userName));
+                int zipCode = ((Long)personJSON.get("zipCode")).intValue();
+                if (type.equals("User")) {
+                    users.add(new User(firstName, lastName, birthDate, email, password, userName));
+                }
+                else if (type.equals("Volunteer")) {
+
+                    users.add(new Volunteer(firstName, lastName, birthDate, email, password, userName));
+                }
+                else if (type.equals("ShelterManager")) {
+                    users.add(new ShelterManager(firstName, lastName, birthDate, email, password, userName));
+                }
+
             }
  
         } catch (Exception e) {
