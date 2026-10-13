@@ -145,4 +145,8 @@ public class UserSystem {
 
     return request;
 }
+public ReliefRequest acceptReliefRequestScenario(Volunteer volunteer, ReliefRequest request) {
+    acceptRequest(volunteer, request);
+    return request;
+}
 }
