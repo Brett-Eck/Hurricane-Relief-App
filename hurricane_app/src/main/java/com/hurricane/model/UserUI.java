@@ -15,8 +15,7 @@ public class UserUI {
         scenario1();
         scenario2();
         scenario3();
-        createReliefRequestScenario();
-        acceptReliefRequestScenario();
+
     }
 
     public void scenario1(){
@@ -61,28 +60,5 @@ public class UserUI {
         for (Shelter shelter : userSystem.getShelters()){
             System.out.println(shelter.getShelterName());
         }
-    }
-
-    public void createReliefRequestScenario(){
-        ReliefRequest request = userSystem.createReliefRequest();
-
-        userSystem.submitReliefRequest(request);
-
-        if (request != null){
-            System.out.println("Relief request created");
-            System.out.println("Relief request submitted");
-        } else {
-            System.out.println("Relief request failed");
-        }
-    }
-
-    public void acceptReliefRequestScenario(){
-        ReliefRequest request = userSystem.createReliefRequest();
-
-        Volunteer volunteer = new Volunteer();
-
-        userSystem.acceptRequest(volunteer, request);
-
-        System.out.println("Volunteer accepted relief request");
     }
 }
