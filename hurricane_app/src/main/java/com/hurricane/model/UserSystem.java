@@ -120,4 +120,29 @@ public class UserSystem {
     public User getUser(String userName, String password) {
         return userList.getUser(userName, password);
     }
+    public ReliefRequest createReliefRequestScenario() {
+    ArrayList<Victim> victims = new ArrayList<>();
+    victims.add(new Victim("John", VictimStatus.MAJOR_INJURY));
+
+    ArrayList<Hazard> hazards = new ArrayList<>();
+
+    ArrayList<AssistanceType> assistanceTypes = new ArrayList<>();
+    assistanceTypes.add(AssistanceType.MEDICAL);
+
+    ReliefRequest request = createReliefRequest(
+            victims,
+            hazards,
+            null,
+            assistanceTypes,
+            Status.AWAITING_ASSISTANCE,
+            "Victim needs medical assistance",
+            "8035551234",
+            UUID.randomUUID(),
+            new Location(29201)
+    );
+
+    submitReliefRequest(request);
+
+    return request;
+}
 }
