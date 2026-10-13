@@ -3,6 +3,7 @@ package com.hurricane.model;
 import java.time.LocalDate;
 
 public class UserUI {
+
     private UserSystem userSystem = new UserSystem();
 
     public static void main(String[] args){
@@ -14,10 +15,13 @@ public class UserUI {
         scenario1();
         scenario2();
         scenario3();
+        createReliefRequestScenario();
+        acceptReliefRequestScenario();
     }
 
     public void scenario1(){
         userSystem.login("greggoat", "passwordevilmode");
+
         if (userSystem.login("greggoat", "passwordevilmode") != null){
             System.out.println(userSystem.getUser().getFirstName() + " " + userSystem.getUser().getLastName());
             System.out.println("Login successful");
@@ -27,7 +31,15 @@ public class UserUI {
     }
 
     public void scenario2(){
-        userSystem.signup("John", "Doe", LocalDate.of(1995, 5, 15), "johndoe", "password123", "jondoe@example.com");
+        userSystem.signup(
+                "John",
+                "Doe",
+                LocalDate.of(1995, 5, 15),
+                "johndoe",
+                "password123",
+                "jondoe@example.com"
+        );
+
         if (userSystem.login("johndoe", "password123") != null){
             System.out.println(userSystem.getCurrentUser().getFirstName() + " " + userSystem.getCurrentUser().getLastName());
             System.out.println("Signup successful");
@@ -38,34 +50,39 @@ public class UserUI {
 
     public void scenario3(){
         userSystem.login("greggoat", "passwordevilmode");
+
         if (userSystem.login("greggoat", "passwordevilmode") != null){
             System.out.println(userSystem.getUser().getFirstName() + " " + userSystem.getUser().getLastName());
             System.out.println("Login successful");
         } else {
             System.out.println("Login failed: user not found or password incorrect");
         }
+
         for (Shelter shelter : userSystem.getShelters()){
             System.out.println(shelter.getShelterName());
         }
-ReliefRequest request = createReliefRequest(
-            victims,
-            hazards,
-            null,
-            assistanceTypes,
-            Status.AWAITING_ASSISTANCE,
-            "Victim needs medical assistance",
-            "8035551234",
-            UUID.randomUUID(),
-            new Location(29201)
-    );
-
-    submitReliefRequest(request);
-
-    return request;
-}
-public ReliefRequest acceptReliefRequestScenario(Volunteer volunteer, ReliefRequest request) {
-    acceptRequest(volunteer, request);
-    return request;
-}
-
     }
+
+    public void createReliefRequestScenario(){
+        ReliefRequest request = userSystem.createReliefRequest();
+
+        userSystem.submitReliefRequest(request);
+
+        if (request != null){
+            System.out.println("Relief request created");
+            System.out.println("Relief request submitted");
+        } else {
+            System.out.println("Relief request failed");
+        }
+    }
+
+    public void acceptReliefRequestScenario(){
+        ReliefRequest request = userSystem.createReliefRequest();
+
+        Volunteer volunteer = new Volunteer();
+
+        userSystem.acceptRequest(volunteer, request);
+
+        System.out.println("Volunteer accepted relief request");
+    }
+}
