@@ -129,24 +129,5 @@ public class UserSystem {
     ArrayList<AssistanceType> assistanceTypes = new ArrayList<>();
     assistanceTypes.add(AssistanceType.MEDICAL);
 
-    ReliefRequest request = createReliefRequest(
-            victims,
-            hazards,
-            null,
-            assistanceTypes,
-            Status.AWAITING_ASSISTANCE,
-            "Victim needs medical assistance",
-            "8035551234",
-            UUID.randomUUID(),
-            new Location(29201)
-    );
 
-    submitReliefRequest(request);
-
-    return request;
-}
-public ReliefRequest acceptReliefRequestScenario(Volunteer volunteer, ReliefRequest request) {
-    acceptRequest(volunteer, request);
-    return request;
-}
 }
