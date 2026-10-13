@@ -19,7 +19,7 @@ public class UserUI {
     public void scenario1(){
         userSystem.login("greggoat", "passwordevilmode");
         if (userSystem.login("greggoat", "passwordevilmode") != null){
-            System.out.println(userSystem.getUser().getFirstName() + " " + userSystem.getUser().getLastName());
+            System.out.println(userSystem.getCurrentUser().getFirstName() + " " + userSystem.getCurrentUser().getLastName());
             System.out.println("Login successful");
         } else {
             System.out.println("Login failed: user not found or password incorrect");
@@ -47,6 +47,25 @@ public class UserUI {
         for (Shelter shelter : userSystem.getShelters()){
             System.out.println(shelter.getShelterName());
         }
+ReliefRequest request = createReliefRequest(
+            victims,
+            hazards,
+            null,
+            assistanceTypes,
+            Status.AWAITING_ASSISTANCE,
+            "Victim needs medical assistance",
+            "8035551234",
+            UUID.randomUUID(),
+            new Location(29201)
+    );
+
+    submitReliefRequest(request);
+
+    return request;
+}
+public ReliefRequest acceptReliefRequestScenario(Volunteer volunteer, ReliefRequest request) {
+    acceptRequest(volunteer, request);
+    return request;
+}
 
     }
-}
