@@ -57,23 +57,8 @@ public class UserSystem {
     }
 
     public Hurricane getHurricane(Location location) {
-        if (location == null) {
-            currentHurricane = null;
-            return null;
-        }
-
-        for (Hurricane hurricane : hurricaneList.getHurricanes()) {
-            Location hurricaneLocation = hurricane.getLocation();
-
-            if (hurricaneLocation != null
-                    && hurricaneLocation.getZipCode() == location.getZipCode()) {
-                currentHurricane = hurricane;
-                return currentHurricane;
-            }
-        }
-
-        currentHurricane = null;
-        return null;
+        currentHurricane = hurricaneList.getHurricane(location);
+        return currentHurricane;
     }
 
     public ReliefRequest createReliefRequest(ArrayList<Victim> victims, ArrayList<Hazard> hazards,

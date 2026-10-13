@@ -10,12 +10,13 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants{
+
     
      public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>();
         
         try {
-            FileReader reader = new FileReader("../json/users.json");
+            FileReader reader = new FileReader("hurricane_app/json/users.json");
             JSONArray peopleJSON = (JSONArray)(new JSONParser()).parse(reader);
 
             for(int i = 0; i < peopleJSON.size(); ++i) {
@@ -129,4 +130,6 @@ public class DataLoader extends DataConstants{
 
     return hurricanes;
 }
+    
 }
+

@@ -1,5 +1,4 @@
-{
-  "users": [
+[
     {
       "type": "User",
       "id": "6f1b4e8e-c9c9-4693-a6bf-27c1f09056b6",
@@ -9,9 +8,7 @@
       "email": "emily.carter@example.com",
       "userName": "ecarter",
       "password": "hashed_password_here",
-      "location": {
-        "zipCode": 29403
-      }
+      "zipCode": 29403
     },
     {
       "type": "Volunteer",
@@ -22,9 +19,7 @@
       "email": "maria.lopez@example.com",
       "userName": "mlopez94",
       "password": "hashed_password_here",
-      "location": {
-        "zipCode": 29406
-      },
+      "zipCode": 29406,
       "tools": ["CHAINSAW", "FLASHLIGHT", "RADIO"],
       "vehicles": ["TRUCK"],
       "certifications": ["CPR", "AED"]
@@ -38,9 +33,8 @@
       "email": "derek.nguyen@example.com",
       "userName": "dnguyen",
       "password": "hashed_password_here",
-      "location": {
-        "zipCode": 29401
-      },
+      "zipCode": 29409,
+
       "shelterVolunteers": [
         "6572ac4f-0d45-4f15-8ca0-d0ae447c3720"
       ]
@@ -54,13 +48,10 @@
       "email": "james.whitfield@example.com",
       "userName": "jwhitfield",
       "password": "hashed_password_here",
-      "location": {
-        "zipCode": 29401
-      },
+      "zipCode": 29401,
       "pendingVolunteers": [],
       "activeReliefRequests": [],
       "currentShelterStatus": [],
       "currentHurricaneStatus": null
     }
   ]
-}

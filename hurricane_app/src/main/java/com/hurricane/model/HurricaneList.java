@@ -27,6 +27,23 @@ public class HurricaneList {
         }
     }
 
+    public Hurricane getHurricane(Location location) {
+    if (location == null) {
+        return null;
+    }
+
+    for (Hurricane hurricane : hurricanes) {
+        Location hurricaneLocation = hurricane.getLocation();
+
+        if (hurricaneLocation != null
+                && hurricaneLocation.getZipCode() == location.getZipCode()) {
+            return hurricane;
+        }
+    }
+
+    return null;
+}
+
     public ArrayList<Hurricane> getHurricanes() {
         return new ArrayList<>(hurricanes);
     }
