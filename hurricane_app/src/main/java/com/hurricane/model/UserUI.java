@@ -18,7 +18,7 @@ public class UserUI {
     public void scenario1(){
         userSystem.login("greggoat", "passwordevilmode");
         if (userSystem.login("greggoat", "passwordevilmode") != null){
-            System.out.println(userSystem.getUser().getFirstName() + " " + userSystem.getCurrentUser().getLastName());
+            System.out.println(userSystem.getCurrentUser().getFirstName() + " " + userSystem.getCurrentUser().getLastName());
             System.out.println("Login successful");
         } else {
             System.out.println("Login failed");
