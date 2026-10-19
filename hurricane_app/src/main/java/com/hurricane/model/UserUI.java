@@ -45,7 +45,7 @@ public class UserUI {
     public void scenario3(){
         userSystem.login("greggoat", "passwordevilmode");
         if (userSystem.login("greggoat", "passwordevilmode") != null){
-            System.out.println(userSystem.getUser().getFirstName() + " " + userSystem.getUser().getLastName());
+            System.out.println(userSystem.getCurrentUser().getFirstName() + " " + userSystem.getCurrentUser().getLastName());
             System.out.println("Login successful");
         } else {
             System.out.println("Login failed: user not found or password incorrect");
@@ -56,36 +56,36 @@ public class UserUI {
 
     }
     public void scenario4(){
-    ArrayList<Victim> victims = new ArrayList<>();
-    victims.add(new Victim("John", VictimStatus.MAJOR_INJURY));
+        ArrayList<Victim> victims = new ArrayList<>();
+        victims.add(new Victim("John", VictimStatus.MAJOR_INJURY));
 
-    ArrayList<Hazard> hazards = new ArrayList<>();
+        ArrayList<Hazard> hazards = new ArrayList<>();
 
-    ArrayList<AssistanceType> assistanceTypes = new ArrayList<>();
-    assistanceTypes.add(AssistanceType.MEDICAL);
+        ArrayList<AssistanceType> assistanceTypes = new ArrayList<>();
+        assistanceTypes.add(AssistanceType.MEDICAL);
 
-    ReliefRequest request = userSystem.createReliefRequest(
-            victims,
-            hazards,
-            "",
-            assistanceTypes,
-            Status.AWAITING_ASSISTANCE,
-            "Victim needs medical assistance",
-            "803-555-1234",
-            UUID.randomUUID(),
-            new Location(29201)
-    );
+        ReliefRequest request = userSystem.createReliefRequest(
+                victims,
+                hazards,
+                "",
+                assistanceTypes,
+                Status.AWAITING_ASSISTANCE,
+                "Victim needs medical assistance",
+                "803-555-1234",
+                UUID.randomUUID(),
+                new Location(29201)
+        );
 
-    userSystem.submitReliefRequest(request);
+        userSystem.submitReliefRequest(request);
 
-    if (userSystem.getReliefRequests().contains(request)){
-        System.out.println("Relief request submitted successfully");
-        System.out.println(request.getDescription());
-        System.out.println(request.getStatus());
-    } else {
-        System.out.println("Relief request submission failed");
+        if (userSystem.getReliefRequests().contains(request)){
+            System.out.println("Relief request submitted successfully");
+            System.out.println(request.getDescription());
+            System.out.println(request.getStatus());
+        } else {
+            System.out.println("Relief request submission failed");
+        }
     }
-}
    public void scenario5(){
     if (userSystem.getReliefRequests().isEmpty()){
         System.out.println("No relief requests available");
