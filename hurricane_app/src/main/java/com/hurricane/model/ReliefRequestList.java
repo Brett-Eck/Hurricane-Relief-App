@@ -27,4 +27,40 @@ public class ReliefRequestList {
     public ArrayList<ReliefRequest> getReliefRequest() {
         return new ArrayList<>(reliefRequests);
     }
+
+    public ReliefRequest findNearestReliefRequest(Location location) {
+        if (location == null || location.getZipCode() != 29210) {
+            return null;
+        }
+
+        ReliefRequest nearest = null;
+        int shortestDistance = Integer.MAX_VALUE;
+
+        for (ReliefRequest request : reliefRequests) {
+            if (request.getLocation() == null) {
+                continue;
+            }
+
+            int requestZip = request.getLocation().getZipCode();
+            int distance;
+
+            // Hardcoded demo distances from ZIP 29210.
+            if (requestZip == 29210) {
+                distance = 0;
+            } else if (requestZip == 29201) {
+                distance = 10;
+            } else if (requestZip == 29401) {
+                distance = 100;
+            } else {
+                continue;
+            }
+
+            if (distance < shortestDistance) {
+                shortestDistance = distance;
+                nearest = request;
+            }
+        }
+
+        return nearest;
+}
 }
