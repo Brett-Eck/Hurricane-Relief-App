@@ -18,7 +18,7 @@ public class UserList {
      * Hard coded user for testing. Replace later.
      */
     public UserList(){
-        users.add(new User("Greg", "Goat", null, "greggoat@example.com", "passwordevilmode", "greggoat"));
+        users.add(new User("Greg", "Goat", LocalDate.of(1990, 1, 1), "greggoat@example.com", "passwordevilmode", "greggoat"));
     }
 
     public static UserList getInstance(){

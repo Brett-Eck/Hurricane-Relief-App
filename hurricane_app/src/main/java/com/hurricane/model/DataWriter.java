@@ -8,6 +8,14 @@ import org.json.simple.JSONObject;
 
 
 public class DataWriter {
+    public static void main(String[] args) {
+        DataWriter dataWriter = new DataWriter();
+        dataWriter.saveUsers();
+        dataWriter.saveShelters(ShelterList.getInstance().getShelters());
+        dataWriter.saveReliefRequests(ReliefRequestList.getInstance().getReliefRequests());
+        dataWriter.saveHurricanes(HurricaneList.getInstance().getHurricanes());
+    }
+
     public boolean saveUsers() {
         UserList users = UserList.getInstance();
         ArrayList<User> userList = users.getUsers();
@@ -17,7 +25,7 @@ public class DataWriter {
             jsonUsers.add(getUserJSON(userList.get(i)));
         }
 
-        try (FileWriter file = new FileWriter("../json/users.json")) {
+        try (FileWriter file = new FileWriter("hurricane_app/json/users.json")) {
             file.write(jsonUsers.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -36,7 +44,7 @@ public class DataWriter {
             jsonShelters.add(getShelterJSON(shelterListItems.get(i)));
         }
 
-        try (FileWriter file = new FileWriter("../json/shelters.json")) {
+        try (FileWriter file = new FileWriter("hurricane_app/json/shelters.json")) {
             file.write(jsonShelters.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -55,7 +63,7 @@ public class DataWriter {
             jsonReliefRequests.add(getReliefRequestJSON(reliefRequestListItems.get(i)));
         }
 
-        try (FileWriter file = new FileWriter("../json/reliefRequests.json")) {
+        try (FileWriter file = new FileWriter("hurricane_app/json/reliefRequests.json")) {
             file.write(jsonReliefRequests.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -74,7 +82,7 @@ public class DataWriter {
             jsonHurricanes.add(getHurricaneJSON(hurricaneListItems.get(i)));
         }
 
-        try (FileWriter file = new FileWriter("../json/hurricanes.json")) {
+        try (FileWriter file = new FileWriter("hurricane_app/json/hurricanes.json")) {
             file.write(jsonHurricanes.toJSONString());
             file.flush();
         } catch (IOException e) {
