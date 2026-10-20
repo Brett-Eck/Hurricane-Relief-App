@@ -4,16 +4,18 @@ import java.util.*;
 public class ReliefRequest {
     
     private ArrayList<Victim> victims;
-    private ArrayList<HAZARD> hazards;
+    private ArrayList<Hazard> hazards;
     private String photo;
-    private ArrayList<ASSISTANCETYPE> assistanceTypes;
+    private ArrayList<AssistanceType> assistanceTypes;
     private Status status;
     private String description;
     private String phoneNumber;
     private UUID id;
     private Location location;
+    private boolean isAccepted;
 
-    public ReliefRequest(ArrayList<Victim> victims, ArrayList<HAZARD> hazards, String photo, ArrayList<ASSISTANCETYPE> assistanceTypes, Status status, String description, String phoneNumber, UUID id, Location location) {
+    public ReliefRequest(ArrayList<Victim> victims, ArrayList<Hazard> hazards, String photo, ArrayList<AssistanceType> assistanceTypes,
+         Status status, String description, String phoneNumber, UUID id, Location location) {
         this.victims = victims;
         this.hazards = hazards;
         this.photo = photo;
@@ -29,7 +31,7 @@ public class ReliefRequest {
         victims.add(victim);
     }
 
-    public void addHazard(HAZARD hazard) {
+    public void addHazard(Hazard hazard) {
         hazards.add(hazard);
     }
 
@@ -37,7 +39,7 @@ public class ReliefRequest {
         this.photo = photo;
     }
 
-    public void addAssistanceType(ASSISTANCETYPE assistanceType) {
+    public void addAssistanceType(AssistanceType assistanceType) {
         assistanceTypes.add(assistanceType);
     }
 
@@ -67,6 +69,18 @@ public class ReliefRequest {
 
     public Location getLocation() {
         return location;
+    }
+
+    public ArrayList<Victim> getVictims() {
+        return victims;
+    }
+
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
+    }
+
+    public boolean isAccepted() {
+        return isAccepted;
     }
 
 }

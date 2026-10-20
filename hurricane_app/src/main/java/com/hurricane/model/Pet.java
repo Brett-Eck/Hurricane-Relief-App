@@ -9,6 +9,6 @@ public class Pet extends Victim {
 
     public Pet(VictimStatus victimStatus, String species) {
         super(null, victimStatus);
-        // TODO: implement
+        this.species = species;
     }
 }

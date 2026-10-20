@@ -2,6 +2,7 @@ package com.hurricane.model;
 
 import java.util.ArrayList;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Manages users in the system. Singleton to make sure only one instance of user list exists.
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 */
 
 public class UserList {
+    LocalDate date = LocalDate.now();
     private static UserList userList = new UserList();
     private ArrayList<User> users = new ArrayList<>();
 
@@ -16,7 +18,7 @@ public class UserList {
      * Hard coded user for testing. Replace later.
      */
     public UserList(){
-        users.add(new User("Greg", "Goat", null, "greggoat", "passwordevilmode", "greggoat@example.com"));
+        users.add(new User("Greg", "Goat", LocalDate.of(1990, 1, 1), "greggoat@example.com", "passwordevilmode", "greggoat", new Location("123 Windmere st", "HomeTown", "SC", 12345)));
     }
 
     public static UserList getInstance(){
@@ -29,12 +31,37 @@ public class UserList {
                 return user;
             }
         }
+        System.out.println("User not found or password incorrect");
         return null;
     }
 
-    public boolean addUser(String firstName, String lastName, LocalDate birthDate, String userName, String password, String email){
-        users.add(new User(firstName, lastName, birthDate, email, password, userName));
+    public boolean addUser(String firstName, String lastName, LocalDate birthDate, String userName, String password, String email, Location location){
+        users.add(new User(firstName, lastName, birthDate, email, password, userName, location));
         return true;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public ArrayList<Volunteer> getVolunteers() {
+        ArrayList<Volunteer> volunteers = new ArrayList<>();
+        for (User user : users) {
+            if (user instanceof Volunteer) {
+                volunteers.add((Volunteer) user);
+            }
+        }
+        return volunteers;
+    }
+
+    public ArrayList<User> getShelterManagers() {
+        ArrayList<User> shelterManagers = new ArrayList<>();
+        for (User user : users) {
+            if (user instanceof ShelterManager) {
+                shelterManagers.add(user);
+            }
+        }
+        return shelterManagers;
     }
 
     /**

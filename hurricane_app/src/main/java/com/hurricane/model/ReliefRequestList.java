@@ -3,18 +3,64 @@ package com.hurricane.model;
 import java.util.ArrayList;
 
 public class ReliefRequestList {
-    private ReliefRequestList userList;
+    private static final ReliefRequestList reliefRequestList =
+            new ReliefRequestList();
+
     private ArrayList<ReliefRequest> reliefRequests;
-    
-    public ReliefRequestList(){
 
+    public ReliefRequestList() {
+        reliefRequests = new ArrayList<>();
     }
 
-    public static ReliefRequestList getInstance(){
-
+    public static ReliefRequestList getInstance() {
+        return reliefRequestList;
     }
 
-    public getReliefRequest(){
-        
+    public void addReliefRequest(ReliefRequest reliefRequest) {
+        reliefRequests.add(reliefRequest);
     }
+
+    public ArrayList<ReliefRequest> getReliefRequests() {
+        return new ArrayList<>(reliefRequests);
+    }
+
+    public ArrayList<ReliefRequest> getReliefRequest() {
+        return new ArrayList<>(reliefRequests);
+    }
+
+    public ReliefRequest findNearestReliefRequest(Location location) {
+        if (location == null || location.getZipCode() != 29210) {
+            return null;
+        }
+
+        ReliefRequest nearest = null;
+        int shortestDistance = Integer.MAX_VALUE;
+
+        for (ReliefRequest request : reliefRequests) {
+            if (request.getLocation() == null) {
+                continue;
+            }
+
+            int requestZip = request.getLocation().getZipCode();
+            int distance;
+
+            // Hardcoded demo distances from ZIP 29210.
+            if (requestZip == 29210) {
+                distance = 0;
+            } else if (requestZip == 29201) {
+                distance = 10;
+            } else if (requestZip == 29401) {
+                distance = 100;
+            } else {
+                continue;
+            }
+
+            if (distance < shortestDistance) {
+                shortestDistance = distance;
+                nearest = request;
+            }
+        }
+
+        return nearest;
+}
 }

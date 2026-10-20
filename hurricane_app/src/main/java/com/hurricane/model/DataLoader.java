@@ -3,29 +3,40 @@ package com.hurricane.model;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.UUID;
+import java.time.LocalDate;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants{
+
     
      public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>();
         
         try {
-            FileReader reader = new FileReader("../json/users.json");
+            FileReader reader = new FileReader("hurricane_app/json/users.json");
             JSONArray peopleJSON = (JSONArray)(new JSONParser()).parse(reader);
 
             for(int i = 0; i < peopleJSON.size(); ++i) {
                 JSONObject personJSON = (JSONObject)peopleJSON.get(i);
+                String type = (String)personJSON.get("type");
                 UUID id = UUID.fromString((String)personJSON.get("id"));
+                LocalDate birthDate = LocalDate.parse((String)personJSON.get("birthDate"));
+                String email = (String)personJSON.get("email");
+                String password = (String)personJSON.get("password");
                 String userName = (String)personJSON.get("userName");
                 String firstName = (String)personJSON.get("firstName");
                 String lastName = (String)personJSON.get("lastName");
-                int age = ((Long)personJSON.get("age")).intValue();
-                String phoneNumber = (String)personJSON.get("phoneNumber");
-                users.add(new User(id, userName, firstName, lastName, age, phoneNumber));
+                JSONObject locationJSON = (JSONObject)personJSON.get("location");
+                String street = (String)locationJSON.get("street");
+                String city = (String)locationJSON.get("city");
+                String state = (String)locationJSON.get("state");
+                int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
+                Location location = new Location(street, city, state, zipCode);
+                users.add(new User(firstName, lastName, birthDate, email, password, userName, location));
+
             }
  
         } catch (Exception e) {
@@ -46,11 +57,13 @@ public class DataLoader extends DataConstants{
                 JSONObject shelterJSON = (JSONObject)sheltersJSON.get(i);
                 UUID id = UUID.fromString((String)shelterJSON.get("id"));
                 String name = (String)shelterJSON.get("name");
-                String address = (String)shelterJSON.get("address");
-                String city = (String)shelterJSON.get("city");
-                String state = (String)shelterJSON.get("state");
-                String zipCode = (String)shelterJSON.get("zipCode");
-                shelters.add(new Shelter(id, name, address, city, state, zipCode));
+                JSONObject locationJSON = (JSONObject)shelterJSON.get("location");
+                String street = (String)locationJSON.get("street");
+                String city = (String)locationJSON.get("city");
+                String state = (String)locationJSON.get("state");
+                int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
+                int capacity = ((Long)shelterJSON.get("capacity")).intValue();
+                shelters.add(new Shelter(name, capacity, new Location(street, city, state, zipCode)));
             }
  
         } catch (Exception e) {
@@ -69,12 +82,21 @@ public class DataLoader extends DataConstants{
             for(int i = 0; i < requestsJSON.size(); ++i) {
                 JSONObject requestJSON = (JSONObject)requestsJSON.get(i);
                 UUID id = UUID.fromString((String)requestJSON.get("id"));
-                String userName = (String)requestJSON.get("userName");
-                String firstName = (String)requestJSON.get("firstName");
-                String lastName = (String)requestJSON.get("lastName");
-                int age = ((Long)requestJSON.get("age")).intValue();
+                ArrayList<Victim> victims = ((JSONArray)requestJSON.get("victims"));
+                ArrayList<Hazard> hazards = ((JSONArray)requestJSON.get("hazards"));
+                String photo = (String)requestJSON.get("photo") != null ? (String)requestJSON.get("photo") : null;
+                ArrayList<AssistanceType> assistanceTypes = ((JSONArray)requestJSON.get("assistanceTypes"));
+                Status status = (Status)requestJSON.get("status");
+                String description = (String)requestJSON.get("description");
                 String phoneNumber = (String)requestJSON.get("phoneNumber");
-                reliefRequests.add(new ReliefRequest(id, userName, firstName, lastName, age, phoneNumber));
+                JSONObject locationJSON = (JSONObject)requestJSON.get("location");
+                String street = (String)locationJSON.get("street");
+                String city = (String)locationJSON.get("city");
+                String state = (String)locationJSON.get("state");
+                int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
+                
+
+                reliefRequests.add(new ReliefRequest(victims, hazards, photo, assistanceTypes, status, description, phoneNumber, id, new Location(street, city, state, zipCode)));
             }
  
         } catch (Exception e) {
@@ -82,4 +104,39 @@ public class DataLoader extends DataConstants{
         }
         return reliefRequests;
     }
+
+    public ArrayList<Hurricane> getHurricanes() {
+    ArrayList<Hurricane> hurricanes = new ArrayList<>();
+
+    try {
+        FileReader reader = new FileReader("../json/hurricanes.json");
+
+        JSONObject root = (JSONObject)(new JSONParser()).parse(reader);
+        JSONArray hurricanesJSON = (JSONArray)root.get("hurricanes");
+
+        for(int i = 0; i < hurricanesJSON.size(); ++i) {
+            JSONObject hurricaneJSON = (JSONObject)hurricanesJSON.get(i);
+            String hurricaneName = (String)hurricaneJSON.get("hurricaneName");
+            JSONObject locationJSON = (JSONObject)hurricaneJSON.get("location");
+            String street = (String)locationJSON.get("street");
+            String city = (String)locationJSON.get("city");
+            String state = (String)locationJSON.get("state");
+            int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
+            Location location = new Location(street, city, state, zipCode);
+            int category = ((Long)hurricaneJSON.get("category")).intValue();
+            double windSpeed = ((Number)hurricaneJSON.get("windSpeed")).doubleValue();
+            double diameter = ((Number)hurricaneJSON.get("diameter")).doubleValue();
+            UUID id = UUID.fromString((String)hurricaneJSON.get("id"));
+
+            hurricanes.add(new Hurricane(hurricaneName, location, category, windSpeed, diameter));
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return hurricanes;
 }
+    
+}
+

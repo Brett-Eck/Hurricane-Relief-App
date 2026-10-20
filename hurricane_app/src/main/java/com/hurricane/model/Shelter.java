@@ -1,0 +1,71 @@
+package com.hurricane.model;
+
+import java.util.ArrayList;
+import java.util.UUID;
+
+public class Shelter {
+    private String shelterName;
+    private ArrayList<Filter> filters;
+    private ArrayList<ShelterManager> shelterManagers;
+    private int capacity;
+    private Location location;
+    private Availability availability;
+    private UUID id;
+
+    public Shelter(String shelterName, int capacity, Location location) {
+        this.shelterName = shelterName;
+        this.capacity = capacity;
+        this.location = location;
+        this.filters = new ArrayList<>();
+        this.shelterManagers = new ArrayList<>();
+        this.id = UUID.randomUUID();
+    }
+
+    public String getShelterName() {
+        return shelterName;
+    }
+
+    public void setShelterName(String shelterName) {
+        this.shelterName = shelterName;
+    }
+
+    public ArrayList<Filter> getFilters() {
+        return filters;
+    }
+
+    public void addFilter(Filter filter) {
+        this.filters.add(filter);
+    }
+
+    public ArrayList<ShelterManager> getShelterManagers() {
+        return shelterManagers;
+    }
+
+    public void addShelterManager(ShelterManager shelterManager) {
+        this.shelterManagers.add(shelterManager);
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCurrentCapacity(int currentCapacity) {
+        this.capacity = currentCapacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public Availability getAvailability() {
+        return availability;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+}

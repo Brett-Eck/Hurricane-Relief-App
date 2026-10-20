@@ -1,9 +1,5 @@
 package com.hurricane.model;
-/**
- * @author Nyesh1
- * Victim class representing a victim in the hurricane relief application
- * Victim
- */
+
 
 public class Victim {
     private String firstName;
@@ -14,34 +10,35 @@ public class Victim {
     private VictimStatus victimStatus;
 
     public Victim(String firstName, VictimStatus victimStatus) {
-        // TODO: implement
+        this.firstName = firstName;
+        this.victimStatus = victimStatus;
     }
 
     public String getFirstName() {
-        return null;
+        return firstName;
     }
 
     public String getLastName() {
-        return null;
+        return lastName;
     }
 
     public String getDescription() {
-        return null;
+        return description;
     }
 
     public String getGender() {
-        return null;
+        return gender;
     }
 
     public int getAge() {
-        return 0;
+        return age;
     }
 
     public VictimStatus getVictimStatus() {
-        return null;
+        return victimStatus;
     }
 
     public void setVictimStatus(VictimStatus status) {
-        // TODO: implement
+        victimStatus = status;
     }
 }

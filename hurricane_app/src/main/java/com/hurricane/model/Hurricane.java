@@ -2,9 +2,14 @@ package com.hurricane.model;
 
 import java.util.UUID;
 
+/**
+ * Represents a hurricane in the relief system.
+ * Stores the hurricane's location, category, wind speed, diameter, and unique ID.
+ */
+
 public class Hurricane {
 
-    // Basic information about the hurricane
+    private String name;
     private String hurricaneName;
     private Location location;
     private int category;
@@ -26,8 +31,24 @@ public class Hurricane {
         this.location = location;
     }
 
+    public void setHurricaneName(String hurricaneName) {
+        this.hurricaneName = hurricaneName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void setCategory(int category) {
         this.category = category;
+    }
+
+    public void setWindSpeed(double windSpeed) {
+        this.windSpeed = windSpeed;
+    }
+
+    public void setDiameter(double diameter) {
+        this.diameter = diameter;
     }
 
     public String getHurricaneName() {
