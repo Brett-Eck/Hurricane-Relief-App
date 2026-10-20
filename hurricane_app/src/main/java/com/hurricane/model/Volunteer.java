@@ -10,8 +10,8 @@ public class Volunteer extends User {
 
 
     public Volunteer(String firstName, String lastName, java.time.LocalDate birthDate,
-                     String email, String password, String username) {
-        super(firstName, lastName, birthDate, email, password, username);
+                     String email, String password, String username, Location location) {
+        super(firstName, lastName, birthDate, email, password, username, location);
         this.tools = new ArrayList<>();
         this.vehicles = new ArrayList<>();
         this.certifications = new ArrayList<>();

@@ -2,86 +2,113 @@ package com.hurricane.model;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 
 public class DataWriter {
+    public static void main(String[] args) {
+        DataWriter dataWriter = new DataWriter();
+        dataWriter.saveUsers();
+        dataWriter.saveShelters(ShelterList.getInstance().getShelters());
+        dataWriter.saveReliefRequests(ReliefRequestList.getInstance().getReliefRequests());
+        dataWriter.saveHurricanes(HurricaneList.getInstance().getHurricanes());
+    }
+
     public boolean saveUsers() {
-        UserList users = UserList.getInstance();
-        ArrayList<User> userList = users.getUsers();
-        JSONArray jsonUsers = new JSONArray();
+        try {
+            var path = Paths.get("hurricane_app/json/users.json");
+            JSONArray jsonUsers = new JSONArray();
 
-        for(int i = 0; i < userList.size(); ++i) {
-            jsonUsers.add(getUserJSON(userList.get(i)));
-        }
+            if (Files.exists(path) && Files.size(path) > 0) {
+                jsonUsers = (JSONArray) new JSONParser().parse(Files.readString(path));
+            }
 
-        try (FileWriter file = new FileWriter("../json/users.json")) {
-            file.write(jsonUsers.toJSONString());
-            file.flush();
-        } catch (IOException e) {
+            for (User user : UserList.getInstance().getUsers()) {
+                jsonUsers.add(getUserJSON(user));
+            }
+
+            try (FileWriter file = new FileWriter(path.toFile())) {
+                file.write(jsonUsers.toJSONString());
+            }
+            return true;
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
             return false;
         }
-        return true;
     }
 
     public boolean saveShelters(ArrayList<Shelter> shelters) {
-        ShelterList shelterList = ShelterList.getInstance();
-        ArrayList<Shelter> shelterListItems = shelterList.getShelters();
-        JSONArray jsonShelters = new JSONArray();
+        try {
+            var path = Paths.get("hurricane_app/json/shelters.json");
+            JSONArray jsonShelters = new JSONArray();
 
-        for(int i = 0; i < shelterListItems.size(); ++i) {
-            jsonShelters.add(getShelterJSON(shelterListItems.get(i)));
-        }
+            if (Files.exists(path) && Files.size(path) > 0) {
+                jsonShelters = (JSONArray) new JSONParser().parse(Files.readString(path));
+            }
 
-        try (FileWriter file = new FileWriter("../json/shelters.json")) {
-            file.write(jsonShelters.toJSONString());
-            file.flush();
-        } catch (IOException e) {
+            for (Shelter shelter : shelters) {
+                jsonShelters.add(getShelterJSON(shelter));
+            }
+
+            try (FileWriter file = new FileWriter(path.toFile())) {
+                file.write(jsonShelters.toJSONString());
+            }
+            return true;
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
             return false;
         }
-        return true;
     }
 
     public boolean saveReliefRequests(ArrayList<ReliefRequest> reliefRequests) {
-        ReliefRequestList reliefRequestList = ReliefRequestList.getInstance();
-        ArrayList<ReliefRequest> reliefRequestListItems = reliefRequestList.getReliefRequests();
-        JSONArray jsonReliefRequests = new JSONArray();
+        try {
+            var path = Paths.get("hurricane_app/json/reliefRequests.json");
+            JSONArray jsonReliefRequests = new JSONArray();
 
-        for(int i = 0; i < reliefRequestListItems.size(); ++i) {
-            jsonReliefRequests.add(getReliefRequestJSON(reliefRequestListItems.get(i)));
-        }
+            if (Files.exists(path) && Files.size(path) > 0) {
+                jsonReliefRequests = (JSONArray) new JSONParser().parse(Files.readString(path));
+            }
 
-        try (FileWriter file = new FileWriter("../json/reliefRequests.json")) {
-            file.write(jsonReliefRequests.toJSONString());
-            file.flush();
-        } catch (IOException e) {
+            for (ReliefRequest reliefRequest : reliefRequests) {
+                jsonReliefRequests.add(getReliefRequestJSON(reliefRequest));
+            }
+
+            try (FileWriter file = new FileWriter(path.toFile())) {
+                file.write(jsonReliefRequests.toJSONString());
+            }
+            return true;
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
             return false;
         }
-        return true;
     }
-
     public boolean saveHurricanes(ArrayList<Hurricane> hurricanes) {
-        HurricaneList hurricaneList = HurricaneList.getInstance();
-        ArrayList<Hurricane> hurricaneListItems = hurricaneList.getHurricanes();
-        JSONArray jsonHurricanes = new JSONArray();
+        try {
+            var path = Paths.get("hurricane_app/json/hurricanes.json");
+            JSONArray jsonHurricanes = new JSONArray();
 
-        for(int i = 0; i < hurricaneListItems.size(); ++i) {
-            jsonHurricanes.add(getHurricaneJSON(hurricaneListItems.get(i)));
-        }
+            if (Files.exists(path) && Files.size(path) > 0) {
+                jsonHurricanes = (JSONArray) new JSONParser().parse(Files.readString(path));
+            }
 
-        try (FileWriter file = new FileWriter("../json/hurricanes.json")) {
-            file.write(jsonHurricanes.toJSONString());
-            file.flush();
-        } catch (IOException e) {
+            for (Hurricane hurricane : hurricanes) {
+                jsonHurricanes.add(getHurricaneJSON(hurricane));
+            }
+
+            try (FileWriter file = new FileWriter(path.toFile())) {
+                file.write(jsonHurricanes.toJSONString());
+            }
+            return true;
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
             return false;
         }
-        return true;
     }
 
     public static JSONObject getShelterJSON(Shelter shelter) {

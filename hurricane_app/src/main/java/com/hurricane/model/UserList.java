@@ -18,7 +18,7 @@ public class UserList {
      * Hard coded user for testing. Replace later.
      */
     public UserList(){
-        users.add(new User("Greg", "Goat", null, "greggoat@example.com", "passwordevilmode", "greggoat"));
+        users.add(new User("Greg", "Goat", LocalDate.of(1990, 1, 1), "greggoat@example.com", "passwordevilmode", "greggoat", new Location("123 Windmere st", "HomeTown", "SC", 12345)));
     }
 
     public static UserList getInstance(){
@@ -35,8 +35,8 @@ public class UserList {
         return null;
     }
 
-    public boolean addUser(String firstName, String lastName, LocalDate birthDate, String userName, String password, String email){
-        users.add(new User(firstName, lastName, birthDate, email, password, userName));
+    public boolean addUser(String firstName, String lastName, LocalDate birthDate, String userName, String password, String email, Location location){
+        users.add(new User(firstName, lastName, birthDate, email, password, userName, location));
         return true;
     }
 
