@@ -28,6 +28,15 @@ public class ReliefRequestList {
         return new ArrayList<>(reliefRequests);
     }
 
+    public ReliefRequest getActiveReliefRequestById(String id) {
+        for (ReliefRequest reliefRequest : reliefRequests) {
+            if (reliefRequest.getId().toString().equals(id)) {
+                return reliefRequest;
+            }
+        }
+        return null;
+    }
+
     public ReliefRequest findNearestReliefRequest(Location location) {
         if (location == null || location.getZipCode() != 29210) {
             return null;
