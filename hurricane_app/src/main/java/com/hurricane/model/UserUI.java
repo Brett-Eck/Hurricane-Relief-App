@@ -39,7 +39,7 @@ public class UserUI {
     }
 
     public void scenario2(){
-        userSystem.signup("John", "Doe", LocalDate.of(1995, 5, 15), "johndoe", "password123", "jondoe@example.com");
+        userSystem.signup("John", "Doe", LocalDate.of(1995, 5, 15), "johndoe", "password123", "jondoe@example.com", new Location("789 Pine St", "Greenville", "SC", 29601));
         if (userSystem.login("johndoe", "password123") != null){
             System.out.println(userSystem.getCurrentUser().getFirstName() + " " + userSystem.getCurrentUser().getLastName());
             System.out.println("Signup successful");
@@ -79,7 +79,7 @@ public class UserUI {
                 "Victim needs medical assistance",
                 "803-555-1234",
                 UUID.randomUUID(),
-                new Location(29201)
+                new Location("123 Main St", "Lexington", "SC", 12345)
         );
 
         userSystem.submitReliefRequest(request);
@@ -104,7 +104,8 @@ public class UserUI {
                 LocalDate.of(1998, 6, 15),
                 "mikesmith@example.com",
                 "password123",
-                "mikesmith"
+                "mikesmith",
+                new Location("456 Oak Ave", "Anytown", "SC", 29401)
         );
 
         ReliefRequest request = userSystem.getReliefRequests().get(
@@ -150,7 +151,7 @@ public void scenario7() {
             Arrays.asList(AssistanceType.MEDICAL,
                     AssistanceType.TRANSPORTAION));
 
-    ReliefRequest request = userSystem.createReliefRequest(victims, hazards,null, assistanceTypes, Status.AWAITING_ASSISTANCE, "Two people need medical assistance after flooding.", "843-555-0123", UUID.randomUUID(), new Location(29401)
+    ReliefRequest request = userSystem.createReliefRequest(victims, hazards,null, assistanceTypes, Status.AWAITING_ASSISTANCE, "Two people need medical assistance after flooding.", "843-555-0123", UUID.randomUUID(), new Location("456 Oak Ave", "Anytown", "SC", 29401)
     );
 
     userSystem.submitReliefRequest(request);
@@ -182,7 +183,7 @@ public void scenario8() {
 public void scenario9() {
     System.out.println("\nNearest request using hardcoded demo distances:");
 
-    Location userLocation = new Location(29210);
+    Location userLocation = new Location("267 Main St", "Lexington", "SC", 29210);
 
     ReliefRequest nearest =
             userSystem.findNearestReliefRequest(userLocation);

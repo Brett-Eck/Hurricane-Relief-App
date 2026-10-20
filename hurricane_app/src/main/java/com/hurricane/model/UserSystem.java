@@ -27,8 +27,8 @@ public class UserSystem {
     }
 
     public User signup(String firstName, String lastName, LocalDate birthDate,
-            String userName, String password, String email) {
-        userList.addUser(firstName, lastName, birthDate, userName, password, email);
+            String userName, String password, String email, Location location) {
+        userList.addUser(firstName, lastName, birthDate, userName, password, email, location);
         return userList.getUser(userName, password);
     }
 
