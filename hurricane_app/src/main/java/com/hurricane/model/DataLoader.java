@@ -29,17 +29,13 @@ public class DataLoader extends DataConstants{
                 String userName = (String)personJSON.get("userName");
                 String firstName = (String)personJSON.get("firstName");
                 String lastName = (String)personJSON.get("lastName");
-                int zipCode = ((Long)personJSON.get("zipCode")).intValue();
-                if (type.equals("User")) {
-                    users.add(new User(firstName, lastName, birthDate, email, password, userName));
-                }
-                else if (type.equals("Volunteer")) {
-
-                    users.add(new Volunteer(firstName, lastName, birthDate, email, password, userName));
-                }
-                else if (type.equals("ShelterManager")) {
-                    users.add(new ShelterManager(firstName, lastName, birthDate, email, password, userName));
-                }
+                JSONObject locationJSON = (JSONObject)personJSON.get("location");
+                String street = (String)locationJSON.get("street");
+                String city = (String)locationJSON.get("city");
+                String state = (String)locationJSON.get("state");
+                int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
+                Location location = new Location(street, city, state, zipCode);
+                users.add(new User(firstName, lastName, birthDate, email, password, userName, location));
 
             }
  
@@ -61,9 +57,13 @@ public class DataLoader extends DataConstants{
                 JSONObject shelterJSON = (JSONObject)sheltersJSON.get(i);
                 UUID id = UUID.fromString((String)shelterJSON.get("id"));
                 String name = (String)shelterJSON.get("name");
-                int zipCode = ((Long)shelterJSON.get("zipCode")).intValue();
+                JSONObject locationJSON = (JSONObject)shelterJSON.get("location");
+                String street = (String)locationJSON.get("street");
+                String city = (String)locationJSON.get("city");
+                String state = (String)locationJSON.get("state");
+                int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
                 int capacity = ((Long)shelterJSON.get("capacity")).intValue();
-                shelters.add(new Shelter(name, capacity, new Location(zipCode)));
+                shelters.add(new Shelter(name, capacity, new Location(street, city, state, zipCode)));
             }
  
         } catch (Exception e) {
@@ -89,10 +89,14 @@ public class DataLoader extends DataConstants{
                 Status status = (Status)requestJSON.get("status");
                 String description = (String)requestJSON.get("description");
                 String phoneNumber = (String)requestJSON.get("phoneNumber");
-                int zipCode = ((Long)requestJSON.get("zipCode")).intValue();
+                JSONObject locationJSON = (JSONObject)requestJSON.get("location");
+                String street = (String)locationJSON.get("street");
+                String city = (String)locationJSON.get("city");
+                String state = (String)locationJSON.get("state");
+                int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
                 
 
-                reliefRequests.add(new ReliefRequest(victims, hazards, photo, assistanceTypes, status, description, phoneNumber, id, new Location(zipCode)));
+                reliefRequests.add(new ReliefRequest(victims, hazards, photo, assistanceTypes, status, description, phoneNumber, id, new Location(street, city, state, zipCode)));
             }
  
         } catch (Exception e) {
@@ -114,8 +118,11 @@ public class DataLoader extends DataConstants{
             JSONObject hurricaneJSON = (JSONObject)hurricanesJSON.get(i);
             String hurricaneName = (String)hurricaneJSON.get("hurricaneName");
             JSONObject locationJSON = (JSONObject)hurricaneJSON.get("location");
+            String street = (String)locationJSON.get("street");
+            String city = (String)locationJSON.get("city");
+            String state = (String)locationJSON.get("state");
             int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
-            Location location = new Location(zipCode);
+            Location location = new Location(street, city, state, zipCode);
             int category = ((Long)hurricaneJSON.get("category")).intValue();
             double windSpeed = ((Number)hurricaneJSON.get("windSpeed")).doubleValue();
             double diameter = ((Number)hurricaneJSON.get("diameter")).doubleValue();

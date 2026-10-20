@@ -20,12 +20,13 @@ public class User {
     private ArrayList<ReliefRequest> requests;
 
     public User(String firstName, String lastName, LocalDate birthDate,
-                String email, String password, String username) {
+                String email, String password, String username, Location location) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.email = email;
         this.password = password;
+        this.location = location;
         this.userName = username;
         this.id = UUID.randomUUID();
         this.requests = new ArrayList<>();

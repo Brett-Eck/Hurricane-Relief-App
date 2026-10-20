@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class ShelterManager extends User {
     private ArrayList<Volunteer> shelterVolunteers;
 
-    public ShelterManager(String firstName, String lastName, LocalDate birthDate, String email, String password, String username) {
-        super(firstName, lastName, birthDate, email, password, username);
+    public ShelterManager(String firstName, String lastName, LocalDate birthDate, String email, String password, String username, Location location) {
+        super(firstName, lastName, birthDate, email, password, username, location);
         this.shelterVolunteers = new ArrayList<>();
     }
 

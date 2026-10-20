@@ -8,7 +8,7 @@ public class ShelterList {
     private ArrayList<Shelter> shelters = new ArrayList<>();
 
     public ShelterList() {
-        shelters.add(new Shelter("Shelter A", 150, new Location(12345)));
+        shelters.add(new Shelter("Shelter A", 150, new Location("123 Main St", "Anytown", "State", 12345)));
     }
 
     public static ShelterList getInstance() {

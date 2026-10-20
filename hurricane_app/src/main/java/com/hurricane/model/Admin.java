@@ -14,8 +14,8 @@ public class Admin extends User {
     private Hurricane currentHurricaneStatus;
     private UUID id;
 
-    public Admin(String firstName, String lastName, LocalDate birthDate, String email, String password, String username) {
-        super(firstName, lastName, birthDate, email, password, username);
+    public Admin(String firstName, String lastName, LocalDate birthDate, String email, String password, String username, Location location) {
+        super(firstName, lastName, birthDate, email, password, username, location);
         this.volunteers = new ArrayList<>();
         this.activeReliefRequests = new ArrayList<>();
         this.currentShelterStatus = new ArrayList<>();
