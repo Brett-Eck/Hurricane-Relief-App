@@ -105,4 +105,20 @@ public class UserSystem {
     public User getUser(String userName, String password) {
         return userList.getUser(userName, password);
     }
+
+    // public ReliefRequest createReliefRequestScenario() {
+    //     ArrayList<Victim> victims = new ArrayList<>();
+    //     victims.add(new Victim("John", VictimStatus.MAJOR_INJURY));
+
+    //     ArrayList<Hazard> hazards = new ArrayList<>();
+
+    //     ArrayList<AssistanceType> assistanceTypes = new ArrayList<>();
+    //     assistanceTypes.add(AssistanceType.MEDICAL);
+
+
+    // }
+
+    public ReliefRequest findNearestReliefRequest(Location location) {
+    return reliefRequestList.findNearestReliefRequest(location);
+}
 }
