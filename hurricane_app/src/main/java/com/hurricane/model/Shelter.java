@@ -8,6 +8,7 @@ public class Shelter {
     private ArrayList<Filter> filters;
     private ArrayList<ShelterManager> shelterManagers;
     private int capacity;
+    private int occupancy;
     private Location location;
     private Availability availability;
     private UUID id;
@@ -15,6 +16,7 @@ public class Shelter {
     public Shelter(String shelterName, int capacity, Location location) {
         this.shelterName = shelterName;
         this.capacity = capacity;
+        this.occupancy = 0;
         this.location = location;
         this.filters = new ArrayList<>();
         this.shelterManagers = new ArrayList<>();
@@ -55,6 +57,14 @@ public class Shelter {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public void setCurrentOccupancy(int currentOccupancy) {
+        this.occupancy = currentOccupancy;
+    }
+
+    public int getOccupancy() {
+        return occupancy;
     }
 
     public Availability getAvailability() {

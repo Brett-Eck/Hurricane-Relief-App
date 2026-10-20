@@ -33,4 +33,8 @@ public class ShelterList {
     public void addShelter(Shelter shelter) {
         shelters.add(shelter);
     }
+
+    public void removeShelter(Shelter shelter) {
+        shelters.remove(shelter);
+    }
 }
