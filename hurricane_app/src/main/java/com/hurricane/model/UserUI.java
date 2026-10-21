@@ -24,7 +24,8 @@ public class UserUI {
         scenario6();
         scenario8();
         scenario9();
-
+        scenario10();
+        scenario11();
 
     }
 
@@ -198,6 +199,46 @@ public void scenario9() {
     System.out.println("Description: " + nearest.getDescription());
     System.out.println("Request ZIP: "
             + nearest.getLocation().getZipCode());
+}
+
+public void scenario10() {
+    ShelterList shelterList = ShelterList.getInstance();
+
+    Shelter shelter = new Shelter(
+            "Columbia Emergency Shelter",
+            200,
+            new Location("100 Main St", "Columbia", "SC", 29201)
+    );
+
+    shelterList.addShelter(shelter);
+
+    if (userSystem.getShelters().contains(shelter)) {
+        System.out.println("Shelter registered successfully");
+        System.out.println("Shelter: " + shelter.getShelterName());
+        System.out.println("Capacity: " + shelter.getCapacity());
+    } else {
+        System.out.println("Shelter registration failed");
+    }
+}
+
+public void scenario11() {
+    ShelterList shelterList = ShelterList.getInstance();
+
+    Location location = new Location(
+            "100 Main St", "Columbia", "SC", 29201
+    );
+
+    Shelter shelter = shelterList.getShelter(
+            "Columbia Emergency Shelter", location
+    );
+
+    if (shelter != null) {
+        System.out.println("Shelter found successfully");
+        System.out.println("Shelter: " + shelter.getShelterName());
+        System.out.println("ZIP: " + shelter.getLocation().getZipCode());
+    } else {
+        System.out.println("Shelter not found");
+    }
 }
 
 
