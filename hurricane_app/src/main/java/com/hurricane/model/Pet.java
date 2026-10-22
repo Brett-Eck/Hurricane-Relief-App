@@ -11,4 +11,8 @@ public class Pet extends Victim {
         super(null, victimStatus);
         this.species = species;
     }
+
+    public String getSpecies() {
+        return species;
+    }
 }
