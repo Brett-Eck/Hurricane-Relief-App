@@ -15,18 +15,17 @@ public class UserUI {
     }
 
     public void run(){
-        sophieScenario();
-        // scenario1();
-        // scenario2();
-        // scenario3();
-        // scenario4();
-        // scenario7();
-        // scenario5();
-        // scenario6();
-        // scenario8();
-        // scenario9();
-        // scenario10();
-        // scenario11();
+        scenario1();
+        scenario2();
+        scenario3();
+        scenario4();
+        scenario7();
+        scenario5();
+        scenario6();
+        scenario8();
+        scenario9();
+        scenario10();
+        scenario11();
 
     }
 
@@ -266,5 +265,23 @@ public void sophieScenario() {
     System.out.println(ReliefRequestList.getInstance().getReliefRequest("803-555-9876").getDescription());
 }
 
+public void scenario12() {
+    System.out.println("\nAll shelters:");
 
+    ArrayList<Shelter> shelters = userSystem.getShelters();
+
+    if (shelters.isEmpty()) {
+        System.out.println("No shelters available.");
+        return;
+    }
+
+    for (Shelter shelter : shelters) {
+        System.out.println("Shelter Name: " + shelter.getShelterName());
+        System.out.println("Capacity: " + shelter.getCapacity());
+        System.out.println("ZIP: " + shelter.getLocation().getZipCode());
+        System.out.println();
+    }
+
+
+}
 }
