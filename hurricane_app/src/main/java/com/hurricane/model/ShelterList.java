@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 public class ShelterList {
     private static final ShelterList shelterList = new ShelterList();
-
-    private ArrayList<Shelter> shelters = new ArrayList<>();
+    private final ArrayList<Shelter> shelters;
+    DataLoader dataLoader = new DataLoader();
+    DataWriter dataWriter = new DataWriter();
 
     public ShelterList() {
-        shelters.add(new Shelter("Shelter A", 150, new Location("123 Main St", "Anytown", "State", 12345)));
+        shelters = dataLoader.getShelters();
     }
 
     public static ShelterList getInstance() {
@@ -32,5 +33,9 @@ public class ShelterList {
 
     public void addShelter(Shelter shelter) {
         shelters.add(shelter);
+    }
+    public boolean saveShelters() {
+        dataWriter.saveShelters(shelters);
+        return true;
     }
 }

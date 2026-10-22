@@ -10,15 +10,17 @@ import java.time.format.DateTimeFormatter;
 */
 
 public class UserList {
+    DataLoader dataLoader = new DataLoader();
+    DataWriter dataWriter = new DataWriter();
     LocalDate date = LocalDate.now();
     private static UserList userList = new UserList();
-    private ArrayList<User> users = new ArrayList<>();
+    private final ArrayList<User> users;
 
     /**
      * Hard coded user for testing. Replace later.
      */
     public UserList(){
-        users.add(new User("Greg", "Goat", LocalDate.of(1990, 1, 1), "greggoat@example.com", "passwordevilmode", "greggoat", new Location("123 Windmere st", "HomeTown", "SC", 12345)));
+        users = dataLoader.getUsers();
     }
 
     public void addVolunteer(Volunteer volunteer) {
@@ -73,6 +75,7 @@ public class UserList {
      * @return
      */
     public boolean saveUser(){
+        dataWriter.saveUsers();
         return true;
     }
 }

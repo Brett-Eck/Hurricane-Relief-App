@@ -7,9 +7,11 @@ public class ReliefRequestList {
             new ReliefRequestList();
 
     private ArrayList<ReliefRequest> reliefRequests;
+    DataLoader dataLoader = new DataLoader();
+    DataWriter dataWriter = new DataWriter();
 
     public ReliefRequestList() {
-        reliefRequests = new ArrayList<>();
+        reliefRequests = dataLoader.getReliefRequests();
     }
 
     public static ReliefRequestList getInstance() {
@@ -67,5 +69,10 @@ public class ReliefRequestList {
         }
 
         return nearest;
-}
+    }
+
+    public boolean saveReliefRequests() {
+        dataWriter.saveReliefRequests(reliefRequests);
+        return true;
+    }
 }
