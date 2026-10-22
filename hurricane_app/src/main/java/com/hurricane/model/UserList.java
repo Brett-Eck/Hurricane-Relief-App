@@ -21,6 +21,10 @@ public class UserList {
         users.add(new User("Greg", "Goat", LocalDate.of(1990, 1, 1), "greggoat@example.com", "passwordevilmode", "greggoat", new Location("123 Windmere st", "HomeTown", "SC", 12345)));
     }
 
+    public void addVolunteer(Volunteer volunteer) {
+        users.add(volunteer);
+    }
+
     public static UserList getInstance(){
         return userList;
     }
