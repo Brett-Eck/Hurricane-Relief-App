@@ -32,6 +32,17 @@ public class UserSystem {
         return userList.getUser(userName, password);
     }
 
+    public User becomeVolunteer(String userName, String password) {
+        User user = userList.getUser(userName, password);
+        if (user != null) {
+            Volunteer volunteer = new Volunteer(user.getFirstName(), user.getLastName(), user.getBirthDate(),
+                    user.getEmail(), user.getPassword(), user.getUsername(), user.getLocation());
+            userList.addVolunteer(volunteer);
+            return volunteer;
+        }
+        return null;
+    }
+
     public ArrayList<User> getUsers() {
         return userList.getUsers();
     }

@@ -39,6 +39,10 @@ public class User {
             && this.password.equals(password);
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
     public String getFirstName() {
         return firstName;
     }
