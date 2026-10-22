@@ -82,6 +82,7 @@ public class DataLoader extends DataConstants{
             for(int i = 0; i < requestsJSON.size(); ++i) {
                 JSONObject requestJSON = (JSONObject)requestsJSON.get(i);
                 UUID id = UUID.fromString((String)requestJSON.get("id"));
+                String username = (String)requestJSON.get("userName");
                 ArrayList<Victim> victims = ((JSONArray)requestJSON.get("victims"));
                 ArrayList<Hazard> hazards = ((JSONArray)requestJSON.get("hazards"));
                 String photo = (String)requestJSON.get("photo") != null ? (String)requestJSON.get("photo") : null;
@@ -96,7 +97,7 @@ public class DataLoader extends DataConstants{
                 int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
                 
 
-                reliefRequests.add(new ReliefRequest(victims, hazards, photo, assistanceTypes, status, description, phoneNumber, id, new Location(street, city, state, zipCode)));
+                reliefRequests.add(new ReliefRequest(username, victims, hazards, photo, assistanceTypes, status, description, phoneNumber, id, new Location(street, city, state, zipCode)));
             }
  
         } catch (Exception e) {

@@ -1,8 +1,12 @@
 package com.hurricane.model;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 public class ReliefRequest {
     
+    private String userName;
     private ArrayList<Victim> victims;
     private ArrayList<Hazard> hazards;
     private String photo;
@@ -14,8 +18,9 @@ public class ReliefRequest {
     private Location location;
     private boolean isAccepted;
 
-    public ReliefRequest(ArrayList<Victim> victims, ArrayList<Hazard> hazards, String photo, ArrayList<AssistanceType> assistanceTypes,
+    public ReliefRequest(String userName, ArrayList<Victim> victims, ArrayList<Hazard> hazards, String photo, ArrayList<AssistanceType> assistanceTypes,
          Status status, String description, String phoneNumber, UUID id, Location location) {
+        this.userName = userName;
         this.victims = victims;
         this.hazards = hazards;
         this.photo = photo;
@@ -82,5 +87,45 @@ public class ReliefRequest {
     public boolean isAccepted() {
         return isAccepted;
     }
+
+    public String getUserName() {
+        return userName;
+    }
+    public ArrayList<Hazard> getHazards() {
+        return hazards;
+    }
+    public String getPhoto() {
+        return photo;
+    }
+    public ArrayList<AssistanceType> getAssistanceTypes() {
+        return assistanceTypes;
+    }
+
+
+    public boolean getAllDetails(ReliefRequest request) {
+        Path filePath = Path.of("Relief_Request_Details.txt");
+        String content = "Relief Request Details for " + request.getUserName() + ":\n" +
+                    "Description: " + request.getDescription() + "\n" +
+                    "Phone Number: " + request.getPhoneNumber() + "\n" +
+                    "Location: " + request.getLocation().getStreet() + ", " + request.getLocation().getCity() + ", " + request.getLocation().getState() + " " + request.getLocation().getZipCode();
+                    for (Victim victim : request.getVictims()) {
+                        content += "\nVictim: " + victim.getFirstName() + ", Status: " + victim.getVictimStatus() + ", Age: " + victim.getAge();
+                    }
+                    content += "\nHazards: " + request.getHazards() + "\n" +
+                    "Assistance Types: " + request.getAssistanceTypes() + "\n" +
+                    "Status: " + request.getStatus() + "\n" +
+                    "Photo: " + request.getPhoto() + "\n" +
+                    "Request ID: " + request.getId() + "\n";
+
+        try {
+            Files.writeString(filePath, content);
+            System.out.println("File written successfully!");
+            return true;
+        } catch (IOException e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        }
+        return false;
+    }
+
 
 }

@@ -61,10 +61,10 @@ public class UserSystem {
         return currentHurricane;
     }
 
-    public ReliefRequest createReliefRequest(ArrayList<Victim> victims, ArrayList<Hazard> hazards,
+    public ReliefRequest createReliefRequest(String userName, ArrayList<Victim> victims, ArrayList<Hazard> hazards,
             String photo, ArrayList<AssistanceType> assistanceTypes, Status status,
             String description, String phoneNumber, UUID id, Location location) {
-        return new ReliefRequest(victims, hazards, photo, assistanceTypes, status,
+        return new ReliefRequest(userName, victims, hazards, photo, assistanceTypes, status,
                 description, phoneNumber, id, location);
     }
 

@@ -65,7 +65,7 @@ public class UserUI {
     }
     public void scenario4(){
         ArrayList<Victim> victims = new ArrayList<>();
-        victims.add(new Victim("John", VictimStatus.MAJOR_INJURY));
+        victims.add(new Victim("John", VictimStatus.MAJOR_INJURY, 32));
 
         ArrayList<Hazard> hazards = new ArrayList<>();
 
@@ -73,6 +73,7 @@ public class UserUI {
         assistanceTypes.add(AssistanceType.MEDICAL);
 
         ReliefRequest request = userSystem.createReliefRequest(
+                "jsmith",
                 victims,
                 hazards,
                 "",
@@ -144,7 +145,7 @@ public void scenario6() {
 
 public void scenario7() {
     ArrayList<Victim> victims = new ArrayList<>(
-            Arrays.asList(new Victim("Jane Doe", VictimStatus.MINOR_INJURY)));
+            Arrays.asList(new Victim("Jane Doe", VictimStatus.MINOR_INJURY, 41)));
 
     ArrayList<Hazard> hazards = new ArrayList<>(
             Arrays.asList(Hazard.FLOODING, Hazard.DEBRIS));
@@ -153,7 +154,7 @@ public void scenario7() {
             Arrays.asList(AssistanceType.MEDICAL,
                     AssistanceType.TRANSPORTAION));
 
-    ReliefRequest request = userSystem.createReliefRequest(victims, hazards,null, assistanceTypes, Status.AWAITING_ASSISTANCE, "Two people need medical assistance after flooding.", "843-555-0123", UUID.randomUUID(), new Location("456 Oak Ave", "Anytown", "SC", 29401)
+    ReliefRequest request = userSystem.createReliefRequest("jsmith", victims, hazards,null, assistanceTypes, Status.AWAITING_ASSISTANCE, "Two people need medical assistance after flooding.", "843-555-0123", UUID.randomUUID(), new Location("456 Oak Ave", "Anytown", "SC", 29401)
     );
 
     userSystem.submitReliefRequest(request);
@@ -243,9 +244,10 @@ public void scenario11() {
 }
 
 public void sophieScenario() {
-    userSystem.signup("Father", "Smith", LocalDate.of(1980, 3, 14), "fsmith", "sophie123", "fsmith@example.com", new Location("759 King St", "Charleston", "SC", 29403));
+    userSystem.signup("John", "Smith", LocalDate.of(1980, 3, 14), "jsmith", "sophie123", "jsmith@example.com", new Location("759 King St", "Charleston", "SC", 29403));
     ReliefRequest request = userSystem.createReliefRequest(
-        null,
+        "jsmith",
+        new ArrayList<>(Arrays.asList(new Victim("John", VictimStatus.ALRIGHT, 42), new Victim("Sandra", VictimStatus.ALRIGHT,40), new Victim("Sophie", VictimStatus.MINOR_INJURY, 15), new Pet("Buddy", VictimStatus.ALRIGHT, "Dog", 5))),
         null,
         null,
         new ArrayList<>(Arrays.asList(AssistanceType.TRANSPORTAION)),
@@ -257,9 +259,10 @@ public void sophieScenario() {
     );
 
     userSystem.submitReliefRequest(request);
+    userSystem.getReliefRequests().get(0).getAllDetails(request);
     
 
-    System.out.println(userSystem.getUser("fsmith", "sophie123").getFirstName() + " " + userSystem.getUser("fsmith", "sophie123").getLastName());
+    System.out.println(userSystem.getUser("jsmith", "sophie123").getFirstName() + " " + userSystem.getUser("jsmith", "sophie123").getLastName());
     System.out.println(ReliefRequestList.getInstance().getReliefRequest("803-555-9876").getDescription());
 }
 
