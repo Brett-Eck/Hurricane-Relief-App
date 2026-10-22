@@ -15,17 +15,18 @@ public class UserUI {
     }
 
     public void run(){
-        scenario1();
-        scenario2();
-        scenario3();
-        scenario4();
-        scenario7();
-        scenario5();
-        scenario6();
-        scenario8();
-        scenario9();
-        scenario10();
-        scenario11();
+        sophieScenario();
+        // scenario1();
+        // scenario2();
+        // scenario3();
+        // scenario4();
+        // scenario7();
+        // scenario5();
+        // scenario6();
+        // scenario8();
+        // scenario9();
+        // scenario10();
+        // scenario11();
 
     }
 
@@ -239,6 +240,27 @@ public void scenario11() {
     } else {
         System.out.println("Shelter not found");
     }
+}
+
+public void sophieScenario() {
+    userSystem.signup("Father", "Smith", LocalDate.of(1980, 3, 14), "fsmith", "sophie123", "fsmith@example.com", new Location("759 King St", "Charleston", "SC", 29403));
+    ReliefRequest request = userSystem.createReliefRequest(
+        null,
+        null,
+        null,
+        new ArrayList<>(Arrays.asList(AssistanceType.TRANSPORTAION)),
+        Status.AWAITING_ASSISTANCE,
+        "Need transportation for family of 4 as well as 1 dog",
+        "803-555-9876",
+        UUID.randomUUID(),
+        new Location("759 King St", "Charleston", "SC", 29403)
+    );
+
+    userSystem.submitReliefRequest(request);
+    
+
+    System.out.println(userSystem.getUser("fsmith", "sophie123").getFirstName() + " " + userSystem.getUser("fsmith", "sophie123").getLastName());
+    System.out.println(ReliefRequestList.getInstance().getReliefRequest("803-555-9876").getDescription());
 }
 
 

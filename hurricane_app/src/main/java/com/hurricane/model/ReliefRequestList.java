@@ -24,8 +24,13 @@ public class ReliefRequestList {
         return new ArrayList<>(reliefRequests);
     }
 
-    public ArrayList<ReliefRequest> getReliefRequest() {
-        return new ArrayList<>(reliefRequests);
+    public ReliefRequest getReliefRequest(String phoneNumber) {
+        for (ReliefRequest request : reliefRequests) {
+            if (request.getPhoneNumber() != null && request.getPhoneNumber().equals(phoneNumber)) {
+                return request;
+            }
+        }
+        return null;
     }
 
     public ReliefRequest findNearestReliefRequest(Location location) {
