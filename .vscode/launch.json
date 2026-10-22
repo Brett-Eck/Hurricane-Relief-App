@@ -1,7 +1,13 @@
 {
   "version": "0.2.0",
   "configurations": [
-
+    {
+        "type": "java",
+        "name": "UserUI",
+        "request": "launch",
+        "mainClass": "com.hurricane/com.hurricane.model.UserUI",
+        "projectName": "hellofx"
+    },
     {
         "type": "java",
         "name": "UI",

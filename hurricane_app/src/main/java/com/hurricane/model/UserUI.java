@@ -26,6 +26,7 @@ public class UserUI {
         scenario9();
         scenario10();
         scenario11();
+        scenario12();
 
     }
 
@@ -241,5 +242,23 @@ public void scenario11() {
     }
 }
 
+public void scenario12() {
+    System.out.println("\nAll shelters:");
 
+    ArrayList<Shelter> shelters = userSystem.getShelters();
+
+    if (shelters.isEmpty()) {
+        System.out.println("No shelters available.");
+        return;
+    }
+
+    for (Shelter shelter : shelters) {
+        System.out.println("Shelter Name: " + shelter.getShelterName());
+        System.out.println("Capacity: " + shelter.getCapacity());
+        System.out.println("ZIP: " + shelter.getLocation().getZipCode());
+        System.out.println();
+    }
+
+
+}
 }
