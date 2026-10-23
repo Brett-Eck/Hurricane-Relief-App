@@ -12,7 +12,15 @@ import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants{
 
-    
+private static File getJsonFile(String fileName) {
+    File file = new File("json/" + fileName);
+
+    if (!file.exists()) {
+        file = new File("hurricane_app/json/" + fileName);
+    }
+
+    return file;
+}    
      
 public static ArrayList<User> getUsers() {
     ArrayList<User> users = new ArrayList<>();
@@ -83,7 +91,7 @@ public static ArrayList<User> getUsers() {
         ArrayList<Shelter> shelters = new ArrayList<>();
         
         try {
-            FileReader reader = new FileReader("json/shelters.json");
+            FileReader reader = new FileReader(getJsonFile("reliefRequests.json"));
            JSONObject root = (JSONObject) new JSONParser().parse(reader);
             JSONArray sheltersJSON = (JSONArray) root.get("shelters");  
 
@@ -110,7 +118,7 @@ public static ArrayList<User> getUsers() {
         ArrayList<ReliefRequest> reliefRequests = new ArrayList<>();
         
         try {
-            FileReader reader = new FileReader("json/reliefRequests.json");
+            FileReader reader = new FileReader(getJsonFile("reliefRequests.json"));
             JSONObject root = (JSONObject) new JSONParser().parse(reader);
             JSONArray requestsJSON = (JSONArray) root.get("reliefRequests");
 
@@ -167,8 +175,7 @@ public static ArrayList<User> getUsers() {
     ArrayList<Hurricane> hurricanes = new ArrayList<>();
 
     try {
-        FileReader reader = new FileReader("json/hurricanes.json");
-
+        FileReader reader = new FileReader(getJsonFile("hurricanes.json"));
         JSONObject root = (JSONObject)(new JSONParser()).parse(reader);
         JSONArray hurricanesJSON = (JSONArray)root.get("hurricanes");
 
