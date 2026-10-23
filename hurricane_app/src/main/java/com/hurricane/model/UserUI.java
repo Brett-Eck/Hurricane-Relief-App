@@ -15,17 +15,39 @@ public class UserUI {
     }
 
     public void run(){
-        scenario1();
-        scenario2();
-        scenario3();
-        scenario4();
-        scenario7();
-        scenario5();
-        scenario6();
-        scenario8();
-        scenario9();
-        scenario10();
-        scenario11();
+     
+public void run() {
+    // scenario1();
+    // scenario2();
+    // scenario3();
+    // scenario4();
+    // scenario7();
+    // scenario5();
+    // scenario6();
+    // scenario8();
+    // scenario9();
+    // scenario10();
+    // scenario11();
+
+    /**
+     * Tests whether volunteers, relief requests, and
+     * shelters are loading correctly from the JSON files.
+     * UNCOMMENT THE CODE below to RUN these tests.
+     */
+
+    // System.out.println("Volunteers loaded:");
+    // for (Volunteer volunteer : userSystem.getVolunteers()) {
+    //     System.out.println(volunteer.getFirstName() + " "
+    //             + volunteer.getLastName() + " - "
+    //             + volunteer.getVehicles());
+    // }
+
+    // System.out.println("Requests loaded: "
+    //         + userSystem.getReliefRequests().size());
+
+    // System.out.println("Shelters loaded: "
+    //         + userSystem.getShelters().size());
+}
 
     }
 
