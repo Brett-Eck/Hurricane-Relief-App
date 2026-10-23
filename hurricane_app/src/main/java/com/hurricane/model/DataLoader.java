@@ -22,7 +22,7 @@ private static File getJsonFile(String fileName) {
     return file;
 }    
      
-public static ArrayList<User> getUsers() {
+public ArrayList<User> getUsers() {
     ArrayList<User> users = new ArrayList<>();
 
     File file = new File("json/users.json");
@@ -91,7 +91,7 @@ public static ArrayList<User> getUsers() {
         ArrayList<Shelter> shelters = new ArrayList<>();
         
         try {
-            FileReader reader = new FileReader(getJsonFile("reliefRequests.json"));
+            FileReader reader = new FileReader(getJsonFile("shelters.json"));
            JSONObject root = (JSONObject) new JSONParser().parse(reader);
             JSONArray sheltersJSON = (JSONArray) root.get("shelters");  
 
