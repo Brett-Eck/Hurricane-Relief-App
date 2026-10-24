@@ -9,9 +9,10 @@ public class Victim {
     private int age;
     private VictimStatus victimStatus;
 
-    public Victim(String firstName, VictimStatus victimStatus) {
+    public Victim(String firstName, VictimStatus victimStatus, int age) {
         this.firstName = firstName;
         this.victimStatus = victimStatus;
+        this.age = age;
     }
 
     public String getFirstName() {

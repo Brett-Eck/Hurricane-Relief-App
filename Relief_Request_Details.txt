@@ -1,0 +1,13 @@
+Relief Request Details for jsmith:
+Description: Need transportation for family of 4 as well as 1 dog
+Phone Number: 803-555-9876
+Location: 759 King St, Charleston, SC 29403
+Victim: John, Status: ALRIGHT, Age: 42
+Victim: Sandra, Status: ALRIGHT, Age: 40
+Victim: Sophie, Status: MINOR_INJURY, Age: 15
+Victim: Buddy, Status: ALRIGHT, Age: 5
+Hazards: null
+Assistance Types: [TRANSPORTAION]
+Status: AWAITING_ASSISTANCE
+Photo: null
+Request ID: c55b64a2-26b8-4141-951b-6dabf9b3a2c4

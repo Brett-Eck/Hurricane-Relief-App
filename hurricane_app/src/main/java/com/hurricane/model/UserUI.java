@@ -14,20 +14,44 @@ public class UserUI {
         userUI.run();
     }
 
-    public void run(){
-        scenario1();
-        scenario2();
-        scenario3();
-        scenario4();
-        scenario7();
-        scenario5();
-        scenario6();
-        scenario8();
-        scenario9();
-        scenario10();
-        scenario11();
+     
+public void run() {
+    // scenario1();
+    // scenario2();
+    // scenario3();
+    // scenario4();
+    // scenario7();
+    // scenario5();
+    // scenario6();
+    // scenario8();
+    // scenario9();
+    // scenario10();
+    // scenario11();
 
-    }
+    sophieScenario();
+    rosaScenario();
+
+    /**
+     * Tests whether volunteers, relief requests, and
+     * shelters are loading correctly from the JSON files.
+     * UNCOMMENT THE CODE below to RUN these tests.
+     */
+
+    // System.out.println("Volunteers loaded:");
+    // for (Volunteer volunteer : userSystem.getVolunteers()) {
+    //     System.out.println(volunteer.getFirstName() + " "
+    //             + volunteer.getLastName() + " - "
+    //             + volunteer.getVehicles());
+    // }
+
+    // System.out.println("Requests loaded: "
+    //         + userSystem.getReliefRequests().size());
+
+    // System.out.println("Shelters loaded: "
+    //         + userSystem.getShelters().size());
+}
+
+    
 
     public void scenario1(){
         userSystem.login("greggoat", "passwordevilmode");
@@ -64,7 +88,7 @@ public class UserUI {
     }
     public void scenario4(){
         ArrayList<Victim> victims = new ArrayList<>();
-        victims.add(new Victim("John", VictimStatus.MAJOR_INJURY));
+        victims.add(new Victim("John", VictimStatus.MAJOR_INJURY, 32));
 
         ArrayList<Hazard> hazards = new ArrayList<>();
 
@@ -72,6 +96,7 @@ public class UserUI {
         assistanceTypes.add(AssistanceType.MEDICAL);
 
         ReliefRequest request = userSystem.createReliefRequest(
+                "jsmith",
                 victims,
                 hazards,
                 "",
@@ -143,7 +168,7 @@ public void scenario6() {
 
 public void scenario7() {
     ArrayList<Victim> victims = new ArrayList<>(
-            Arrays.asList(new Victim("Jane Doe", VictimStatus.MINOR_INJURY)));
+            Arrays.asList(new Victim("Jane Doe", VictimStatus.MINOR_INJURY, 41)));
 
     ArrayList<Hazard> hazards = new ArrayList<>(
             Arrays.asList(Hazard.FLOODING, Hazard.DEBRIS));
@@ -152,7 +177,7 @@ public void scenario7() {
             Arrays.asList(AssistanceType.MEDICAL,
                     AssistanceType.TRANSPORTAION));
 
-    ReliefRequest request = userSystem.createReliefRequest(victims, hazards,null, assistanceTypes, Status.AWAITING_ASSISTANCE, "Two people need medical assistance after flooding.", "843-555-0123", UUID.randomUUID(), new Location("456 Oak Ave", "Anytown", "SC", 29401)
+    ReliefRequest request = userSystem.createReliefRequest("jsmith", victims, hazards,null, assistanceTypes, Status.AWAITING_ASSISTANCE, "Two people need medical assistance after flooding.", "843-555-0123", UUID.randomUUID(), new Location("456 Oak Ave", "Anytown", "SC", 29401)
     );
 
     userSystem.submitReliefRequest(request);
@@ -241,5 +266,142 @@ public void scenario11() {
     }
 }
 
+public void sophieScenario() {
+    userSystem.signup("John", "Smith", LocalDate.of(1980, 3, 14), "jsmith", "sophie123", "jsmith@example.com", new Location("759 King St", "Charleston", "SC", 29403));
+    ReliefRequest request = userSystem.createReliefRequest(
+        "jsmith",
+        new ArrayList<>(Arrays.asList(new Victim("John", VictimStatus.ALRIGHT, 42), new Victim("Sandra", VictimStatus.ALRIGHT,40), new Victim("Sophie", VictimStatus.MINOR_INJURY, 15), new Pet("Buddy", VictimStatus.ALRIGHT, "Dog", 5))),
+        null,
+        null,
+        new ArrayList<>(Arrays.asList(AssistanceType.TRANSPORTAION)),
+        Status.AWAITING_ASSISTANCE,
+        "Need transportation for family of 4 as well as 1 dog",
+        "803-555-9876",
+        UUID.randomUUID(),
+        new Location("759 King St", "Charleston", "SC", 29403)
+    );
 
+    userSystem.submitReliefRequest(request);
+    userSystem.getReliefRequests().get(0).getAllDetails(request);
+    
+
+    System.out.println(userSystem.getUser("jsmith", "sophie123").getFirstName() + " " + userSystem.getUser("jsmith", "sophie123").getLastName());
+    System.out.println(ReliefRequestList.getInstance().getReliefRequest("803-555-9876").getDescription());
+}
+
+public void rosaScenario() {
+    Volunteer rosa = null;
+
+    for (Volunteer volunteer : userSystem.getVolunteers()) {
+        if (volunteer.getUsername().equals("rdelgado")) {
+            rosa = volunteer;
+            break;
+        }
+    }
+
+    if (rosa == null) {
+        System.out.println("Rosa not found.");
+        return;
+    }
+
+    User loggedIn = userSystem.login(rosa.getUsername(), rosa.getPassword());
+
+    if (loggedIn != rosa) {
+        System.out.println("Rosa login failed.");
+        return;
+    }
+
+    System.out.println("Welcome, " + rosa.getFirstName() + " " + rosa.getLastName());
+    System.out.println("Vehicles: " + rosa.getVehicles());
+
+    ArrayList<ReliefRequest> open = new ArrayList<>();
+    ReliefRequest best = null;
+    boolean bestNearby = false;
+
+    for (ReliefRequest request : userSystem.getReliefRequests()) {
+        if (request.isAccepted() || request.getStatus() != Status.AWAITING_ASSISTANCE) {
+            continue;
+        }
+
+        open.add(request);
+
+        if (!rosa.getVehicles().contains(Vehicle.TRUCK)
+                || request.getAssistanceTypes() == null
+                || !request.getAssistanceTypes().contains(AssistanceType.TRANSPORTAION)) {
+            continue;
+        }
+
+        boolean nearby = rosa.getLocation() != null
+                && request.getLocation() != null
+                && rosa.getLocation().getZipCode() == request.getLocation().getZipCode();
+
+        if (best == null || (nearby && !bestNearby)) {
+            best = request;
+            bestNearby = nearby;
+        }
+    }
+
+    System.out.println("Open requests: " + open.size());
+
+    if (best != null) {
+        System.out.println("1. RECOMMENDED: " + best.getDescription());
+    }
+
+    int number = best == null ? 1 : 2;
+
+    for (ReliefRequest request : open) {
+        if (request != best) {
+            System.out.println(number++ + ". " + request.getDescription());
+        }
+    }
+
+    if (best == null) {
+        System.out.println("No transportation match found.");
+        return;
+    }
+
+    System.out.println("Rosa opens the recommended request.");
+    System.out.println("Description: " + best.getDescription());
+    System.out.println("Assistance: " + best.getAssistanceTypes());
+    System.out.println("Status: " + best.getStatus());
+    System.out.println("Phone: " + best.getPhoneNumber());
+    System.out.println("Reason: Transportation matches Rosa's truck.");
+
+    if (best.getLocation() != null) {
+        System.out.println("Request ZIP: " + best.getLocation().getZipCode());
+    }
+
+    if (bestNearby) {
+        System.out.println("Rosa is in the same ZIP code.");
+    }
+
+    if (best.getVictims() != null) {
+        for (Victim victim : best.getVictims()) {
+            System.out.println(victim.getFirstName()
+                    + ", Age: " + victim.getAge()
+                    + ", Status: " + victim.getVictimStatus());
+        }
+    }
+}
+
+
+public void scenario12() {
+    System.out.println("\nAll shelters:");
+
+    ArrayList<Shelter> shelters = userSystem.getShelters();
+
+    if (shelters.isEmpty()) {
+        System.out.println("No shelters available.");
+        return;
+    }
+
+    for (Shelter shelter : shelters) {
+        System.out.println("Shelter Name: " + shelter.getShelterName());
+        System.out.println("Capacity: " + shelter.getCapacity());
+        System.out.println("ZIP: " + shelter.getLocation().getZipCode());
+        System.out.println();
+    }
+
+
+}
 }

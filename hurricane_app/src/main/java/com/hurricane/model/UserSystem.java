@@ -32,6 +32,17 @@ public class UserSystem {
         return userList.getUser(userName, password);
     }
 
+    public User becomeVolunteer(String userName, String password) {
+        User user = userList.getUser(userName, password);
+        if (user != null) {
+            Volunteer volunteer = new Volunteer(user.getFirstName(), user.getLastName(), user.getBirthDate(),
+                    user.getEmail(), user.getPassword(), user.getUsername(), user.getLocation());
+            userList.addVolunteer(volunteer);
+            return volunteer;
+        }
+        return null;
+    }
+
     public ArrayList<User> getUsers() {
         return userList.getUsers();
     }
@@ -61,10 +72,10 @@ public class UserSystem {
         return currentHurricane;
     }
 
-    public ReliefRequest createReliefRequest(ArrayList<Victim> victims, ArrayList<Hazard> hazards,
+    public ReliefRequest createReliefRequest(String userName, ArrayList<Victim> victims, ArrayList<Hazard> hazards,
             String photo, ArrayList<AssistanceType> assistanceTypes, Status status,
             String description, String phoneNumber, UUID id, Location location) {
-        return new ReliefRequest(victims, hazards, photo, assistanceTypes, status,
+        return new ReliefRequest(userName, victims, hazards, photo, assistanceTypes, status,
                 description, phoneNumber, id, location);
     }
 

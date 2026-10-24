@@ -7,9 +7,11 @@ public class ReliefRequestList {
             new ReliefRequestList();
 
     private ArrayList<ReliefRequest> reliefRequests;
+    DataLoader dataLoader = new DataLoader();
+    DataWriter dataWriter = new DataWriter();
 
     public ReliefRequestList() {
-        reliefRequests = new ArrayList<>();
+        reliefRequests = dataLoader.getReliefRequests();
     }
 
     public static ReliefRequestList getInstance() {
@@ -24,8 +26,13 @@ public class ReliefRequestList {
         return new ArrayList<>(reliefRequests);
     }
 
-    public ArrayList<ReliefRequest> getReliefRequest() {
-        return new ArrayList<>(reliefRequests);
+    public ReliefRequest getReliefRequest(String phoneNumber) {
+        for (ReliefRequest request : reliefRequests) {
+            if (request.getPhoneNumber() != null && request.getPhoneNumber().equals(phoneNumber)) {
+                return request;
+            }
+        }
+        return null;
     }
 
     public ReliefRequest getActiveReliefRequestById(String id) {
@@ -71,5 +78,10 @@ public class ReliefRequestList {
         }
 
         return nearest;
-}
+    }
+
+    public boolean saveReliefRequests() {
+        dataWriter.saveReliefRequests(reliefRequests);
+        return true;
+    }
 }
