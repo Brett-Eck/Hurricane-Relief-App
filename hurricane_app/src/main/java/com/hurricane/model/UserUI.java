@@ -9,6 +9,8 @@ import java.util.UUID;
 public class UserUI {
     private UserSystem userSystem = new UserSystem();
 
+    ArrayList<Filter> requestedFilters = new ArrayList<>();
+
     public static void main(String[] args){
         UserUI userUI = new UserUI();
         userUI.run();
@@ -28,6 +30,9 @@ public class UserUI {
         scenario11();
 
     }
+
+    ArrayList<Shelter> matches = userSystem.findShelters(requestedFilters);
+
 
     public void scenario1(){
         userSystem.login("greggoat", "passwordevilmode");
@@ -240,6 +245,25 @@ public void scenario11() {
         System.out.println("Shelter not found");
     }
 }
+
+public void rosaShelterScenario() {
+    ArrayList<Filter> requestedFilters = new ArrayList<>();
+
+    requestedFilters.add(Filter.PET_FRIENDLY);
+    requestedFilters.add(Filter.FOOD);
+
+    ArrayList<Shelter> matches = userSystem.findShelters(requestedFilters);
+
+    for (Shelter shelter : matches) {
+        System.out.println(shelter.getShelterName());
+        System.out.println(shelter.getFilters());
+    }
+
+    if (matches.isEmpty()) {
+        System.out.println("No shelters match your requests.");
+    }
+}
+
 
 
 }

@@ -8,7 +8,7 @@ public class ShelterList {
     private ArrayList<Shelter> shelters = new ArrayList<>();
 
     public ShelterList() {
-        shelters.add(new Shelter("Shelter A", 150, new Location("123 Main St", "Anytown", "State", 12345)));
+        shelters = new DataLoader().getShelters();
     }
 
     public static ShelterList getInstance() {
@@ -26,6 +26,18 @@ public class ShelterList {
         return null;
     }
 
+    public ArrayList<Shelter> findShelters(ArrayList<Filter> requestedFilters) {
+        ArrayList<Shelter> matches = new ArrayList<>();
+
+        for (Shelter shelter : shelters) {
+            if (shelter.getFilters().containsAll(requestedFilters) && shelter.getFilters().contains(Filter.OPEN_CAPACITY)) {
+                matches.add(shelter);
+            }
+        }
+
+    return matches;
+}
+
     public ArrayList<Shelter> getShelters() {
         return shelters;
     }
@@ -37,4 +49,6 @@ public class ShelterList {
     public void removeShelter(Shelter shelter) {
         shelters.remove(shelter);
     }
+
+    
 }

@@ -40,6 +40,10 @@ public class UserSystem {
         return shelterList.getShelters();
     }
 
+    public ArrayList<Shelter> findShelters(ArrayList<Filter> requestedFilters) {
+        return ShelterList.getInstance().findShelters(requestedFilters);
+    }
+
     public ArrayList<ShelterManager> getShelterManagers(Shelter shelter) {
         return shelter.getShelterManagers();
     }
