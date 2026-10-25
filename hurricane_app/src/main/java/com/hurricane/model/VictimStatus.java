@@ -6,5 +6,6 @@ public enum VictimStatus {
     MAJOR_INJURY,
     TRAPPED,
     UNRESPONSIVE,
+    ALRIGHT,
     DECEASED
 }

@@ -1,142 +1,144 @@
-[
-    {
-        "id": "7d928a42-0c88-4e0d-b1d3-12a624f7cb01",
-        "name": "Columbia Relief Shelter",
-        "capacity": 100,
-        "filters": ["PET_FRIENDLY", "FOOD", "WATER", "MEDICAL", "OPEN_CAPACITY"],
-        "shelterManagers": [],
-        "residents": [],
-        "location": {
-            "street": "",
-            "city": "Columbia",
-            "state": "SC",
-            "zipCode": 29201
+{
+    "shelters": [
+        {
+            "id": "7d928a42-0c88-4e0d-b1d3-12a624f7cb01",
+            "shelterName": "Columbia Relief Shelter",
+            "currentCapacity": 100,
+            "filters": ["PET_FRIENDLY", "FOOD", "WATER", "MEDICAL", "OPEN_CAPACITY"],
+            "shelterManagers": [],
+            "residents": [],
+            "location": {
+                "street": "120 Palmetto Grove Drive",
+                "city": "Columbia",
+                "state": "SC",
+                "zipCode": 29201
+            }
+        },
+        {
+            "id": "1b703f22-61be-42c2-9857-39037d23bb02",
+            "shelterName": "Lexington Emergency Shelter",
+            "currentCapacity": 75,
+            "filters": ["FOOD", "WATER", "MEDICAL", "OPEN_CAPACITY"],
+            "shelterManagers": [],
+            "residents": [],
+            "location": {
+                "street": "245 Oak Meadow Lane",
+                "city": "Lexington",
+                "state": "SC",
+                "zipCode": 29072
+            }
+        },
+        {
+            "id": "e65bf8a9-9b26-4cbc-b268-dc1d4e9d5f4b",
+            "shelterName": "Conway Community Shelter",
+            "currentCapacity": 50,
+            "filters": ["FOOD", "WATER", "FULL_CAPACITY"],
+            "shelterManagers": [],
+            "residents": [],
+            "location": {
+                "street": "310 Cypress Haven Road",
+                "city": "Conway",
+                "state": "SC",
+                "zipCode": 29528
+            }
+        },
+        {
+            "id": "a2f7849c-3b61-4d90-8e25-71c639bda104",
+            "shelterName": "Charleston Relief Shelter",
+            "currentCapacity": 120,
+            "filters": ["PET_FRIENDLY", "FOOD", "WATER", "MEDICAL", "OPEN_CAPACITY"],
+            "shelterManagers": [],
+            "residents": [],
+            "location": {
+                "street": "425 Magnolia Harbor Avenue",
+                "city": "Charleston",
+                "state": "SC",
+                "zipCode": 29401
+            }
+        },
+        {
+            "id": "b8c125e3-7a49-42f6-9d10-63e804acb205",
+            "shelterName": "Greenville Community Shelter",
+            "currentCapacity": 85,
+            "filters": ["FOOD", "WATER", "OPEN_CAPACITY"],
+            "shelterManagers": [],
+            "residents": [],
+            "location": {
+                "street": "530 Maple Ridge Drive",
+                "city": "Greenville",
+                "state": "SC",
+                "zipCode": 29601
+            }
+        },
+        {
+            "id": "c4d967a1-8e32-4b75-a906-25f183de6306",
+            "shelterName": "Myrtle Beach Emergency Shelter",
+            "currentCapacity": 150,
+            "filters": ["FOOD", "WATER", "MEDICAL", "FULL_CAPACITY"],
+            "shelterManagers": [],
+            "residents": [],
+            "location": {
+                "street": "640 Coastal Pines Boulevard",
+                "city": "Myrtle Beach",
+                "state": "SC",
+                "zipCode": 29577
+            }
+        },
+        {
+            "id": "d6e238b4-1c57-49a2-b830-94a765fcd407",
+            "shelterName": "Florence Relief Shelter",
+            "currentCapacity": 65,
+            "filters": ["PET_FRIENDLY", "FOOD", "WATER", "OPEN_CAPACITY"],
+            "shelterManagers": [],
+            "residents": [],
+            "location": {
+                "street": "755 Cedar Brook Road",
+                "city": "Florence",
+                "state": "SC",
+                "zipCode": 29501
+            }
+        },
+        {
+            "id": "e1a573c8-6d24-43b9-8f72-30c946abe508",
+            "shelterName": "Sumter Community Shelter",
+            "currentCapacity": 90,
+            "filters": ["FOOD", "WATER", "MEDICAL", "OPEN_CAPACITY"],
+            "shelterManagers": [],
+            "residents": [],
+            "location": {
+                "street": "860 Willow Field Lane",
+                "city": "Sumter",
+                "state": "SC",
+                "zipCode": 29150
+            }
+        },
+        {
+            "id": "f9b346d2-5a81-47c0-923e-86d152bfa609",
+            "shelterName": "Beaufort Emergency Shelter",
+            "currentCapacity": 60,
+            "filters": ["PET_FRIENDLY", "FOOD", "WATER", "FULL_CAPACITY"],
+            "shelterManagers": [],
+            "residents": [],
+            "location": {
+                "street": "975 Marsh Oak Avenue",
+                "city": "Beaufort",
+                "state": "SC",
+                "zipCode": 29902
+            }
+        },
+        {
+            "id": "03c891e7-2f65-48d1-ab94-57e620cdb710",
+            "shelterName": "Rock Hill Relief Shelter",
+            "currentCapacity": 110,
+            "filters": ["PET_FRIENDLY", "FOOD", "WATER", "MEDICAL", "OPEN_CAPACITY"],
+            "shelterManagers": [],
+            "residents": [],
+            "location": {
+                "street": "1080 Piedmont Grove Drive",
+                "city": "Rock Hill",
+                "state": "SC",
+                "zipCode": 29730
+            }
         }
-    },
-    {
-        "id": "1b703f22-61be-42c2-9857-39037d23bb02",
-        "name": "Lexington Emergency Shelter",
-        "capacity": 75,
-        "filters": ["FOOD", "WATER", "MEDICAL", "OPEN_CAPACITY"],
-        "shelterManagers": [],
-        "residents": [],
-        "location": {
-            "street": "",
-            "city": "Lexington",
-            "state": "SC",
-            "zipCode": 29072
-        }
-    },
-    {
-        "id": "e65bf8a9-9b26-4cbc-b268-dc1d4e9d5f4b",
-        "name": "Conway Community Shelter",
-        "capacity": 50,
-        "filters": ["FOOD", "WATER", "FULL_CAPACITY"],
-        "shelterManagers": [],
-        "residents": [],
-        "location": {
-            "street": "",
-            "city": "Conway",
-            "state": "SC",
-            "zipCode": 29528
-        }
-    },
-    {
-        "id": "a2f7849c-3b61-4d90-8e25-71c639bda104",
-        "name": "Charleston Relief Shelter",
-        "capacity": 120,
-        "filters": ["PET_FRIENDLY", "FOOD", "WATER", "MEDICAL", "OPEN_CAPACITY"],
-        "shelterManagers": [],
-        "residents": [],
-        "location": {
-            "street": "",
-            "city": "Charleston",
-            "state": "SC",
-            "zipCode": 29401
-        }
-    },
-    {
-        "id": "b8c125e3-7a49-42f6-9d10-63e804acb205",
-        "name": "Greenville Community Shelter",
-        "capacity": 85,
-        "filters": ["FOOD", "WATER", "OPEN_CAPACITY"],
-        "shelterManagers": [],
-        "residents": [],
-        "location": {
-            "street": "",
-            "city": "Greenville",
-            "state": "SC",
-            "zipCode": 29601
-        }
-    },
-    {
-        "id": "c4d967a1-8e32-4b75-a906-25f183de6306",
-        "name": "Myrtle Beach Emergency Shelter",
-        "capacity": 150,
-        "filters": ["FOOD", "WATER", "MEDICAL", "FULL_CAPACITY"],
-        "shelterManagers": [],
-        "residents": [],
-        "location": {
-            "street": "",
-            "city": "Myrtle Beach",
-            "state": "SC",
-            "zipCode": 29577
-        }
-    },
-    {
-        "id": "d6e238b4-1c57-49a2-b830-94a765fcd407",
-        "name": "Florence Relief Shelter",
-        "capacity": 65,
-        "filters": ["PET_FRIENDLY", "FOOD", "WATER", "OPEN_CAPACITY"],
-        "shelterManagers": [],
-        "residents": [],
-        "location": {
-            "street": "",
-            "city": "Florence",
-            "state": "SC",
-            "zipCode": 29501
-        }
-    },
-    {
-        "id": "e1a573c8-6d24-43b9-8f72-30c946abe508",
-        "name": "Sumter Community Shelter",
-        "capacity": 90,
-        "filters": ["FOOD", "WATER", "MEDICAL", "OPEN_CAPACITY"],
-        "shelterManagers": [],
-        "residents": [],
-        "location": {
-            "street": "",
-            "city": "Sumter",
-            "state": "SC",
-            "zipCode": 29150
-        }
-    },
-    {
-        "id": "f9b346d2-5a81-47c0-923e-86d152bfa609",
-        "name": "Beaufort Emergency Shelter",
-        "capacity": 60,
-        "filters": ["PET_FRIENDLY", "FOOD", "WATER", "FULL_CAPACITY"],
-        "shelterManagers": [],
-        "residents": [],
-        "location": {
-            "street": "",
-            "city": "Beaufort",
-            "state": "SC",
-            "zipCode": 29902
-        }
-    },
-    {
-        "id": "03c891e7-2f65-48d1-ab94-57e620cdb710",
-        "name": "Rock Hill Relief Shelter",
-        "capacity": 110,
-        "filters": ["PET_FRIENDLY", "FOOD", "WATER", "MEDICAL", "OPEN_CAPACITY"],
-        "shelterManagers": [],
-        "residents": [],
-        "location": {
-            "street": "",
-            "city": "Rock Hill",
-            "state": "SC",
-            "zipCode": 29730
-        }
-    }
-]
+    ]
+}

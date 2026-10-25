@@ -6,6 +6,12 @@ import java.util.UUID;
 public class HurricaneList {
     private static final HurricaneList hurricaneList = new HurricaneList();
     private ArrayList<Hurricane> hurricanes = new ArrayList<>();
+    DataLoader dataLoader = new DataLoader();
+    DataWriter dataWriter = new DataWriter();
+
+    public HurricaneList() {
+        hurricanes = dataLoader.getHurricanes();
+    }
 
     public void addHurricane(String hurricaneName, Location location, int category, double windSpeed, double diameter) {
         hurricanes.add(new Hurricane(hurricaneName, location, category, windSpeed, diameter));
@@ -50,5 +56,10 @@ public class HurricaneList {
 
     public void removeHurricane(UUID id) {
         hurricanes.removeIf(hurricane -> hurricane.getId().equals(id));
+    }
+
+    public boolean saveHurricanes() {
+        dataWriter.saveHurricanes(hurricanes);
+        return true;
     }
 }
