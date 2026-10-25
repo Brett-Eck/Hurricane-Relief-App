@@ -1,5 +1,7 @@
-
 package com.hurricane.model;
+
+import com.hurricane.location.Address;
+import com.hurricane.location.MapTools;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,6 +10,8 @@ import java.util.UUID;
 
 public class UserUI {
     private UserSystem userSystem = new UserSystem();
+
+    ArrayList<Filter> requestedFilters = new ArrayList<>();
 
     public static void main(String[] args){
         UserUI userUI = new UserUI();
@@ -52,6 +56,9 @@ public void run() {
 }
 
     
+
+    ArrayList<Shelter> matches = userSystem.findShelters(requestedFilters);
+
 
     public void scenario1(){
         userSystem.login("greggoat", "passwordevilmode");
@@ -382,6 +389,8 @@ public void rosaScenario() {
                     + ", Status: " + victim.getVictimStatus());
         }
     }
+
+    rosaShelterScenario(rosa, best);
 }
 
 
@@ -403,5 +412,106 @@ public void scenario12() {
     }
 
 
+}
+
+
+public void rosaShelterScenario(Volunteer rosa, ReliefRequest request) {
+    if (rosa == null || request == null
+            || request.getVictims() == null
+            || request.getLocation() == null) {
+        System.out.println("Volunteer or request details are missing.");
+        return;
+    }
+
+    if (request.isAccepted()
+            || request.getStatus() != Status.AWAITING_ASSISTANCE) {
+        System.out.println("This request is no longer available.");
+        return;
+    }
+
+    System.out.println("Searching "
+            + userSystem.getShelters().size() + " shelters.");
+
+    int people = 0;
+    int pets = 0;
+
+    for (Victim victim : request.getVictims()) {
+        if (victim instanceof Pet) {
+            pets++;
+        } else {
+            people++;
+        }
+    }
+
+    if (people == 0) {
+        System.out.println("No family members are listed.");
+        return;
+    }
+
+    ArrayList<Filter> filters = new ArrayList<>();
+    filters.add(Filter.MEDICAL);
+
+    if (pets > 0) {
+        filters.add(Filter.PET_FRIENDLY);
+    }
+
+    ArrayList<Shelter> suitableShelters = new ArrayList<>();
+    ArrayList<Address> addresses = new ArrayList<>();
+
+    for (Shelter shelter : userSystem.findShelters(filters)) {
+        int spaces = shelter.getCapacity() - shelter.getOccupancy();
+
+        if (spaces >= people) {
+            suitableShelters.add(shelter);
+            addresses.add(toAddress(shelter.getLocation()));
+        }
+    }
+
+    if (suitableShelters.isEmpty()) {
+        System.out.println("No shelters meet the family's needs.");
+        return;
+    }
+
+    try {
+        Address closest = MapTools.getInstance().findClosestAddress(
+                toAddress(request.getLocation()),
+                addresses.toArray(new Address[0])
+        );
+
+        int index = addresses.indexOf(closest);
+
+        if (index < 0) {
+            System.out.println("Unable to select a shelter.");
+            return;
+        }
+
+        Shelter selected = suitableShelters.get(index);
+
+        userSystem.acceptRequest(rosa, request);
+
+        System.out.println("People needing transportation: " + people);
+        System.out.println("Accompanying pets: " + pets);
+        System.out.println("Selected shelter: "
+                + selected.getShelterName());
+        System.out.println("Shelter address: " + closest);
+        System.out.println("Accepted by: "
+                + rosa.getFirstName() + " " + rosa.getLastName());
+        System.out.println("Status: " + request.getStatus());
+
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        System.out.println("Shelter search interrupted.");
+    } catch (Exception e) {
+        System.out.println("Unable to find a shelter: " + e.getMessage());
+    }
+}
+
+private Address toAddress(Location location) {
+    return new Address(
+            location.getStreet(),
+            location.getCity(),
+            location.getState(),
+            String.valueOf(location.getZipCode())
+    );
 }
 }
