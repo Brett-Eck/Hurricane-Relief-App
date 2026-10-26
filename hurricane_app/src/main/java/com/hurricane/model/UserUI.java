@@ -3,10 +3,16 @@ package com.hurricane.model;
 import com.hurricane.location.Address;
 import com.hurricane.location.MapTools;
 
+import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 /**
  * Runs the demo scenarios for the hurricane relief application.
@@ -294,9 +300,9 @@ public void sophieScenario() {
         new ArrayList<>(Arrays.asList(new Victim("John", VictimStatus.ALRIGHT, 42), new Victim("Sandra", VictimStatus.ALRIGHT,40), new Victim("Sophie", VictimStatus.MINOR_INJURY, 15), new Pet("Buddy", VictimStatus.ALRIGHT, "Dog", 5))),
         null,
         null,
-        new ArrayList<>(Arrays.asList(AssistanceType.TRANSPORTAION)),
+        new ArrayList<>(Arrays.asList(AssistanceType.TRANSPORTAION, AssistanceType.MEDICAL)),
         Status.AWAITING_ASSISTANCE,
-        "Need transportation for family of 4 as well as 1 dog",
+        "Three family members and one dog need transportation. Sophie needs medical assistance for asthma.",
         "803-555-9876",
         UUID.randomUUID(),
         new Location("759 King St", "Charleston", "SC", 29403)
@@ -348,6 +354,10 @@ public void rosaScenario() {
         }
 
         open.add(request);
+
+        if (request.getVictims() == null || request.getVictims().isEmpty()) {
+            continue;
+        }
 
         if (!rosa.getVehicles().contains(Vehicle.TRUCK)
                 || request.getAssistanceTypes() == null
@@ -481,6 +491,10 @@ public void rosaShelterScenario(Volunteer rosa, ReliefRequest request) {
     ArrayList<Shelter> suitableShelters = new ArrayList<>();
     ArrayList<Address> addresses = new ArrayList<>();
 
+    if (!prepareShelterScenario()) {
+        return;
+    }
+
     for (Shelter shelter : userSystem.findShelters(filters)) {
         int spaces = shelter.getCapacity() - shelter.getOccupancy();
 
@@ -496,10 +510,22 @@ public void rosaShelterScenario(Volunteer rosa, ReliefRequest request) {
     }
 
     try {
-        Address closest = MapTools.getInstance().findClosestAddress(
-                toAddress(request.getLocation()),
-                addresses.toArray(new Address[0])
-        );
+        // The demo can continue without routing, but makes no closest claim.
+        Address closest = addresses.get(0);
+        if (System.getenv("MAP_API_KEY") == null
+                || System.getenv("MAP_API_KEY").isBlank()) {
+            System.out.println("Routing unavailable: using the first suitable shelter for this demo, not a verified closest shelter.");
+        } else {
+            try {
+                closest = MapTools.getInstance().findClosestAddress(
+                        toAddress(request.getLocation()),
+                        addresses.toArray(new Address[0]));
+                System.out.println("Shelter selected by driving time using the existing map method.");
+            } catch (java.io.IOException | IllegalStateException e) {
+                System.out.println("Routing failed: " + e.getMessage());
+                System.out.println("Using the first suitable shelter for this demo; closest route not verified.");
+            }
+        }
 
         int index = addresses.indexOf(closest);
 
@@ -510,16 +536,34 @@ public void rosaShelterScenario(Volunteer rosa, ReliefRequest request) {
 
         Shelter selected = suitableShelters.get(index);
 
+        ShelterManager felix = new ShelterManager(
+        "Felix",
+        "Rivera",
+        LocalDate.of(1985, 6, 15),
+        "felix@example.com",
+        "felix123",
+        "felixmanager",
+        selected.getLocation()
+        );
+
+     userSystem.getUsers().add(felix);
+
+     selected.addShelterManager(felix);
+
         userSystem.acceptRequest(rosa, request);
 
         System.out.println("People needing transportation: " + people);
         System.out.println("Accompanying pets: " + pets);
-        System.out.println("Selected shelter: "
-                + selected.getShelterName());
+        System.out.println("Selected shelter: " + selected.getShelterName());
         System.out.println("Shelter address: " + closest);
-        System.out.println("Accepted by: "
-                + rosa.getFirstName() + " " + rosa.getLastName());
+        System.out.println("Accepted by: " + rosa.getFirstName() + " " + rosa.getLastName());
         System.out.println("Status: " + request.getStatus());
+
+        System.out.println("Rosa attempts to complete the request:");
+        completeScenarioRequest(selected, request);
+        System.out.println("Status after Rosa's attempt: " + request.getStatus());
+
+        felixShelterScenario(felix, selected, request);
 
     } catch (InterruptedException e) {
         Thread.currentThread().interrupt();
@@ -527,6 +571,73 @@ public void rosaShelterScenario(Volunteer rosa, ReliefRequest request) {
     } catch (Exception e) {
         System.out.println("Unable to find a shelter: " + e.getMessage());
     }
+    
+}
+
+/** Supplies scenario details that the unchanged DataLoader does not read. */
+private boolean prepareShelterScenario() {
+    Path path = Path.of("json/shelters.json");
+    if (!Files.exists(path)) {
+        path = Path.of("hurricane_app/json/shelters.json");
+    }
+
+    try (FileReader reader = new FileReader(path.toFile())) {
+        JSONObject root = (JSONObject) new JSONParser().parse(reader);
+        JSONArray entries = (JSONArray) root.get("shelters");
+
+        for (Object entry : entries) {
+            JSONObject json = (JSONObject) entry;
+            JSONObject location = (JSONObject) json.get("location");
+            Shelter shelter = ShelterList.getInstance().getShelter(
+                    (String) json.get("shelterName"),
+                    new Location("", "", "",
+                            ((Number) location.get("zipCode")).intValue()));
+
+            if (shelter == null || !shelter.getFilters().isEmpty()) {
+                continue;
+            }
+
+            JSONArray filters = (JSONArray) json.get("filters");
+            boolean full = false;
+            if (filters != null) {
+                for (Object value : filters) {
+                    if ("FULL_CAPACITY".equals(value)) {
+                        full = true;
+                    } else {
+                        shelter.addFilter(Filter.valueOf((String) value));
+                    }
+                }
+            }
+
+            Number occupancy = (Number) json.get("occupancy");
+            if (occupancy != null) {
+                shelter.setCurrentOccupancy(occupancy.intValue());
+            } else if (full) {
+                shelter.setCurrentOccupancy(shelter.getCapacity());
+            }
+        }
+        return true;
+    } catch (Exception e) {
+        System.out.println("Unable to prepare shelter details: " + e.getMessage());
+        return false;
+    }
+}
+
+/** Role check shared by Rosa's attempt and Felix's completion in this demo. */
+private boolean completeScenarioRequest(Shelter shelter, ReliefRequest request) {
+    User current = userSystem.getCurrentUser();
+    if (!(current instanceof ShelterManager)
+            || !shelter.getShelterManagers().contains(current)) {
+        System.out.println("Your role does not have permission to complete this relief request.");
+        return false;
+    }
+    if (request.getStatus() != Status.IN_PROGRESS) {
+        System.out.println("Only an assigned request can be completed.");
+        return false;
+    }
+    request.setStatus(Status.COMPLETED);
+    System.out.println("Relief request status: Complete");
+    return true;
 }
 
 /**
@@ -543,4 +654,83 @@ private Address toAddress(Location location) {
             String.valueOf(location.getZipCode())
     );
 }
+
+public void felixShelterScenario(ShelterManager felix, Shelter shelter, ReliefRequest request) {
+
+    if (felix == null || shelter == null || request == null || request.getVictims() == null) {
+        System.out.println("Manager, shelter, or family information is missing.");
+        return;
+    }
+
+    User loggedIn = userSystem.login(
+            felix.getUsername(), felix.getPassword());
+
+    if (!(loggedIn instanceof ShelterManager) || !loggedIn.getUsername().equals(felix.getUsername())) {
+        System.out.println("A shelter manager must log in to continue.");
+        return;
+    }
+
+    if (!shelter.getShelterManagers().contains(loggedIn)) {
+        System.out.println("This manager is not assigned to this shelter.");
+        return;
+    }
+
+    System.out.println("\nWelcome, " + loggedIn.getFirstName());
+
+    Location location = shelter.getLocation();
+
+    System.out.println("Shelter: " + shelter.getShelterName());
+    System.out.println("Location: " + location.getStreet() + ", " + location.getCity() + ", " + location.getState() + " " + location.getZipCode());
+    System.out.println("Total capacity: " + shelter.getCapacity());
+    System.out.println("Current occupancy: " + shelter.getOccupancy());
+    System.out.println("Available spaces: " + (shelter.getCapacity() - shelter.getOccupancy()));
+
+    if (request.getStatus() != Status.IN_PROGRESS) {
+        System.out.println("The request must be assigned before check-in.");
+        return;
+    }
+
+    int people = 0;
+    int pets = 0;
+
+    for (Victim victim : request.getVictims()) {
+        if (victim instanceof Pet) {
+            pets++;
+        } else {
+            people++;
+        }
+    }
+
+    int available = shelter.getCapacity() - shelter.getOccupancy();
+
+    if (people == 0 || people > available) {
+        System.out.println("No family members listed or insufficient space.");
+        return;
+    }
+
+    if (pets > 0 && !shelter.getFilters().contains(Filter.PET_FRIENDLY)) {
+        System.out.println("This shelter does not accept accompanying pets.");
+        return;
+    }
+
+    shelter.setCurrentOccupancy(shelter.getOccupancy() + people);
+
+    System.out.println("\nFamily checked in:");
+
+    for (Victim victim : request.getVictims()) {
+        if (victim instanceof Pet) {
+            Pet pet = (Pet) victim;
+            System.out.println("Accompanying pet: " + pet.getFirstName() + " (" + pet.getSpecies() + ")");
+        } else {
+            System.out.println(victim.getFirstName() + ", age " + victim.getAge());
+        }
+    }
+
+    System.out.println("Updated human occupancy: " + shelter.getOccupancy());
+    System.out.println("Available spaces: "
+            + (shelter.getCapacity() - shelter.getOccupancy()));
+
+    completeScenarioRequest(shelter, request);
+}
+
 }
