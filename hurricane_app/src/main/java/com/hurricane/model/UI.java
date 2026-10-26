@@ -3,8 +3,16 @@ package com.hurricane.model;
 import com.hurricane.location.Address;
 import com.hurricane.location.MapTools;
 
+/**
+ * Tests finding the closest shelter and getting driving directions
+ * using the mapping tools.
+ */
 public class UI {
 
+    /**
+     * Finds the closest shelter to a sample address
+     * and displays the driving directions.
+     */
     public void run() {
         // A Charleston address near the waterfront
         Address userAddress = new Address(
@@ -70,6 +78,11 @@ public class UI {
         }
     }
 
+    /**
+     * Runs the shelter search example.
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         new UI().run();
     }
