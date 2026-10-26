@@ -8,17 +8,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
 
+/**
+ * Runs the demo scenarios for the hurricane relief application.
+ */
 public class UserUI {
     private UserSystem userSystem = new UserSystem();
 
     ArrayList<Filter> requestedFilters = new ArrayList<>();
 
+    /**
+     * Starts the application scenarios.
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args){
         UserUI userUI = new UserUI();
         userUI.run();
     }
 
      
+/**
+ * Runs the Sophie and Rosa scenarios.
+ */
 public void run() {
     // scenario1();
     // scenario2();
@@ -273,6 +284,9 @@ public void scenario11() {
     }
 }
 
+/**
+ * Creates a relief request for Sophie and her family.
+ */
 public void sophieScenario() {
     userSystem.signup("John", "Smith", LocalDate.of(1980, 3, 14), "jsmith", "sophie123", "jsmith@example.com", new Location("759 King St", "Charleston", "SC", 29403));
     ReliefRequest request = userSystem.createReliefRequest(
@@ -296,6 +310,9 @@ public void sophieScenario() {
     System.out.println(ReliefRequestList.getInstance().getReliefRequest("803-555-9876").getDescription());
 }
 
+/**
+ * Logs Rosa in and finds a transportation request for her.
+ */
 public void rosaScenario() {
     Volunteer rosa = null;
 
@@ -415,6 +432,12 @@ public void scenario12() {
 }
 
 
+/**
+ * Finds a suitable shelter for Rosa's assigned relief request.
+ *
+ * @param rosa the volunteer helping with the request
+ * @param request the request being handled
+ */
 public void rosaShelterScenario(Volunteer rosa, ReliefRequest request) {
     if (rosa == null || request == null
             || request.getVictims() == null
@@ -506,6 +529,12 @@ public void rosaShelterScenario(Volunteer rosa, ReliefRequest request) {
     }
 }
 
+/**
+ * Converts a location into an address for the mapping tools.
+ *
+ * @param location the location to convert
+ * @return the address used by the mapping tools
+ */
 private Address toAddress(Location location) {
     return new Address(
             location.getStreet(),
