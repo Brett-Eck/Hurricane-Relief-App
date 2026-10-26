@@ -10,8 +10,18 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * Loads users, shelters, relief requests, and hurricanes
+ * from the application's JSON files.
+ */
 public class DataLoader extends DataConstants{
 
+/**
+ * Finds a JSON file in the project directory.
+ *
+ * @param fileName the name of the JSON file
+ * @return the file location
+ */
 private static File getJsonFile(String fileName) {
     File file = new File("json/" + fileName);
 
@@ -22,6 +32,12 @@ private static File getJsonFile(String fileName) {
     return file;
 }    
      
+/**
+ * Loads user accounts from the users JSON file.
+ * Creates regular users or volunteers based on their type.
+ *
+ * @return the list of loaded users
+ */
 public ArrayList<User> getUsers() {
     ArrayList<User> users = new ArrayList<>();
 
@@ -87,6 +103,11 @@ public ArrayList<User> getUsers() {
 }
 
 
+    /**
+     * Loads shelter information from the shelters JSON file.
+     *
+     * @return the list of loaded shelters
+     */
     public ArrayList<Shelter> getShelters() {
         ArrayList<Shelter> shelters = new ArrayList<>();
         
@@ -114,6 +135,12 @@ public ArrayList<User> getUsers() {
         return shelters;
     }
 
+    /**
+     * Loads relief requests from the relief requests JSON file.
+     * Includes request details such as hazards and assistance types.
+     *
+     * @return the list of loaded relief requests
+     */
     public ArrayList<ReliefRequest> getReliefRequests() {
         ArrayList<ReliefRequest> reliefRequests = new ArrayList<>();
         
@@ -171,6 +198,11 @@ public ArrayList<User> getUsers() {
         return reliefRequests;
     }
 
+    /**
+     * Loads hurricane information from the hurricanes JSON file.
+     *
+     * @return the list of loaded hurricanes
+     */
     public ArrayList<Hurricane> getHurricanes() {
     ArrayList<Hurricane> hurricanes = new ArrayList<>();
 
