@@ -9,7 +9,6 @@ import java.util.UUID;
 
 public class Hurricane {
 
-    private String name;
     private String hurricaneName;
     private Location location;
     private int category;
@@ -36,7 +35,7 @@ public class Hurricane {
     }
 
     public String getName() {
-        return name;
+        return hurricaneName;
     }
 
     public void setCategory(int category) {
