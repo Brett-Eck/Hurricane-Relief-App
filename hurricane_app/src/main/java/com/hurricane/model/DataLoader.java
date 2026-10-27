@@ -1,10 +1,14 @@
 package com.hurricane.model;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.time.LocalDate;
+import java.net.URI;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -196,6 +200,36 @@ public ArrayList<User> getUsers() {
             e.printStackTrace();
         }
         return reliefRequests;
+    }
+
+    private static String getFileWritingPath(String PATH_NAME, String JUNIT_PATH_NAME) {
+        try {
+            if(isJUnitTest()) {
+                URI url = DataWriter.class.getResource(JUNIT_PATH_NAME).toURI();
+                return url.getPath();
+            } else {
+                return PATH_NAME;
+            }
+        } catch(Exception e){
+            System.out.println("Difficulty getting resource path");
+            return "";
+        }
+    }
+
+    private static BufferedReader getReaderFromFile(String fileName, String jsonFileName) {
+        try {
+            if(isJUnitTest()) {
+                InputStream inputStream = DataLoader.class.getResourceAsStream(jsonFileName);
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                return new BufferedReader(inputStreamReader);
+            } else {
+                FileReader reader = new FileReader(fileName);
+                return new BufferedReader(reader);
+            }
+        } catch(Exception e){
+            System.out.println("Difficulty reading");
+            return null; //FIX THIS WHEN YOU CAN
+        }
     }
 
     /**
