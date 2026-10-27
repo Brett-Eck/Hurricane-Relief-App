@@ -1,0 +1,24 @@
+{
+  "hurricanes": [
+    {
+      "id": "f4cefd2a-a9f9-4ac5-a0a1-b7d957f42603",
+      "hurricaneName": "Hurricane Avery",
+      "location": {
+        "zipCode": 29401
+      },
+      "category": 2,
+      "windSpeed": 105.0,
+      "diameter": 350.0
+    },
+    {
+      "id": "8aa1ef5a-12e5-4cf4-a522-0b6967696769",
+      "hurricaneName": "Hurricane Briar",
+      "location": {
+        "zipCode": 29072
+      },
+      "category": 1,
+      "windSpeed": 85.0,
+      "diameter": 220.0
+    }
+  ]
+}
