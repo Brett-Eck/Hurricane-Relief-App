@@ -53,5 +53,21 @@
       "activeReliefRequests": [],
       "currentShelterStatus": [],
       "currentHurricaneStatus": null
-    }
+    },
+    
+{
+  "type": "Volunteer",
+  "id": "41ef77ed-905c-43f7-bbd2-6b58c14617cd",
+  "firstName": "Rosa",
+  "lastName": "Delgado",
+  "birthDate": "1992-06-15",
+  "email": "rosa.delgado@example.com",
+  "userName": "rdelgado",
+  "password": "hashed_password_here",
+  "zipCode": 29401,
+  "tools": [],
+  "vehicles": ["TRUCK"],
+  "certifications": []
+}
+
   ]

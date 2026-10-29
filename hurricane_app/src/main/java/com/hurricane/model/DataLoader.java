@@ -1,68 +1,135 @@
 package com.hurricane.model;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.time.LocalDate;
+import java.net.URI;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * Loads users, shelters, relief requests, and hurricanes
+ * from the application's JSON files.
+ */
 public class DataLoader extends DataConstants{
 
-    
-     public static ArrayList<User> getUsers() {
-        ArrayList<User> users = new ArrayList<>();
-        
-        try {
-            FileReader reader = new FileReader("hurricane_app/json/users.json");
-            JSONArray peopleJSON = (JSONArray)(new JSONParser()).parse(reader);
+/**
+ * Finds a JSON file in the project directory.
+ *
+ * @param fileName the name of the JSON file
+ * @return the file location
+ */
+private static File getJsonFile(String fileName) {
+    File file = new File("json/" + fileName);
 
-            for(int i = 0; i < peopleJSON.size(); ++i) {
-                JSONObject personJSON = (JSONObject)peopleJSON.get(i);
-                String type = (String)personJSON.get("type");
-                UUID id = UUID.fromString((String)personJSON.get("id"));
-                LocalDate birthDate = LocalDate.parse((String)personJSON.get("birthDate"));
-                String email = (String)personJSON.get("email");
-                String password = (String)personJSON.get("password");
-                String userName = (String)personJSON.get("userName");
-                String firstName = (String)personJSON.get("firstName");
-                String lastName = (String)personJSON.get("lastName");
-                JSONObject locationJSON = (JSONObject)personJSON.get("location");
-                String street = (String)locationJSON.get("street");
-                String city = (String)locationJSON.get("city");
-                String state = (String)locationJSON.get("state");
-                int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
-                Location location = new Location(street, city, state, zipCode);
-                users.add(new User(firstName, lastName, birthDate, email, password, userName, location));
-
-            }
- 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return users;
+    if (!file.exists()) {
+        file = new File("hurricane_app/json/" + fileName);
     }
 
+    return file;
+}    
+     
+/**
+ * Loads user accounts from the users JSON file.
+ * Creates regular users or volunteers based on their type.
+ *
+ * @return the list of loaded users
+ */
+public ArrayList<User> getUsers() {
+    ArrayList<User> users = new ArrayList<>();
 
+    File file = new File("json/users.json");
+
+    if (!file.exists()) {
+        file = new File("hurricane_app/json/users.json");
+    }
+
+    try (FileReader reader = new FileReader(file)) {
+        JSONArray peopleJSON = (JSONArray) new JSONParser().parse(reader);
+
+        for (Object entry : peopleJSON) {
+            JSONObject personJSON = (JSONObject) entry;
+
+            String type = (String) personJSON.get("type");
+            String firstName = (String) personJSON.get("firstName");
+            String lastName = (String) personJSON.get("lastName");
+            String email = (String) personJSON.get("email");
+            String password = (String) personJSON.get("password");
+            String userName = (String) personJSON.get("userName");
+            LocalDate birthDate = LocalDate.parse((String) personJSON.get("birthDate"));
+
+            JSONObject locationJSON = (JSONObject) personJSON.get("location");
+            Location location;
+
+            if (locationJSON != null) {
+                String street = (String) locationJSON.get("street");
+                String city = (String) locationJSON.get("city");
+                String state = (String) locationJSON.get("state");
+                int zipCode = ((Number) locationJSON.get("zipCode")).intValue();
+
+                location = new Location(street, city, state, zipCode);
+            } else {
+                int zipCode = ((Number) personJSON.get("zipCode")).intValue();
+                location = new Location("", "", "", zipCode);
+            }
+
+            if ("Volunteer".equals(type)) {
+                Volunteer volunteer = new Volunteer(firstName, lastName, birthDate,
+                        email, password, userName, location);
+
+                JSONArray vehiclesJSON = (JSONArray) personJSON.get("vehicles");
+
+                if (vehiclesJSON != null) {
+                    for (Object vehicle : vehiclesJSON) {
+                        volunteer.addVehicle(Vehicle.valueOf((String) vehicle));
+                    }
+                }
+
+                users.add(volunteer);
+            } else {
+                users.add(new User(firstName, lastName, birthDate,
+                        email, password, userName, location));
+            }
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return users;
+}
+
+
+    /**
+     * Loads shelter information from the shelters JSON file.
+     *
+     * @return the list of loaded shelters
+     */
     public ArrayList<Shelter> getShelters() {
         ArrayList<Shelter> shelters = new ArrayList<>();
         
         try {
-            FileReader reader = new FileReader("../json/shelters.json");
-            JSONArray sheltersJSON = (JSONArray)(new JSONParser()).parse(reader);
+            FileReader reader = new FileReader(getJsonFile("shelters.json"));
+           JSONObject root = (JSONObject) new JSONParser().parse(reader);
+            JSONArray sheltersJSON = (JSONArray) root.get("shelters");  
 
             for(int i = 0; i < sheltersJSON.size(); ++i) {
                 JSONObject shelterJSON = (JSONObject)sheltersJSON.get(i);
                 UUID id = UUID.fromString((String)shelterJSON.get("id"));
-                String name = (String)shelterJSON.get("name");
+                String name = (String)shelterJSON.get("shelterName");
                 JSONObject locationJSON = (JSONObject)shelterJSON.get("location");
-                String street = (String)locationJSON.get("street");
-                String city = (String)locationJSON.get("city");
-                String state = (String)locationJSON.get("state");
+                String street = (String)locationJSON.getOrDefault("street", "");
+                String city = (String)locationJSON.getOrDefault("city", "");
+                String state = (String)locationJSON.getOrDefault("state", "");      
                 int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
-                int capacity = ((Long)shelterJSON.get("capacity")).intValue();
+                int capacity = ((Long)shelterJSON.get("currentCapacity")).intValue();
                 shelters.add(new Shelter(name, capacity, new Location(street, city, state, zipCode)));
             }
  
@@ -72,28 +139,57 @@ public class DataLoader extends DataConstants{
         return shelters;
     }
 
+    /**
+     * Loads relief requests from the relief requests JSON file.
+     * Includes request details such as hazards and assistance types.
+     *
+     * @return the list of loaded relief requests
+     */
     public ArrayList<ReliefRequest> getReliefRequests() {
         ArrayList<ReliefRequest> reliefRequests = new ArrayList<>();
         
         try {
-            FileReader reader = new FileReader("../json/reliefRequests.json");
-            JSONArray requestsJSON = (JSONArray)(new JSONParser()).parse(reader);
+            FileReader reader = new FileReader(getJsonFile("reliefRequests.json"));
+            JSONObject root = (JSONObject) new JSONParser().parse(reader);
+            JSONArray requestsJSON = (JSONArray) root.get("reliefRequests");
 
             for(int i = 0; i < requestsJSON.size(); ++i) {
                 JSONObject requestJSON = (JSONObject)requestsJSON.get(i);
                 UUID id = UUID.fromString((String)requestJSON.get("id"));
                 String username = (String)requestJSON.get("userName");
-                ArrayList<Victim> victims = ((JSONArray)requestJSON.get("victims"));
-                ArrayList<Hazard> hazards = ((JSONArray)requestJSON.get("hazards"));
+                ArrayList<Victim> victims = new ArrayList<>();
+                ArrayList<Hazard> hazards = new ArrayList<>();
+                JSONArray hazardsJSON = (JSONArray) requestJSON.get("hazards");
+
+                if (hazardsJSON != null) {
+                    for (Object value : hazardsJSON) {
+                        hazards.add(Hazard.valueOf((String) value));
+                    }
+                }
                 String photo = (String)requestJSON.get("photo") != null ? (String)requestJSON.get("photo") : null;
-                ArrayList<AssistanceType> assistanceTypes = ((JSONArray)requestJSON.get("assistanceTypes"));
-                Status status = (Status)requestJSON.get("status");
+                
+                ArrayList<AssistanceType> assistanceTypes = new ArrayList<>();
+                JSONArray typesJSON = (JSONArray) requestJSON.get("assistanceTypeNeeded");
+
+                if (typesJSON != null) {
+                    for (Object value : typesJSON) {
+                        String type = (String) value;
+
+                        if (type.equals("TRANSPORTATION")) {
+                            type = "TRANSPORTAION";
+                        }
+
+                        assistanceTypes.add(AssistanceType.valueOf(type));
+                    }
+                }
+
+                Status status = Status.valueOf((String)requestJSON.get("status"));
                 String description = (String)requestJSON.get("description");
                 String phoneNumber = (String)requestJSON.get("phoneNumber");
                 JSONObject locationJSON = (JSONObject)requestJSON.get("location");
-                String street = (String)locationJSON.get("street");
-                String city = (String)locationJSON.get("city");
-                String state = (String)locationJSON.get("state");
+                String street = (String) locationJSON.getOrDefault("street", "");
+                String city = (String) locationJSON.getOrDefault("city", "");
+                String state = (String) locationJSON.getOrDefault("state", "");
                 int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
                 
 
@@ -106,12 +202,46 @@ public class DataLoader extends DataConstants{
         return reliefRequests;
     }
 
+    private static String getFileWritingPath(String PATH_NAME, String JUNIT_PATH_NAME) {
+        try {
+            if(isJUnitTest()) {
+                URI url = DataWriter.class.getResource(JUNIT_PATH_NAME).toURI();
+                return url.getPath();
+            } else {
+                return PATH_NAME;
+            }
+        } catch(Exception e){
+            System.out.println("Difficulty getting resource path");
+            return "";
+        }
+    }
+
+    private static BufferedReader getReaderFromFile(String fileName, String jsonFileName) {
+        try {
+            if(isJUnitTest()) {
+                InputStream inputStream = DataLoader.class.getResourceAsStream(jsonFileName);
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                return new BufferedReader(inputStreamReader);
+            } else {
+                FileReader reader = new FileReader(fileName);
+                return new BufferedReader(reader);
+            }
+        } catch(Exception e){
+            System.out.println("Difficulty reading");
+            return null; //FIX THIS WHEN YOU CAN
+        }
+    }
+
+    /**
+     * Loads hurricane information from the hurricanes JSON file.
+     *
+     * @return the list of loaded hurricanes
+     */
     public ArrayList<Hurricane> getHurricanes() {
     ArrayList<Hurricane> hurricanes = new ArrayList<>();
 
     try {
-        FileReader reader = new FileReader("../json/hurricanes.json");
-
+        FileReader reader = new FileReader(getJsonFile("hurricanes.json"));
         JSONObject root = (JSONObject)(new JSONParser()).parse(reader);
         JSONArray hurricanesJSON = (JSONArray)root.get("hurricanes");
 

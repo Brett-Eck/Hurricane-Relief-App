@@ -11,7 +11,16 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 
+/**
+ * Handles saving users, shelters, relief requests, and hurricanes
+ * to the application's JSON files.
+ */
 public class DataWriter {
+    /**
+     * Runs the methods to save the application's data.
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         DataWriter dataWriter = new DataWriter();
         dataWriter.saveUsers();
@@ -20,6 +29,11 @@ public class DataWriter {
         dataWriter.saveHurricanes(HurricaneList.getInstance().getHurricanes());
     }
 
+    /**
+     * Saves the current users to the users JSON file.
+     *
+     * @return true if saved successfully, false otherwise
+     */
     public boolean saveUsers() {
         try {
             var path = Paths.get("hurricane_app/json/users.json");
@@ -43,6 +57,12 @@ public class DataWriter {
         }
     }
 
+    /**
+     * Saves shelter information to the shelters JSON file.
+     *
+     * @param shelters the shelters to save
+     * @return true if saved successfully, false otherwise
+     */
     public boolean saveShelters(ArrayList<Shelter> shelters) {
         try {
             var path = Paths.get("hurricane_app/json/shelters.json");
@@ -66,6 +86,12 @@ public class DataWriter {
         }
     }
 
+    /**
+     * Saves relief requests to the relief requests JSON file.
+     *
+     * @param reliefRequests the relief requests to save
+     * @return true if saved successfully, false otherwise
+     */
     public boolean saveReliefRequests(ArrayList<ReliefRequest> reliefRequests) {
         try {
             var path = Paths.get("hurricane_app/json/reliefRequests.json");
@@ -88,6 +114,12 @@ public class DataWriter {
             return false;
         }
     }
+    /**
+     * Saves hurricane information to the hurricanes JSON file.
+     *
+     * @param hurricanes the hurricanes to save
+     * @return true if saved successfully, false otherwise
+     */
     public boolean saveHurricanes(ArrayList<Hurricane> hurricanes) {
         try {
             var path = Paths.get("hurricane_app/json/hurricanes.json");
@@ -111,6 +143,12 @@ public class DataWriter {
         }
     }
 
+    /**
+     * Converts shelter information into a JSON object.
+     *
+     * @param shelter the shelter to convert
+     * @return the shelter as a JSON object
+     */
     public static JSONObject getShelterJSON(Shelter shelter) {
         JSONObject jsonShelter = new JSONObject();
         jsonShelter.put("id", shelter.getId().toString());
@@ -120,6 +158,12 @@ public class DataWriter {
         return jsonShelter;
     }
 
+    /**
+     * Converts relief request information into a JSON object.
+     *
+     * @param reliefRequest the relief request to convert
+     * @return the relief request as a JSON object
+     */
     public static JSONObject getReliefRequestJSON(ReliefRequest reliefRequest) {
         JSONObject jsonReliefRequest = new JSONObject();
         jsonReliefRequest.put("id", reliefRequest.getId().toString());
@@ -129,6 +173,12 @@ public class DataWriter {
         return jsonReliefRequest;
     }
 
+    /**
+     * Converts hurricane information into a JSON object.
+     *
+     * @param hurricane the hurricane to convert
+     * @return the hurricane as a JSON object
+     */
     public static JSONObject getHurricaneJSON(Hurricane hurricane) {
         JSONObject jsonHurricane = new JSONObject();
         jsonHurricane.put("id", hurricane.getId().toString());
@@ -138,6 +188,12 @@ public class DataWriter {
         return jsonHurricane;
     }
 
+    /**
+     * Converts user information into a JSON object.
+     *
+     * @param user the user to convert
+     * @return the user as a JSON object
+     */
     public static JSONObject getUserJSON(User user) {
         JSONObject jsonUser = new JSONObject();
         jsonUser.put("id", user.getId().toString());
