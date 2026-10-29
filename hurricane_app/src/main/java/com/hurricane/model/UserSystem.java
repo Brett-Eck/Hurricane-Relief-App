@@ -15,6 +15,7 @@ public class UserSystem {
 
     private User currentUser;
     private Hurricane currentHurricane;
+    private static UserSystem userSystem;
 
     /**
      * Logs in a user with their username and password.
@@ -26,6 +27,13 @@ public class UserSystem {
     public User login(String userName, String password) {
         currentUser = userList.getUser(userName, password);
         return currentUser;
+    }
+
+    public static UserSystem getInstance() {
+        if (userSystem == null){
+            return new UserSystem();
+        }
+        return userSystem;
     }
 
     /**

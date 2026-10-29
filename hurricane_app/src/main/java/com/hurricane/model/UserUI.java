@@ -1,7 +1,7 @@
 package com.hurricane.model;
 
-import com.hurricane.location.Address;
-import com.hurricane.location.MapTools;
+import location.Address;
+import location.MapTools;
 
 import java.io.FileReader;
 import java.nio.file.Files;
@@ -18,7 +18,7 @@ import org.json.simple.parser.JSONParser;
  * Runs the demo scenarios for the hurricane relief application.
  */
 public class UserUI {
-    private UserSystem userSystem = new UserSystem();
+    private UserSystem userSystem = UserSystem.getInstance();
 
     ArrayList<Filter> requestedFilters = new ArrayList<>();
 
