@@ -40,4 +40,48 @@ public class UsersTest {
         User user =  userSystem.signup("John", "Doe", LocalDate.of(1980, 3, 14), "jdoe", "sophie123", "jsmithexample.com", new Location("759 King St", "Charleston", "SC", 29403));
         assertNull(user);
     }
+
+    @Test
+    public void testDuplicateUsername() {
+        User firstUser = userSystem.signup(
+            "John", "Doe", LocalDate.of(1980, 3, 14),
+            "duplicate_username_test", "sophie123", "first@example.com",
+            new Location("759 King St", "Charleston", "SC", 29403)
+        );
+        assertNotNull(firstUser);
+
+        User secondUser = userSystem.signup(
+            "Jane", "Doe", LocalDate.of(1990, 5, 20),
+            "duplicate_username_test", "another123", "second@example.com",
+            new Location("759 King St", "Charleston", "SC", 29403)
+        );
+        assertNull(secondUser);
+    }
+
+    @Test
+    public void testLoginAfterSignup() {
+        User createdUser = userSystem.signup(
+            "John", "Doe", LocalDate.of(1980, 3, 14),
+            "signup_login_test", "sophie123", "signup.login@example.com",
+            new Location("759 King St", "Charleston", "SC", 29403)
+        );
+
+        assertNotNull(createdUser);
+
+        User loggedInUser = userSystem.login("signup_login_test", "sophie123");
+
+        assertNotNull(loggedInUser);
+        assertEquals("John", loggedInUser.getFirstName());
+    }
+
+    @Test
+    public void testEmptyEmail() {
+        User user = userSystem.signup(
+            "John", "Doe", LocalDate.of(1980, 3, 14),
+            "empty_email_test", "sophie123", "",
+            new Location("759 King St", "Charleston", "SC", 29403)
+        );
+
+        assertNull(user);
+    }
 }
