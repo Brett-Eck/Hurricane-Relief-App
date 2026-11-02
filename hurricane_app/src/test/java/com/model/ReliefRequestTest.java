@@ -15,7 +15,6 @@ public class ReliefRequestTest {
     private UUID id;
     private Location location;
 
-    /** Sets up a request. */
     @Before
     public void setUp() {
         id = UUID.randomUUID();
@@ -35,7 +34,6 @@ public class ReliefRequestTest {
         );
     }
 
-    /** Tests the constructor and getters. */
     @Test
     public void createValidReliefRequest() {
         assertEquals("mlopez94", request.getUserName());
@@ -51,7 +49,6 @@ public class ReliefRequestTest {
         assertFalse(request.isAccepted());
     }
 
-    /** Tests adding victims. */
     @Test
     public void addVictims() {
         Victim first = new Victim("John", VictimStatus.ALRIGHT, 42);
@@ -65,7 +62,6 @@ public class ReliefRequestTest {
         assertEquals(second, request.getVictims().get(1));
     }
 
-    /** Tests adding hazards. */
     @Test
     public void addHazards() {
         request.addHazard(Hazard.FLOODING);
@@ -76,7 +72,6 @@ public class ReliefRequestTest {
         assertTrue(request.getHazards().contains(Hazard.FIRE));
     }
 
-    /** Tests adding assistance types. */
     @Test
     public void addAssistanceTypes() {
         request.addAssistanceType(AssistanceType.MEDICAL);
@@ -87,7 +82,6 @@ public class ReliefRequestTest {
         assertTrue(request.getAssistanceTypes().contains(AssistanceType.DEBRIS_REMOVAL));
     }
 
-    /** Tests changing the description. */
     @Test
     public void updateDescription() {
         request.setDescription("Water is rising");
@@ -95,7 +89,6 @@ public class ReliefRequestTest {
         assertEquals("Water is rising", request.getDescription());
     }
 
-    /** Tests changing the photo. */
     @Test
     public void updatePhoto() {
         request.setPhoto("updated.jpg");
@@ -103,7 +96,6 @@ public class ReliefRequestTest {
         assertEquals("updated.jpg", request.getPhoto());
     }
 
-    /** Tests changing the status. */
     @Test
     public void updateStatus() {
         request.setStatus(Status.IN_PROGRESS);
@@ -113,7 +105,6 @@ public class ReliefRequestTest {
         assertEquals(Status.COMPLETED, request.getStatus());
     }
 
-    /** Tests changing acceptance. */
     @Test
     public void updateAccepted() {
         request.setAccepted(true);
@@ -123,22 +114,23 @@ public class ReliefRequestTest {
         assertFalse(request.isAccepted());
     }
 
-    /** Null victim should be rejected. */
     @Test
     public void rejectNullVictim() {
         request.addVictim(null);
+
+        assertFalse(request.getVictims().contains(null));
     }
 
-    /** Null status should be rejected. */
     @Test
     public void rejectNullStatus() {
         request.setStatus(null);
+
+        assertNotNull(request.getStatus());
     }
 
-    /** Low priority: null username should be rejected. */
     @Test
     public void rejectNullUsername() {
-        new ReliefRequest(
+        ReliefRequest invalidRequest = new ReliefRequest(
             null,
             new ArrayList<Victim>(),
             new ArrayList<Hazard>(),
@@ -150,6 +142,7 @@ public class ReliefRequestTest {
             id,
             location
         );
+
+        assertNotNull(invalidRequest.getUserName());
     }
 }
-
