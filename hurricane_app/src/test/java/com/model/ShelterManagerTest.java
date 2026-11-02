@@ -122,13 +122,13 @@ public class ShelterManagerTest {
     }
 
 @Test
-public void testRemoveVolunteerFromEmptyList() {
-    ShelterManager shelterManager = createShelterManager();
-    Volunteer volunteer = createVolunteer("alex");
+    public void testRemoveVolunteerFromEmptyList() {
+        ShelterManager shelterManager = createShelterManager();
+        Volunteer volunteer = createVolunteer("alex");
 
-    shelterManager.removeShelterVolunteer(volunteer);
+        shelterManager.removeShelterVolunteer(volunteer);
 
-    assertTrue(shelterManager.getShelterVolunteers().isEmpty());
+        assertTrue(shelterManager.getShelterVolunteers().isEmpty());
     }
 
 private Volunteer createVolunteer(String username) {
@@ -141,5 +141,13 @@ private Volunteer createVolunteer(String username) {
         username,
         new Location("456 Main St", "Columbia", "SC", 29201)
     );
+    }
+
+@Test
+    public void testAddNullShelterVolunteer() {
+
+        ShelterManager shelterManager = createShelterManager();
+
+        assertThrows(IllegalArgumentException.class, () -> shelterManager.addShelterVolunteer(null));
     }
 }
