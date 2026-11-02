@@ -1,0 +1,13 @@
+Relief Request Details for jsmith:
+Description: Three family members and one dog need transportation. Sophie needs medical assistance for asthma.
+Phone Number: 803-555-9876
+Location: 759 King St, Charleston, SC 29403
+Victim: John, Status: ALRIGHT, Age: 42
+Victim: Sandra, Status: ALRIGHT, Age: 40
+Victim: Sophie, Status: MINOR_INJURY, Age: 15
+Victim: Buddy, Status: ALRIGHT, Age: 5
+Hazards: null
+Assistance Types: [TRANSPORTAION, MEDICAL]
+Status: AWAITING_ASSISTANCE
+Photo: null
+Request ID: 12c8808d-c1a3-4151-891d-3d9bab33c163

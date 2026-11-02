@@ -1,7 +1,27 @@
 {
   "version": "0.2.0",
   "configurations": [
-
+    {
+        "type": "java",
+        "name": "App",
+        "request": "launch",
+        "mainClass": "com.hurricane.App",
+        "projectName": "hellofx"
+    },
+    {
+        "type": "java",
+        "name": "DataWriter",
+        "request": "launch",
+        "mainClass": "com.hurricane/com.hurricane.model.DataWriter",
+        "projectName": "hellofx"
+    },
+    {
+        "type": "java",
+        "name": "UserUI",
+        "request": "launch",
+        "mainClass": "com.hurricane/com.hurricane.model.UserUI",
+        "projectName": "hellofx"
+    },
     {
         "type": "java",
         "name": "UI",

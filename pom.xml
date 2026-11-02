@@ -26,6 +26,12 @@
             <artifactId>javafx-web</artifactId>
             <version>${javafx.version}</version>
     </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+    </dependency>
 
 <dependency>
 <groupId>org.openjfx</groupId>
@@ -39,6 +45,8 @@
 </dependency>
 </dependencies>
 <build>
+<sourceDirectory>hurricane_app/src/main/java</sourceDirectory>
+<testSourceDirectory>hurricane_app/src/test/java</testSourceDirectory>
 <plugins>
 <plugin>
 <groupId>org.apache.maven.plugins</groupId>

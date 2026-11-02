@@ -1,0 +1,39 @@
+{
+    "reliefRequests": [
+        {
+            "victims": [],
+            "hazards": [
+                "FLOODING"
+            ],
+            "photo": "flood_damage.jpg",
+            "assistanceTypeNeeded": [
+                "MEDICAL",
+                "TRANSPORTATION"
+            ],
+            "status": "AWAITING_ASSISTANCE",
+            "description": "Home is surrounded by flood water and assistance is needed.",
+            "phoneNumber": "8035550101",
+            "id": "a6c72d91-7f92-47c3-b4f8-83683e528001",
+            "location": {
+                "zipCode": 29201
+            }
+        },
+        {
+            "victims": [],
+            "hazards": [
+                "DEBRIS"
+            ],
+            "photo": "storm_debris.jpg",
+            "assistanceTypeNeeded": [
+                "DEBRIS_REMOVAL"
+            ],
+            "status": "IN_PROGRESS",
+            "description": "Storm debris is blocking access to the property.",
+            "phoneNumber": "8035550102",
+            "id": "be84f435-2d79-45fa-a188-947301264002",
+            "location": {
+                "zipCode": 29072
+            }
+        }
+    ]
+}
