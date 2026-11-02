@@ -3,6 +3,13 @@
   "configurations": [
     {
         "type": "java",
+        "name": "App",
+        "request": "launch",
+        "mainClass": "com.hurricane.App",
+        "projectName": "hellofx"
+    },
+    {
+        "type": "java",
         "name": "DataWriter",
         "request": "launch",
         "mainClass": "com.hurricane/com.hurricane.model.DataWriter",
