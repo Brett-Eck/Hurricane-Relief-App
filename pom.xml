@@ -45,8 +45,6 @@
 </dependency>
 </dependencies>
 <build>
-<sourceDirectory>hurricane_app/src/main/java</sourceDirectory>
-<testSourceDirectory>hurricane_app/src/test/java</testSourceDirectory>
 <plugins>
 <plugin>
 <groupId>org.apache.maven.plugins</groupId>
@@ -60,7 +58,7 @@
 <configuration>
 <jlinkImageName>hellofx</jlinkImageName>
 <launcher>launcher</launcher>
-<mainClass>hellofx/org.openjfx.hellofx.App</mainClass>
+<mainClass>com.hurricane.App</mainClass>
 </configuration>
 </plugin>
 </plugins>

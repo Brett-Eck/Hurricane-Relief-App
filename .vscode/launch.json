@@ -2,49 +2,49 @@
   "version": "0.2.0",
   "configurations": [
     {
-        "type": "java",
-        "name": "App",
-        "request": "launch",
-        "mainClass": "com.hurricane.App",
-        "projectName": "hellofx"
+      "type": "java",
+      "name": "Hurricane Relief App",
+      "request": "launch",
+      "mainClass": "com.hurricane.Launcher",
+      "projectName": "hellofx",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
-        "type": "java",
-        "name": "DataWriter",
-        "request": "launch",
-        "mainClass": "com.hurricane/com.hurricane.model.DataWriter",
-        "projectName": "hellofx"
+      "type": "java",
+      "name": "DataWriter",
+      "request": "launch",
+      "mainClass": "com.hurricane.model.DataWriter",
+      "projectName": "hellofx",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
-        "type": "java",
-        "name": "UserUI",
-        "request": "launch",
-        "mainClass": "com.hurricane/com.hurricane.model.UserUI",
-        "projectName": "hellofx"
+      "type": "java",
+      "name": "UserUI",
+      "request": "launch",
+      "mainClass": "com.hurricane.model.UserUI",
+      "projectName": "hellofx",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
-        "type": "java",
-        "name": "UI",
-        "request": "launch",
-        "mainClass": "com.hurricane/com.hurricane.model.UI",
-        "projectName": "hellofx",
-        "envFile": "${workspaceFolder}/hurricane_app/.env"
+      "type": "java",
+      "name": "UI",
+      "request": "launch",
+      "mainClass": "com.hurricane.model.UI",
+      "projectName": "hellofx",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
-        "type": "java",
-        "name": "Run UI",
-        "request": "launch",
-        "mainClass": "com.hurricane/com.hurricane.model.UserUI",
-        "projectName": "distance",
-        "envFile": "${workspaceFolder}/hurricane_app/.env"
-    },
-    {
-        "type": "java",
-        "name": "Run Map App",
-        "request": "launch",
-        "mainClass": "com.hurricane/com.hurricane.App",
-        "projectName": "distance",
-        "envFile": "${workspaceFolder}/.env"
+      "type": "java",
+      "name": "Run Map App (LocationApp)",
+      "request": "launch",
+      "mainClass": "com.movement.App",
+      "projectName": "distance",
+      "cwd": "${workspaceFolder}/LocationApp/distance",
+      "envFile": "${workspaceFolder}/.env"
     }
-]
+  ]
 }
