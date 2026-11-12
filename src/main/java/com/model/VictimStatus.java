@@ -1,4 +1,4 @@
-package com.hurricane.model;
+package com.model;
 
 /**
  * Defines the different conditions a victim may be in

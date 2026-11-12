@@ -1,4 +1,4 @@
-package com.hurricane.location;
+package com.location;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

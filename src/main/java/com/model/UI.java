@@ -1,7 +1,7 @@
-package com.hurricane.model;
+package com.model;
 
-import com.hurricane.location.Address;
-import com.hurricane.location.MapTools;
+import com.location.Address;
+import com.location.MapTools;
 
 /**
  * Tests finding the closest shelter and getting driving directions

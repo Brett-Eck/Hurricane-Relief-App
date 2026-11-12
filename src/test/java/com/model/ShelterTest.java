@@ -9,11 +9,11 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.hurricane.model.Availability;
-import com.hurricane.model.Filter;
-import com.hurricane.model.Location;
-import com.hurricane.model.Shelter;
-import com.hurricane.model.ShelterManager;
+import com.model.Availability;
+import com.model.Filter;
+import com.model.Location;
+import com.model.Shelter;
+import com.model.ShelterManager;
 
 public class ShelterTest {
     private Shelter shelter;

@@ -1,4 +1,4 @@
-package com.hurricane.model;
+package com.model;
 
 /**
  * Defines the tools that volunteers can have

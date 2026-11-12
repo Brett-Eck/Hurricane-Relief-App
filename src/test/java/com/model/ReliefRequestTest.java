@@ -8,7 +8,7 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.hurricane.model.*;
+import com.model.*;
 
 public class ReliefRequestTest {
     private ReliefRequest request;

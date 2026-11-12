@@ -11,10 +11,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThrows;
 
-import com.hurricane.model.Location;
-import com.hurricane.model.ShelterManager;
-import com.hurricane.model.Shelter;
-import com.hurricane.model.Volunteer;
+import com.model.Location;
+import com.model.ShelterManager;
+import com.model.Shelter;
+import com.model.Volunteer;
 
 //*Could possibly add tests regarding updating null shelter, zero capacity, and an initially empty volunteer list
 

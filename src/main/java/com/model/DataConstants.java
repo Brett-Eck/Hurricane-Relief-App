@@ -1,4 +1,4 @@
-package com.hurricane.model;
+package com.model;
 
 /**
  * Holds constants used for handling application data.

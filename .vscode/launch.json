@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "com.hurricane/com.hurricane.App",
+      "projectName": "hellofx"
+    },
+    {
+      "type": "java",
       "name": "Hurricane Relief App",
       "request": "launch",
       "mainClass": "com.hurricane.Launcher",

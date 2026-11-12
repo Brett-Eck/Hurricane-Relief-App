@@ -1,7 +1,7 @@
-package com.hurricane.model;
+package com.model;
 
-import com.hurricane.location.Address;
-import com.hurricane.location.MapTools;
+import com.location.Address;
+import com.location.MapTools;
 
 import java.io.FileReader;
 import java.nio.file.Path;

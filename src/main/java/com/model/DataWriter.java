@@ -1,4 +1,4 @@
-package com.hurricane.model;
+package com.model;
 
 import java.io.FileWriter;
 import java.io.IOException;

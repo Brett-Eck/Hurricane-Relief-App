@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNull;
 
 import java.util.*;
 
-import com.hurricane.model.*;
+import com.model.*;
 
 public class ShelterListTest {
     private ShelterList shelters;

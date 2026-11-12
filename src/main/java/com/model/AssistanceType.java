@@ -1,4 +1,4 @@
-package com.hurricane.model;
+package com.model;
 
 /**
  * Defines the types of assistance that can be

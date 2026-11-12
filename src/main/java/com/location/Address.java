@@ -1,4 +1,4 @@
-package com.hurricane.location;
+package com.location;
 
 
 public class Address {

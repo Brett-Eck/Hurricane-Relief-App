@@ -4,7 +4,7 @@ package com.model;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-import com.hurricane.model.Location;
+import com.model.Location;
 
 public class LocationTest {
 

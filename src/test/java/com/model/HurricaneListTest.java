@@ -9,9 +9,9 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.hurricane.model.Hurricane;
-import com.hurricane.model.HurricaneList;
-import com.hurricane.model.Location;
+import com.model.Hurricane;
+import com.model.HurricaneList;
+import com.model.Location;
 
 /*
  * AI helped draft the tests and create the table format.

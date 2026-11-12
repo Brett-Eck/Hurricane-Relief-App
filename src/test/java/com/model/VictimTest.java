@@ -4,8 +4,8 @@ package com.model;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-import com.hurricane.model.Victim;
-import com.hurricane.model.VictimStatus;
+import com.model.Victim;
+import com.model.VictimStatus;
 
 public class VictimTest {
 

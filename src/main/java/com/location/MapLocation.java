@@ -1,4 +1,4 @@
-package com.hurricane.location;
+package com.location;
 
 /*
  * Represents one address after it has been converted

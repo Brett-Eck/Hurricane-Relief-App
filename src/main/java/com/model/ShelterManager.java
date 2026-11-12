@@ -1,5 +1,5 @@
 
-package com.hurricane.model;
+package com.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
