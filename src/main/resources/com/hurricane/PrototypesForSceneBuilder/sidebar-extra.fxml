@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<AnchorPane maxHeight="644" maxWidth="1144" minHeight="644" minWidth="1144" prefHeight="644" prefWidth="1144" styleClass="sidebar-extra-screen" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <Rectangle fill="#F3F6FB" height="644" styleClass="content-background" width="1144" x="0" y="0" />
+    <Rectangle fill="#112F4B" height="644" styleClass="sidebar-background" width="179" x="0" y="0" />
+    <Rectangle fill="#FFFFFF" height="68" styleClass="top-bar" width="965" x="179" y="0" />
+    <Rectangle fill="#E5EAF0" height="1" styleClass="header-divider" width="965" x="179" y="68" />
+    <Rectangle arcHeight="10" arcWidth="10" fill="#1552B3" height="30" styleClass="brand-logo-square" width="30" x="16" y="24" />
+    <Label layoutX="52" layoutY="30" prefHeight="18" prefWidth="125" style="-fx-font-family: &quot;Georgia&quot;; -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF; " styleClass="brand-name" text="Harbor Relief" />
+    <Label layoutX="52" layoutY="51" prefWidth="125" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.4px; -fx-font-weight: normal; -fx-text-fill: #B6C5D6; " styleClass="brand-tagline" text="HERE FOR EACH OTHER" />
+    <Button fx:id="navOverview" alignment="CENTER_LEFT" focusTraversable="false" layoutX="25" layoutY="101" maxHeight="31" maxWidth="112" minHeight="31" minWidth="112" mnemonicParsing="false" prefHeight="31" prefWidth="112" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #FFFFFF; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 10px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 3 0 29;" styleClass="sidebar-navigation-button" text="    Overview" />
+    <SVGPath content="M3 11 L12 3 L21 11 L21 21 L14 21 L14 15 L10 15 L10 21 L3 21 Z" fill="TRANSPARENT" layoutX="34" layoutY="106" stroke="#E8F2FC" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.6" styleClass="sidebar-icon" />
+    <Button fx:id="navReliefRequests" alignment="CENTER_LEFT" focusTraversable="false" layoutX="25" layoutY="149" maxHeight="31" maxWidth="112" minHeight="31" minWidth="112" mnemonicParsing="false" prefHeight="31" prefWidth="112" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #FFFFFF; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 10px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 3 0 29;" styleClass="sidebar-navigation-button" text="    Relief Requests" />
+    <SVGPath content="M7 4 L4 4 L4 23 L20 23 L20 4 L17 4 M9 2 L15 2 L15 7 L9 7 Z M8 12 L16 12 M8 16 L15 16" fill="TRANSPARENT" layoutX="34" layoutY="154" stroke="#E8F2FC" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.6" styleClass="sidebar-icon" />
+    <Button fx:id="navFindShelter" alignment="CENTER_LEFT" focusTraversable="false" layoutX="25" layoutY="197" maxHeight="31" maxWidth="112" minHeight="31" minWidth="112" mnemonicParsing="false" prefHeight="31" prefWidth="112" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #FFFFFF; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 10px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 3 0 29;" styleClass="sidebar-navigation-button" text="    Find Shelter" />
+    <SVGPath content="M12 22 C17 17 21 12 21 8 A9 9 0 1 0 3 8 C3 12 7 17 12 22 Z M12 4 A4 4 0 1 1 12 12 A4 4 0 1 1 12 4 Z" fill="TRANSPARENT" layoutX="34" layoutY="202" stroke="#E8F2FC" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.6" styleClass="sidebar-icon" />
+    <Button fx:id="navStormUpdates" alignment="CENTER_LEFT" focusTraversable="false" layoutX="25" layoutY="245" maxHeight="31" maxWidth="112" minHeight="31" minWidth="112" mnemonicParsing="false" prefHeight="31" prefWidth="112" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #FFFFFF; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 10px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 3 0 29;" styleClass="sidebar-navigation-button" text="    Storm Updates" />
+    <SVGPath content="M6 18 C2 18 1 15 2 12 C3 9 5 8 8 8 C8 3 13 2 16 5 C19 4 22 7 22 10 C26 13 23 18 20 18 Z M8 21 L8 24 M14 21 L14 24 M20 21 L20 24" fill="TRANSPARENT" layoutX="34" layoutY="250" stroke="#E8F2FC" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.6" styleClass="sidebar-icon" />
+    </children>
+</AnchorPane>

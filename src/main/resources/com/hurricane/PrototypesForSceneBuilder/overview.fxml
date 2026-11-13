@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<AnchorPane maxHeight="712" maxWidth="1144" minHeight="712" minWidth="1144" prefHeight="712" prefWidth="1144" styleClass="overview-screen" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <Rectangle fill="#F3F6FB" height="712" width="1144" x="0" y="0" />
+    <Rectangle fill="#112F4B" height="712" styleClass="sidebar-background" width="179" x="0" y="0" />
+    <Rectangle fill="#FFFFFF" height="68" styleClass="top-bar" width="965" x="179" y="0" />
+    <Rectangle fill="#E5EAF0" height="1" width="965" x="179" y="68" />
+    <Rectangle arcHeight="10" arcWidth="10" fill="#1552B3" height="30" width="30" x="16" y="24" />
+    <Label layoutX="52" layoutY="30" prefHeight="18" prefWidth="125" style="-fx-font-family: &quot;Georgia&quot;; -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF; " styleClass="brand-name" text="Harbor Relief" />
+    <Label layoutX="52" layoutY="51" prefWidth="125" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.4px; -fx-font-weight: normal; -fx-text-fill: #B6C5D6; " styleClass="brand-tagline" text="HERE FOR EACH OTHER" />
+    <Rectangle arcHeight="10" arcWidth="10" fill="#1C4664" height="31" styleClass="nav-selection" width="113" x="24" y="101" />
+    <Rectangle fill="#D4E2F0" height="24" width="1.5" x="24" y="104" />
+    <Button fx:id="navOverview" alignment="CENTER_LEFT" focusTraversable="false" layoutX="25" layoutY="101" maxHeight="31" maxWidth="112" minHeight="31" minWidth="112" mnemonicParsing="false" prefHeight="31" prefWidth="112" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #FFFFFF; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 10px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 3 0 29;" styleClass="sidebar-navigation-button" text="    Overview" />
+    <SVGPath content="M3 11 L12 3 L21 11 L21 21 L14 21 L14 15 L10 15 L10 21 L3 21 Z" fill="TRANSPARENT" layoutX="34" layoutY="106" stroke="#E8F2FC" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.6" styleClass="sidebar-icon" />
+    <Button fx:id="navReliefRequests" alignment="CENTER_LEFT" focusTraversable="false" layoutX="25" layoutY="149" maxHeight="31" maxWidth="112" minHeight="31" minWidth="112" mnemonicParsing="false" prefHeight="31" prefWidth="112" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #FFFFFF; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 10px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 3 0 29;" styleClass="sidebar-navigation-button" text="    Relief Requests" />
+    <SVGPath content="M7 4 L4 4 L4 23 L20 23 L20 4 L17 4 M9 2 L15 2 L15 7 L9 7 Z M8 12 L16 12 M8 16 L15 16" fill="TRANSPARENT" layoutX="34" layoutY="154" stroke="#E8F2FC" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.6" styleClass="sidebar-icon" />
+    <Button fx:id="navFindShelter" alignment="CENTER_LEFT" focusTraversable="false" layoutX="25" layoutY="197" maxHeight="31" maxWidth="112" minHeight="31" minWidth="112" mnemonicParsing="false" prefHeight="31" prefWidth="112" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #FFFFFF; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 10px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 3 0 29;" styleClass="sidebar-navigation-button" text="    Find Shelter" />
+    <SVGPath content="M12 22 C17 17 21 12 21 8 A9 9 0 1 0 3 8 C3 12 7 17 12 22 Z M12 4 A4 4 0 1 1 12 12 A4 4 0 1 1 12 4 Z" fill="TRANSPARENT" layoutX="34" layoutY="202" stroke="#E8F2FC" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.6" styleClass="sidebar-icon" />
+    <Button fx:id="navStormUpdates" alignment="CENTER_LEFT" focusTraversable="false" layoutX="25" layoutY="245" maxHeight="31" maxWidth="112" minHeight="31" minWidth="112" mnemonicParsing="false" prefHeight="31" prefWidth="112" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #FFFFFF; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 10px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 3 0 29;" styleClass="sidebar-navigation-button" text="    Storm Updates" />
+    <SVGPath content="M6 18 C2 18 1 15 2 12 C3 9 5 8 8 8 C8 3 13 2 16 5 C19 4 22 7 22 10 C26 13 23 18 20 18 Z M8 21 L8 24 M14 21 L14 24 M20 21 L20 24" fill="TRANSPARENT" layoutX="34" layoutY="250" stroke="#E8F2FC" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.6" styleClass="sidebar-icon" />
+    <SVGPath content="M8 1 C4 1 1 4 1 8 C1 13 8 19 8 19 C8 19 15 13 15 8 C15 4 12 1 8 1 Z M8 5 A3 3 0 1 1 8 11 A3 3 0 1 1 8 5 Z" fill="TRANSPARENT" layoutX="204.0" layoutY="30.0" stroke="#7489A4" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.3" />
+    <Button fx:id="locationSelector" alignment="CENTER_LEFT" focusTraversable="false" layoutX="224.0" layoutY="26.0" maxHeight="28" maxWidth="170" minHeight="28" minWidth="170" mnemonicParsing="false" prefHeight="28" prefWidth="170" style="-fx-background-color: transparent; -fx-background-radius: 4; -fx-text-fill: #657C98; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 9px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 0 0 0;" styleClass="location-button" text="Charleston, South Carolina  ⌄" />
+    <Label fx:id="welcomeEyebrow" layoutX="283" layoutY="97" prefHeight="11" prefWidth="250" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.1px; -fx-font-weight: bold; -fx-text-fill: #05898F; " styleClass="eyebrow" text="WELCOME BACK, “USER”" />
+    <Label fx:id="overviewHeading" layoutX="283" layoutY="117" prefHeight="27" prefWidth="435" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #182F48; " styleClass="page-title" text="Relief starts with community." />
+    <Button fx:id="createRequestButton" focusTraversable="false" layoutX="959" layoutY="103" maxHeight="26" maxWidth="82" minHeight="26" minWidth="82" mnemonicParsing="false" prefHeight="26" prefWidth="82" style="-fx-background-color: #1958DA; -fx-background-radius: 6; -fx-text-fill: #FFFFFF; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 8.1px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.09), 4, 0, 0, 2);" styleClass="primary-action" text="＋  Create request" />
+    <Rectangle fx:id="heroBackground" arcHeight="20" arcWidth="20" fill="#112F4B" height="117" styleClass="hero-banner" width="758" x="282" y="148" />
+    <Pane layoutX="691" layoutY="148" maxHeight="117" maxWidth="349" minHeight="117" minWidth="349" prefHeight="117" prefWidth="349" styleClass="hero-artwork">
+      <clip>
+        <SVGPath content="M0 0 L339 0 Q349 0 349 10 L349 107 Q349 117 339 117 L0 117 Z" />
+      </clip>
+      <children>
+        <SVGPath content="M0 62 C32 27 50 23 76 36 C100 48 121 68 144 54 C172 40 176 10 208 5 C240 -2 290 5 349 4 L349 117 L0 117 Z" fill="#204965" layoutX="0" layoutY="0" />
+        <SVGPath content="M0 108 C28 84 51 75 76 80 C106 84 130 105 157 97 C191 85 203 58 238 57 C277 55 320 79 349 94 L349 117 L0 117 Z" fill="#07878C" layoutX="0" layoutY="0" />
+        <Circle centerX="281" centerY="-3" fill="#F9E9CB" radius="19" />
+        <SVGPath content="M55 14 Q62 6 69 14 Q75 7 82 13" fill="TRANSPARENT" layoutX="0" layoutY="0" stroke="#F1F0DF" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.5" />
+        <SVGPath content="M185 94 L194 11 L207 11 L219 94 Z" fill="#D7E7F7" layoutX="0" layoutY="0" />
+        <SVGPath content="M193 42 L213 48 L216 65 L190 55 Z" fill="#1257DA" layoutX="0" layoutY="0" />
+        <SVGPath content="M194 11 L207 11 L208 4 L193 4 Z" fill="#F7EAD0" layoutX="0" layoutY="0" />
+        <SVGPath content="M193 0 L207 0 L207 3 L193 3 Z" fill="#F5F0E7" layoutX="0" layoutY="0" />
+        <SVGPath content="M183 94 L219 94 L219 98 L183 98 Z" fill="#0D2339" layoutX="0" layoutY="0" />
+        <SVGPath content="M197 79 L205 79 L205 95 L197 95 Z" fill="#0B314D" layoutX="0" layoutY="0" />
+        <SVGPath content="M240 71 L253 60 L266 71 L263 73 L253 65 L243 73 Z" fill="#0E2E48" layoutX="0" layoutY="0" />
+        <SVGPath content="M245 72 L253 65 L262 72 L262 83 L245 83 Z" fill="#EAF2F3" layoutX="0" layoutY="0" />
+        <SVGPath content="M286 108 Q320 99 346 108" fill="TRANSPARENT" layoutX="0" layoutY="0" stroke="#A1D7D1" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1" />
+      </children>
+    </Pane>
+    <Label layoutX="300" layoutY="165" prefHeight="12" prefWidth="295" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.9px; -fx-font-weight: bold; -fx-text-fill: #E7F2FA; " styleClass="hero-eyebrow" text="A SAFE HARBOR. A HELPING HAND." />
+    <Label layoutX="300" layoutY="183" prefHeight="22" prefWidth="385" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 16.5px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF; " styleClass="hero-title" text="Help is closer than you think." />
+    <Label layoutX="300" layoutY="208" prefHeight="14" prefWidth="378" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.4px; -fx-font-weight: normal; -fx-text-fill: #E0E9F0; " styleClass="hero-description" text="Request support, find a safe place to stay, and take the next step" />
+    <Label layoutX="300" layoutY="220" prefHeight="14" prefWidth="200" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.4px; -fx-font-weight: normal; -fx-text-fill: #E0E9F0; " text="toward recovery." />
+    <Button fx:id="exploreSheltersButton" alignment="CENTER_LEFT" focusTraversable="false" layoutX="298" layoutY="234" maxHeight="20" maxWidth="128" minHeight="20" minWidth="128" mnemonicParsing="false" prefHeight="20" prefWidth="128" style="-fx-background-color: transparent; -fx-background-radius: 4; -fx-text-fill: #FFFFFF; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.7px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-underline: true; -fx-padding: 0 1 0 1;" styleClass="hero-link" text="Explore nearby shelters →" />
+    <Rectangle arcHeight="16" arcWidth="16" fill="#FFFFFF" height="48" styleClass="stat-card" width="245" x="282" y="279" />
+    <Rectangle arcHeight="16" arcWidth="16" fill="#FFFFFF" height="48" styleClass="stat-card" width="245" x="537" y="279" />
+    <Rectangle arcHeight="16" arcWidth="16" fill="#FFFFFF" height="48" styleClass="stat-card" width="248" x="792" y="279" />
+    <Rectangle arcHeight="12" arcWidth="12" fill="#EAF1FF" height="23" width="24" x="297" y="293" />
+    <Label layoutX="303" layoutY="297" prefHeight="15" prefWidth="18" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #1958DA; " text="▤" />
+    <Label fx:id="statActiveRequests" layoutX="328" layoutY="291" prefHeight="20" prefWidth="29" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #142E49; " styleClass="stat-number" text="2" />
+    <Label layoutX="328" layoutY="311" prefHeight="12" prefWidth="194" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.0px; -fx-font-weight: normal; -fx-text-fill: #6C8197; " styleClass="stat-caption" text="Your active requests" />
+    <Rectangle arcHeight="12" arcWidth="12" fill="#E4F5F4" height="23" width="24" x="553" y="293" />
+    <Label layoutX="559" layoutY="297" prefHeight="15" prefWidth="18" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #1958DA; " text="⌂" />
+    <Label fx:id="statNearbyShelters" layoutX="584" layoutY="291" prefHeight="20" prefWidth="29" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #142E49; " styleClass="stat-number" text="2" />
+    <Label layoutX="584" layoutY="311" prefHeight="12" prefWidth="194" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.0px; -fx-font-weight: normal; -fx-text-fill: #6C8197; " styleClass="stat-caption" text="Nearby sample shelters" />
+    <Rectangle arcHeight="12" arcWidth="12" fill="#FAEFD8" height="23" width="24" x="809" y="293" />
+    <Label layoutX="815" layoutY="297" prefHeight="15" prefWidth="18" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #AE8A36; " text="✓" />
+    <Label fx:id="statCompletedRequests" layoutX="840" layoutY="291" prefHeight="20" prefWidth="29" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #142E49; " styleClass="stat-number" text="1" />
+    <Label layoutX="840" layoutY="311" prefHeight="12" prefWidth="194" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.0px; -fx-font-weight: normal; -fx-text-fill: #6C8197; " styleClass="stat-caption" text="Completed request" />
+    <Rectangle arcHeight="22" arcWidth="22" fill="#FFFFFF" height="323" styleClass="requests-card" width="496" x="282" y="341" />
+    <Label layoutX="297" layoutY="356" prefHeight="17" prefWidth="260" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 11.5px; -fx-font-weight: bold; -fx-text-fill: #142E49; " styleClass="card-title" text="Your relief requests" />
+    <Label layoutX="741" layoutY="356" prefHeight="15" prefWidth="24" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.0px; -fx-font-weight: normal; -fx-text-fill: #6C8197; " text="3 total" />
+    <Button fx:id="filterAllRequests" alignment="CENTER_LEFT" focusTraversable="false" layoutX="295" layoutY="379" maxHeight="23" maxWidth="41" minHeight="23" minWidth="41" mnemonicParsing="false" prefHeight="23" prefWidth="41" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #1958DA; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.6px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 0 0 0;" styleClass="tab-active" text="All requests" />
+    <Button fx:id="filterActiveRequests" focusTraversable="false" layoutX="340" layoutY="379" maxHeight="23" maxWidth="28" minHeight="23" minWidth="28" mnemonicParsing="false" prefHeight="23" prefWidth="28" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #71849D; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.6px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 0 0 0;" styleClass="tab-button" text="Active" />
+    <Button fx:id="filterCompletedRequests" focusTraversable="false" layoutX="372" layoutY="379" maxHeight="23" maxWidth="54" minHeight="23" minWidth="54" mnemonicParsing="false" prefHeight="23" prefWidth="54" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #71849D; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.6px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0 0 0 0;" styleClass="tab-button" text="Completed" />
+    <Rectangle fill="#DFE7EF" height="1" width="467" x="298" y="400" />
+    <Rectangle fill="#3F88F5" height="2" width="35" x="298" y="400" />
+    <Rectangle arcHeight="12" arcWidth="12" fill="#F0F5FC" height="22" width="22" x="297" y="417" />
+    <SVGPath content="M7 1 L13 9 L10 9 L14 14 L0 14 L4 9 L1 9 Z M7 13 L7 19" fill="TRANSPARENT" layoutX="302" layoutY="420" stroke="#6C87A5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.3" />
+    <Label layoutX="328" layoutY="416" prefHeight="15" prefWidth="303" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 8.2px; -fx-font-weight: bold; -fx-text-fill: #142E49; " styleClass="request-title" text="Fallen tree blocking driveway" />
+    <Label layoutX="328" layoutY="432" prefHeight="14" prefWidth="307" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.6px; -fx-font-weight: normal; -fx-text-fill: #435D77; " styleClass="request-description" text="Debris removal · West Ashley" />
+    <Label layoutX="328" layoutY="446" prefHeight="12" prefWidth="265" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.4px; -fx-font-weight: normal; -fx-text-fill: #687E95; " styleClass="request-date" text="HR-1024  ·  Submitted Nov 9" />
+    <Rectangle arcHeight="14" arcWidth="14" fill="#EAF1FF" height="14" width="64" x="701" y="416" />
+    <Label alignment="CENTER" layoutX="701" layoutY="417" prefHeight="12" prefWidth="64" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.7px; -fx-font-weight: bold; -fx-text-fill: #1B66CD; " styleClass="status-badge" text="In progress" />
+    <Button fx:id="viewRequest1Button" focusTraversable="false" layoutX="740" layoutY="433" maxHeight="20" maxWidth="26" minHeight="20" minWidth="26" mnemonicParsing="false" prefHeight="20" prefWidth="26" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #172B41; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 10px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;" styleClass="request-row-action" text="➜" />
+    <Rectangle fill="#DFE7EF" height="1" width="467" x="298" y="471" />
+    <Rectangle arcHeight="12" arcWidth="12" fill="#F0F5FC" height="22" width="22" x="297" y="484" />
+    <SVGPath content="M2 4 C5 1 7 6 10 4 M2 9 C5 6 7 11 10 9 M2 14 C5 11 7 16 10 14" fill="TRANSPARENT" layoutX="303" layoutY="486" stroke="#6C87A5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.5" />
+    <Label layoutX="328" layoutY="483" prefHeight="15" prefWidth="303" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 8.2px; -fx-font-weight: bold; -fx-text-fill: #142E49; " styleClass="request-title" text="Drinking water for our household" />
+    <Label layoutX="328" layoutY="499" prefHeight="14" prefWidth="307" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.6px; -fx-font-weight: normal; -fx-text-fill: #435D77; " styleClass="request-description" text="Essential supplies · James Island" />
+    <Label layoutX="328" layoutY="513" prefHeight="12" prefWidth="265" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.4px; -fx-font-weight: normal; -fx-text-fill: #687E95; " styleClass="request-date" text="HR-1031  ·  Submitted Nov 8" />
+    <Rectangle arcHeight="14" arcWidth="14" fill="#FAEBD0" height="14" width="51" x="714" y="483" />
+    <Label alignment="CENTER" layoutX="714" layoutY="484" prefHeight="12" prefWidth="51" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.7px; -fx-font-weight: bold; -fx-text-fill: #A48337; " styleClass="status-badge" text="Received" />
+    <Button fx:id="viewRequest2Button" focusTraversable="false" layoutX="740" layoutY="500" maxHeight="20" maxWidth="26" minHeight="20" minWidth="26" mnemonicParsing="false" prefHeight="20" prefWidth="26" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #172B41; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 10px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;" styleClass="request-row-action" text="➜" />
+    <Rectangle fill="#DFE7EF" height="1" width="467" x="298" y="538" />
+    <Rectangle arcHeight="12" arcWidth="12" fill="#F0F5FC" height="22" width="22" x="297" y="550" />
+    <SVGPath content="M1 8 L10 1 L19 8 M4 7 L4 17 L16 17 L16 7 M9 17 L9 11 L12 11 L12 17" fill="TRANSPARENT" layoutX="299" layoutY="553" stroke="#6C87A5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.2" />
+    <Label layoutX="328" layoutY="549" prefHeight="15" prefWidth="303" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 8.2px; -fx-font-weight: bold; -fx-text-fill: #142E49; " styleClass="request-title" text="Help securing damaged windows" />
+    <Label layoutX="328" layoutY="565" prefHeight="14" prefWidth="307" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.6px; -fx-font-weight: normal; -fx-text-fill: #435D77; " styleClass="request-description" text="Home repairs · West Ashley" />
+    <Label layoutX="328" layoutY="579" prefHeight="12" prefWidth="265" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.4px; -fx-font-weight: normal; -fx-text-fill: #687E95; " styleClass="request-date" text="HR-1066  ·  Submitted Nov 7" />
+    <Rectangle arcHeight="14" arcWidth="14" fill="#DDF4EF" height="14" width="51" x="714" y="549" />
+    <Label alignment="CENTER" layoutX="714" layoutY="550" prefHeight="12" prefWidth="51" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.7px; -fx-font-weight: bold; -fx-text-fill: #128A80; " styleClass="status-badge" text="Completed" />
+    <Button fx:id="viewRequest3Button" focusTraversable="false" layoutX="740" layoutY="566" maxHeight="20" maxWidth="26" minHeight="20" minWidth="26" mnemonicParsing="false" prefHeight="20" prefWidth="26" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #172B41; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 10px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;" styleClass="request-row-action" text="➜" />
+    <Rectangle arcHeight="12" arcWidth="12" fill="#EAF2FF" height="36" styleClass="requests-info" width="468" x="297" y="623" />
+    <SVGPath content="M2 7 Q8 0 14 7 M8 7 L8 15 M4 16 Q8 12 12 16" fill="TRANSPARENT" layoutX="306" layoutY="634" stroke="#174E86" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.2" />
+    <Label layoutX="330" layoutY="629" prefHeight="11" prefWidth="310" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.6px; -fx-font-weight: normal; -fx-text-fill: #314D6B; " text="Your neighbors are here to help." />
+    <Label layoutX="330" layoutY="640" prefHeight="11" prefWidth="316" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.6px; -fx-font-weight: bold; -fx-text-fill: #17364F; " text="Follow each request as it moves forward." />
+    <Rectangle arcHeight="22" arcWidth="22" fill="#FFFFFF" height="202" styleClass="nearby-shelters-card" width="250" x="790" y="341" />
+    <Label layoutX="805" layoutY="355" prefHeight="17" prefWidth="180" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #142E49; " styleClass="card-title" text="Nearby shelters" />
+    <Button fx:id="viewAllSheltersButton" focusTraversable="false" layoutX="1004" layoutY="356" maxHeight="16" maxWidth="27" minHeight="16" minWidth="27" mnemonicParsing="false" prefHeight="16" prefWidth="27" style="-fx-background-color: transparent; -fx-background-radius: 0; -fx-text-fill: #1958DA; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.0px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0;" styleClass="text-link" text="View all →" />
+    <Label layoutX="805" layoutY="391" prefHeight="15" prefWidth="195" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.8px; -fx-font-weight: bold; -fx-text-fill: #142E49; " styleClass="shelter-name" text="Charleston Community Center" />
+    <Rectangle arcHeight="12" arcWidth="12" fill="#E0F6EF" height="12" width="20" x="1005" y="392" />
+    <Label alignment="CENTER" layoutX="1005" layoutY="392" prefHeight="12" prefWidth="20" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.4px; -fx-font-weight: bold; -fx-text-fill: #138C85; " text="Open" />
+    <Label layoutX="805" layoutY="406" prefHeight="12" prefWidth="210" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.9px; -fx-font-weight: normal; -fx-text-fill: #6A7F96; " text="West Ashley · 1.8 miles away" />
+    <Rectangle arcHeight="4" arcWidth="4" fill="#E2EAF2" height="3" width="220" x="805" y="424" />
+    <Rectangle arcHeight="4" arcWidth="4" fill="#008E91" height="3" width="162" x="805" y="424" />
+    <Label layoutX="805" layoutY="432" prefHeight="12" prefWidth="175" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.5px; -fx-font-weight: normal; -fx-text-fill: #6C8197; " text="43 spaces available" />
+    <Label alignment="CENTER_RIGHT" layoutX="979" layoutY="432" prefHeight="12" prefWidth="47" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.5px; -fx-font-weight: normal; -fx-text-fill: #6C8197; " text="57 / 100" />
+    <Label layoutX="805" layoutY="444" prefHeight="12" prefWidth="200" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.1px; -fx-font-weight: normal; -fx-text-fill: #7084A0; " text="Pet friendly   Medical support" />
+    <Rectangle fill="#DFE7EF" height="1" width="220" x="805" y="463" />
+    <Label layoutX="805" layoutY="469" prefHeight="15" prefWidth="195" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7.8px; -fx-font-weight: bold; -fx-text-fill: #142E49; " styleClass="shelter-name" text="James Island High School" />
+    <Rectangle arcHeight="12" arcWidth="12" fill="#E0F6EF" height="12" width="20" x="1005" y="470" />
+    <Label alignment="CENTER" layoutX="1005" layoutY="470" prefHeight="12" prefWidth="20" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.4px; -fx-font-weight: bold; -fx-text-fill: #138C85; " text="Open" />
+    <Label layoutX="805" layoutY="484" prefHeight="12" prefWidth="210" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.9px; -fx-font-weight: normal; -fx-text-fill: #6A7F96; " text="James Island · 3.2 miles away" />
+    <Rectangle arcHeight="4" arcWidth="4" fill="#E2EAF2" height="3" width="220" x="805" y="502" />
+    <Rectangle arcHeight="4" arcWidth="4" fill="#008E91" height="3" width="99" x="805" y="502" />
+    <Label layoutX="805" layoutY="510" prefHeight="12" prefWidth="175" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.5px; -fx-font-weight: normal; -fx-text-fill: #6C8197; " text="36 spaces available" />
+    <Label alignment="CENTER_RIGHT" layoutX="979" layoutY="510" prefHeight="12" prefWidth="47" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.5px; -fx-font-weight: normal; -fx-text-fill: #6C8197; " text="54 / 150" />
+    <Label layoutX="805" layoutY="522" prefHeight="12" prefWidth="200" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.1px; -fx-font-weight: normal; -fx-text-fill: #7084A0; " text="Accessible   Family friendly" />
+    <Rectangle arcHeight="20" arcWidth="20" fill="#E9F1FF" height="72" styleClass="storm-update-callout" width="250" x="790" y="556" />
+    <Circle centerX="820" centerY="590" fill="TRANSPARENT" radius="9" stroke="#195AE8" strokeWidth="1.2" />
+    <SVGPath content="M4 8 A6 6 0 0 1 16 8 M5 12 Q10 18 15 12 M10 2 L10 5" fill="TRANSPARENT" layoutX="814" layoutY="580" stroke="#2865EF" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.0" />
+    <Label layoutX="841" layoutY="568" prefHeight="11" prefWidth="160" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 6.4px; -fx-font-weight: bold; -fx-text-fill: #536D87; " text="STAY INFORMED" />
+    <Label layoutX="841" layoutY="582" prefHeight="15" prefWidth="170" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 8.4px; -fx-font-weight: bold; -fx-text-fill: #142E49; " text="Know what’s ahead." />
+    <Label layoutX="841" layoutY="599" prefHeight="14" prefWidth="190" style="-fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7px; -fx-font-weight: normal; -fx-text-fill: #7388A0; " text="Weather updates and community resources." />
+    <Button fx:id="viewStormUpdatesButton" alignment="CENTER_LEFT" focusTraversable="false" layoutX="839" layoutY="610" maxHeight="16" maxWidth="113" minHeight="16" minWidth="113" mnemonicParsing="false" prefHeight="16" prefWidth="113" style="-fx-background-color: transparent; -fx-background-radius: 4; -fx-text-fill: #1E64D8; -fx-font-family: &quot;Segoe UI&quot;; -fx-font-size: 7px; -fx-font-weight: normal; -fx-padding: 0 7 0 7; -fx-cursor: hand;-fx-padding: 0;" styleClass="text-link" text="View storm updates →" />
+  </children>
+</AnchorPane>
