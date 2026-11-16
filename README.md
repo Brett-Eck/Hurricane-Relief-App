@@ -50,7 +50,7 @@ The optional, separate `LocationApp/` project is not part of the root Maven buil
 
 ## Prototype
 
-[Prototype](PROTOTYPE-LINK-HERE) //will do once we get one
+[Prototype](https://www.figma.com/site/9aZHn8PBG2RD942gWfUsoX/Hurricane-Relief?node-id=48-126&t=WGsmUa2f1KJLT7hM-0) //will do once we get one
 
 ## Our Team
 
