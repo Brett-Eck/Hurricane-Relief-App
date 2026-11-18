@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<!-- Self-contained Login UI prototype for Harbor Relief. No external CSS or images required.
+     Controller and navigation actions can be wired up after the prototype is approved. -->
+<GridPane xmlns="http://javafx.com/javafx/21"
+          xmlns:fx="http://javafx.com/fxml/1"
+          prefHeight="1080.0" prefWidth="1920.0"
+          minHeight="750.0" minWidth="1200.0"
+          style="-fx-font-family: Arial;">
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="50.0" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="50.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="ALWAYS" percentHeight="100.0" />
+    </rowConstraints>
+    <children>
+        <!-- LEFT: brand, message, and lighthouse illustration -->
+        <AnchorPane style="-fx-background-color: #112E49;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <children>
+                <!-- Illustration: editable Scene Builder vector shapes -->
+                <Pane prefHeight="420.0" prefWidth="960.0"
+                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0" styleClass="illustration-panel">
+                    <children>
+                        <!-- moon and rolling coastal hills -->
+                        <Circle centerX="838.0" centerY="76.0" radius="53.0" fill="#F5E7CB" />
+                        <SVGPath content="M 0 200 C 105 130 170 143 272 228 C 376 310 453 280 555 178 C 675 50 770 38 960 125 L 960 420 L 0 420 Z"
+                                 fill="#1D4B70" />
+                        <SVGPath content="M 0 325 C 130 250 198 270 310 328 C 432 392 510 328 620 260 C 746 190 830 240 960 302 L 960 420 L 0 420 Z"
+                                 fill="#078B90" />
+
+                        <!-- birds in the sky -->
+                        <SVGPath content="M 110 154 Q 128 137 146 154 Q 166 137 184 155" fill="TRANSPARENT" stroke="#F5E2BA" strokeWidth="3.0" />
+                        <SVGPath content="M 272 110 Q 286 99 300 111 Q 316 99 330 112" fill="TRANSPARENT" stroke="#F5E2BA" strokeWidth="2.8" />
+
+                        <!-- lighthouse: shadow, tower, lamp and striped paint -->
+                        <SVGPath content="M 476 391 L 619 391 L 619 405 L 473 405 Z" fill="#092943" />
+                        <SVGPath content="M 520 142 L 571 142 L 605 392 L 485 392 Z" fill="#E5EDF5" />
+                        <SVGPath content="M 515 214 L 581 241 L 589 298 L 506 263 Z" fill="#1763D1" />
+                        <Rectangle x="514.0" y="128.0" width="63.0" height="13.0" fill="#123C5D" />
+                        <Rectangle x="521.0" y="98.0" width="49.0" height="29.0" fill="#F4E4C6" />
+                        <Rectangle x="532.0" y="350.0" width="22.0" height="42.0" fill="#0E3352" />
+
+                        <!-- little coastal home -->
+                        <SVGPath content="M 733 314 L 762 285 L 790 312 L 784 321 L 762 302 L 743 321 Z" fill="#092F4A" />
+                        <Rectangle x="743.0" y="313.0" width="41.0" height="43.0" fill="#EBF5F4" />
+                        <SVGPath content="M 595 417 Q 726 372 858 417" fill="TRANSPARENT" stroke="#86C0B8" strokeWidth="4.0" />
+                    </children>
+                </Pane>
+
+                <!-- logo placeholder; replace when the team's final logo is ready -->
+                <AnchorPane layoutX="45.0" layoutY="58.0" prefHeight="76.0" prefWidth="440.0">
+                    <children>
+                        <Rectangle arcHeight="13.0" arcWidth="13.0" height="70.0" width="70.0" fill="#1558BD" />
+                        <SVGPath content="M 9 29 L 35 8 L 60 29 L 53 34 L 53 57 L 39 57 L 39 42 L 30 42 L 30 57 L 17 57 L 17 34 Z"
+                                 fill="#0C3C82" />
+                        <Label layoutX="91.0" layoutY="2.0" text="Harbor Relief" style="-fx-font-family: Georgia; -fx-font-size: 34px; -fx-text-fill: #F4F7FD;" />
+                        <Label layoutX="91.0" layoutY="48.0" text="HERE FOR EACH OTHER" style="-fx-font-size: 15px; -fx-text-fill: #A7BDD2;" />
+                    </children>
+                </AnchorPane>
+
+                <VBox layoutX="45.0" layoutY="370.0" prefWidth="650.0" spacing="20.0">
+                    <children>
+                        <Label text="A SAFE HARBOR. A HELPING HAND" style="-fx-font-size: 16px; -fx-text-fill: #B4C7D8;" />
+                        <Label text="Weathering the&#10;storm.&#10;Rebuilding together."
+                               maxWidth="650.0" wrapText="true" style="-fx-font-family: Arial; -fx-font-size: 51px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" />
+                        <Label text="A place to find support, offer a helping hand, and&#10;to help your community as a whole."
+                               maxWidth="580.0" wrapText="true" style="-fx-font-size: 17px; -fx-text-fill: #B6CADC;" />
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+
+        <!-- RIGHT: login form -->
+        <AnchorPane style="-fx-background-color: #F2F5F9;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <children>
+                <Hyperlink fx:id="backHomeLink" layoutX="22.0" layoutY="48.0"
+                           text="← Back to Home" style="-fx-padding: 4 3; -fx-text-fill: #7A8798; -fx-font-size: 13px; -fx-underline: false; -fx-border-color: transparent;" />
+
+                <VBox layoutX="205.0" layoutY="315.0" prefWidth="555.0" spacing="0.0">
+                    <children>
+                        <Label text="YOUR COMMUNITY IS HERE" style="-fx-text-fill: #1B8990; -fx-font-size: 16px;" />
+                        <Label text="Welcome Back." style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-text-fill: #131A22;">
+                            <VBox.margin><Insets top="20.0" /></VBox.margin>
+                        </Label>
+                        <Label text="Log in to find help and follow your requests." style="-fx-font-size: 17px; -fx-text-fill: #70839A;">
+                            <VBox.margin><Insets top="9.0" bottom="34.0" /></VBox.margin>
+                        </Label>
+
+                        <VBox prefWidth="320.0" maxWidth="320.0" spacing="8.0">
+                            <children>
+                                <Label text="Email address" style="-fx-font-size: 16px; -fx-text-fill: #1C334F; -fx-font-weight: bold;" />
+                                <TextField fx:id="emailField" promptText="you@example.com" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9px; -fx-border-color: #D1D9E2; -fx-border-radius: 9px; -fx-border-width: 1px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.17), 3, 0.1, 0, 3); -fx-pref-height: 48px; -fx-font-size: 16px; -fx-prompt-text-fill: #92A0B2; -fx-text-fill: #21364F; -fx-padding: 0 16;" />
+                            </children>
+                        </VBox>
+                        <VBox prefWidth="320.0" maxWidth="320.0" spacing="8.0">
+                            <VBox.margin><Insets top="25.0" /></VBox.margin>
+                            <children>
+                                <Label text="Password" style="-fx-font-size: 16px; -fx-text-fill: #1C334F; -fx-font-weight: bold;" />
+                                <PasswordField fx:id="passwordField" promptText="Enter your password" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9px; -fx-border-color: #D1D9E2; -fx-border-radius: 9px; -fx-border-width: 1px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.17), 3, 0.1, 0, 3); -fx-pref-height: 48px; -fx-font-size: 16px; -fx-prompt-text-fill: #92A0B2; -fx-text-fill: #21364F; -fx-padding: 0 16;" />
+                            </children>
+                        </VBox>
+
+                        <HBox alignment="CENTER_LEFT" prefWidth="320.0" maxWidth="320.0" spacing="52.0">
+                            <VBox.margin><Insets top="28.0" bottom="28.0" /></VBox.margin>
+                            <children>
+                                <CheckBox fx:id="rememberMeCheckBox" text="Remember me" style="-fx-font-size: 13px; -fx-text-fill: #7A8798;" />
+                                <Hyperlink fx:id="forgotPasswordLink" text="Forgot password?" style="-fx-padding: 2 0; -fx-font-size: 13px; -fx-text-fill: #5482D4; -fx-underline: false; -fx-border-color: transparent;" />
+                            </children>
+                        </HBox>
+
+                        <Button fx:id="loginButton" text="Log in →"
+                                prefHeight="49.0" prefWidth="320.0" maxWidth="320.0"
+                                style="-fx-background-color: #1852AD; -fx-background-radius: 9px; -fx-text-fill: #FFFFFF; -fx-font-size: 16px; -fx-font-weight: normal; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 4, 0.05, 0, 3);" />
+
+                        <HBox alignment="CENTER" prefWidth="320.0" maxWidth="320.0" spacing="4.0">
+                            <VBox.margin><Insets top="17.0" /></VBox.margin>
+                            <children>
+                                <Label text="Don't have an account?" style="-fx-font-size: 13px; -fx-text-fill: #7A8798;" />
+                                <Hyperlink fx:id="signupLink" text="Sign up" style="-fx-padding: 2 0; -fx-font-size: 13px; -fx-text-fill: #5482D4; -fx-underline: false; -fx-border-color: transparent;" />
+                            </children>
+                        </HBox>
+
+                        <Line startX="0.0" startY="0.0" endX="320.0" endY="0.0" stroke="#D8DEE6">
+                            <VBox.margin><Insets top="26.0" /></VBox.margin>
+                        </Line>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>
