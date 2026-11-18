@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            prefHeight="1080.0" prefWidth="1920.0" minHeight="810.0" minWidth="1440.0"
+            style="-fx-font-family: Arial; -fx-background-color: #F4F6FA;">
+    <children>
+        <AnchorPane prefWidth="300.0" style="-fx-background-color: #102E4A;"
+                    AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+            <children>
+                <Rectangle layoutX="27.0" layoutY="51.0" width="50.0" height="50.0"
+                           arcWidth="10.0" arcHeight="10.0" fill="#1454AE" />
+                <SVGPath layoutX="32.0" layoutY="56.0" fill="#0B3C81"
+                         content="M 4 23 L 25 5 L 46 23 L 41 28 L 41 43 L 30 43 L 30 31 L 21 31 L 21 43 L 10 43 L 10 28 Z" />
+                <Label layoutX="90.0" layoutY="49.0" text="Harbor Relief"
+                       style="-fx-font-family: Georgia; -fx-font-size: 26px; -fx-text-fill: #F6F8FD;" />
+                <Label layoutX="90.0" layoutY="88.0" text="HERE FOR EACH OTHER"
+                       style="-fx-font-size: 13px; -fx-text-fill: #A8BDD1;" />
+                <Button fx:id="overviewButton" layoutX="39.0" layoutY="163.0" prefWidth="230.0" prefHeight="62.0"
+                        text="Overview" alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent; -fx-text-fill: #EDF5FC; -fx-font-size: 21px; -fx-padding: 0 0 0 63; -fx-cursor: hand;" />
+                <SVGPath layoutX="59.0" layoutY="179.0" mouseTransparent="true"
+                         content="M 2 13 L 16 2 L 30 13 L 30 29 L 20 29 L 20 19 L 12 19 L 12 29 L 2 29 Z"
+                         fill="TRANSPARENT" stroke="#ECF5FF" strokeWidth="2.1" />
+
+                <Button fx:id="reliefRequestsButton" layoutX="39.0" layoutY="248.0" prefWidth="230.0" prefHeight="62.0"
+                        text="Relief Requests" alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent; -fx-text-fill: #EDF5FC; -fx-font-size: 20px; -fx-padding: 0 0 0 63; -fx-cursor: hand;" />
+                <Rectangle layoutX="60.0" layoutY="264.0" width="25.0" height="32.0" arcWidth="4" arcHeight="4"
+                           fill="TRANSPARENT" stroke="#ECF5FF" strokeWidth="2.1" mouseTransparent="true" />
+                <Rectangle layoutX="66.0" layoutY="261.0" width="13.0" height="7.0" arcHeight="3" arcWidth="3"
+                           fill="#102E4A" stroke="#ECF5FF" strokeWidth="2.0" mouseTransparent="true" />
+                <Line startX="65.0" startY="275.0" endX="79.0" endY="275.0" stroke="#ECF5FF" strokeWidth="1.5" mouseTransparent="true" />
+                <Line startX="65.0" startY="282.0" endX="79.0" endY="282.0" stroke="#ECF5FF" strokeWidth="1.5" mouseTransparent="true" />
+                                <Rectangle layoutX="37.0" layoutY="333.0" width="236.0" height="62.0"
+                           arcWidth="12.0" arcHeight="12.0" fill="#214967" />
+                <Button fx:id="findShelterButton" layoutX="39.0" layoutY="333.0" prefWidth="230.0" prefHeight="62.0"
+                        text="Find Shelter" alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent; -fx-text-fill: #FFFFFF; -fx-font-size: 21px; -fx-padding: 0 0 0 63; -fx-cursor: hand;" />
+                <SVGPath layoutX="60.0" layoutY="343.0" mouseTransparent="true"
+                         content="M 16 1 C 7 1 1 8 1 16 C 1 26 16 36 16 36 C 16 36 31 26 31 16 C 31 8 25 1 16 1 Z"
+                         fill="TRANSPARENT" stroke="#EDF6FF" strokeWidth="2.2" />
+                <Circle centerX="76.0" centerY="359.0" radius="6.0" fill="TRANSPARENT" stroke="#EDF6FF" strokeWidth="2.0" mouseTransparent="true" />
+                <SVGPath layoutX="62.0" layoutY="382.0" mouseTransparent="true"
+                         content="M 0 0 Q 14 10 28 0" fill="TRANSPARENT" stroke="#EDF6FF" strokeWidth="2.0" />
+
+                <Button fx:id="stormUpdatesButton" layoutX="39.0" layoutY="418.0" prefWidth="230.0" prefHeight="62.0"
+                        text="Storm Updates" alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent; -fx-text-fill: #EDF5FC; -fx-font-size: 20px; -fx-padding: 0 0 0 63; -fx-cursor: hand;" />
+                <SVGPath layoutX="57.0" layoutY="433.0" mouseTransparent="true"
+                         content="M 6 24 C 2 24 0 21 0 17 C 0 13 3 10 7 10 C 8 3 14 1 20 3 C 24 4 27 7 28 12 C 34 12 38 16 38 21 C 38 24 35 27 31 27 L 7 27"
+                         fill="TRANSPARENT" stroke="#ECF5FF" strokeWidth="2.0" />
+                <Line startX="67.0" startY="467.0" endX="67.0" endY="475.0" stroke="#ECF5FF" strokeWidth="2.0" mouseTransparent="true" />
+                <Line startX="77.0" startY="467.0" endX="77.0" endY="475.0" stroke="#ECF5FF" strokeWidth="2.0" mouseTransparent="true" />
+                <Line startX="87.0" startY="467.0" endX="87.0" endY="475.0" stroke="#ECF5FF" strokeWidth="2.0" mouseTransparent="true" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="300.0" prefHeight="115.0"
+                    style="-fx-background-color: #FFFFFF; -fx-border-color: transparent transparent #E6EBF1 transparent; -fx-border-width: 0 0 1 0;"
+                    AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <SVGPath layoutX="46.0" layoutY="45.0" fill="TRANSPARENT" stroke="#8496AD" strokeWidth="2.1"
+                         content="M 10 0 C 4 0 0 4 0 10 C 0 17 10 25 10 25 C 10 25 20 17 20 10 C 20 4 16 0 10 0 Z" />
+                <Circle centerX="56.0" centerY="55.0" radius="3.2" fill="TRANSPARENT" stroke="#8496AD" strokeWidth="1.8" />
+                <Button fx:id="locationButton" layoutX="67.0" layoutY="32.0" prefHeight="48.0"
+                        text="Charleston, South Carolina  ⌄" alignment="CENTER_LEFT"
+                        style="-fx-background-color: transparent; -fx-text-fill: #74849B; -fx-font-size: 15px; -fx-padding: 0 10 0 0; -fx-cursor: hand;" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="300.0" layoutY="115.0" prefHeight="965.0"
+                    style="-fx-background-color: #F4F6FA;"
+                    AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="115.0" AnchorPane.bottomAnchor="0.0">
+            <children>
+                <Label layoutX="175.0" layoutY="91.0" text="NEARBY SHELTERS"
+                       style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #15969C;" />
+                <Label layoutX="175.0" layoutY="119.0" text="Find a safe place to stay."
+                       style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #1B3450;" />
+                <Pane layoutX="175.0" layoutY="168.0" prefWidth="1270.0" prefHeight="195.0">
+                    <clip>
+                        <Rectangle x="0.0" y="0.0" width="1270.0" height="195.0" arcWidth="18.0" arcHeight="18.0" />
+                    </clip>
+                    <children>
+                        <Rectangle width="1270.0" height="195.0" fill="#102E47" />
+                        <SVGPath content="M 680 110 C 760 20 810 25 900 92 C 969 151 1014 125 1095 29 C 1160 -45 1218 -2 1270 52 L 1270 195 L 680 195 Z"
+                                 fill="#1B4665" />
+                        <SVGPath content="M 686 181 C 760 115 832 114 910 150 C 995 190 1039 145 1122 112 C 1191 78 1235 105 1270 124 L 1270 195 L 686 195 Z"
+                                 fill="#078C8E" />
+                        <Circle centerX="1158.0" centerY="-7.0" radius="28.0" fill="#F5E7C9" />
+                        <SVGPath content="M 785 21 Q 797 9 809 21 Q 820 9 832 21" fill="TRANSPARENT"
+                                 stroke="#E6E6DD" strokeWidth="2.2" />
+                        <Rectangle x="986.0" y="165.0" width="72.0" height="9.0" fill="#092B44" />
+                        <SVGPath content="M 1005 31 L 1036 31 L 1055 166 L 986 166 Z" fill="#E9F0F5" />
+                        <SVGPath content="M 1000 75 L 1043 94 L 1049 121 L 996 99 Z" fill="#1765DB" />
+                        <Rectangle x="1001.0" y="24.0" width="40.0" height="8.0" fill="#123A59" />
+                        <Rectangle x="1008.0" y="5.0" width="27.0" height="19.0" fill="#F4E7CC" />
+                        <Rectangle x="1017.0" y="140.0" width="12.0" height="26.0" fill="#0F3652" />
+                        <Rectangle x="1095.0" y="125.0" width="25.0" height="28.0" fill="#E8F4F7" />
+                        <SVGPath content="M 1089 127 L 1107 107 L 1127 126 L 1121 131 L 1107 117 L 1095 131 Z" fill="#0B324D" />
+                        <SVGPath content="M 1040 187 Q 1112 170 1195 187" fill="TRANSPARENT" stroke="#70BEB6" strokeWidth="2.2" />
+                        <Label layoutX="29.0" layoutY="28.0" text="ROOM FOR YOUR NEXT STEP"
+                               style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #BDD0DD;" />
+                        <Label layoutX="29.0" layoutY="56.0" text="A place to feel supported."
+                               style="-fx-font-size: 29px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" />
+                        <Label layoutX="29.0" layoutY="102.0" prefWidth="380.0" wrapText="true"
+                               text="Look for shelter accessibility, pet support, and room for your household."
+                               style="-fx-font-size: 14px; -fx-text-fill: #D7E5EF;" />
+                    </children>
+                </Pane>
+
+                <Pane layoutX="175.0" layoutY="389.0" prefHeight="414.0" prefWidth="1270.0">
+                    <children>
+                        <Rectangle width="1270.0" height="414.0" arcWidth="19.0" arcHeight="19.0" fill="#FFFFFF" />
+                        <Label layoutX="22.0" layoutY="25.0" text="Shelters near Charleston"
+                               style="-fx-font-weight: bold; -fx-font-size: 19px; -fx-text-fill: #1A3450;" />
+                        <Rectangle layoutX="1152.0" layoutY="24.0" width="95.0" height="22.0"
+                                   arcHeight="16.0" arcWidth="16.0" fill="#E7F0FF" />
+                        <Label layoutX="1161.0" layoutY="28.0" text="Sample locations"
+                               style="-fx-font-size: 10px; -fx-text-fill: #286FE6;" />
+
+                        
+                        <Label layoutX="22.0" layoutY="82.0" text="Charleston Community Center"
+                               style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #1B344E;" />
+                        <Label layoutX="22.0" layoutY="106.0" text="West Ashley · 1.8 miles away"
+                               style="-fx-font-size: 11px; -fx-text-fill: #7388A0;" />
+                        <Rectangle layoutX="1207.0" layoutY="81.0" width="40.0" height="22.0" arcWidth="16.0" arcHeight="16.0" fill="#DFF5F3" />
+                        <Label layoutX="1215.0" layoutY="86.0" text="Open" style="-fx-text-fill: #008A83; -fx-font-size: 11px;" />
+                        <Rectangle layoutX="22.0" layoutY="129.0" width="1225.0" height="6.0" arcWidth="4.0" arcHeight="4.0" fill="#EEF2F5" />
+                        <Rectangle layoutX="22.0" layoutY="129.0" width="698.0" height="6.0" arcWidth="4.0" arcHeight="4.0" fill="#058C88" />
+                        <Label layoutX="22.0" layoutY="144.0" text="43 spaces available"
+                               style="-fx-font-size: 11px; -fx-text-fill: #668099;" />
+                        <Label layoutX="1213.0" layoutY="144.0" text="57 / 100"
+                               style="-fx-font-size: 11px; -fx-text-fill: #7388A0;" />
+                        <Rectangle layoutX="22.0" layoutY="163.0" width="83.0" height="22.0" arcWidth="4.0" arcHeight="4.0" fill="#EFF3F9" />
+                        <Label layoutX="27.0" layoutY="168.0" text="Pet friendly"
+                               style="-fx-font-size: 11px; -fx-text-fill: #7C8DA3;" />
+                        <Rectangle layoutX="113.0" layoutY="163.0" width="96.0" height="22.0" arcWidth="4.0" arcHeight="4.0" fill="#EFF3F9" />
+                        <Label layoutX="120.0" layoutY="168.0" text="Medical support"
+                               style="-fx-font-size: 11px; -fx-text-fill: #7C8DA3;" />
+                        <Line startX="22.0" startY="193.0" endX="1248.0" endY="193.0" stroke="#D8E2EC" />
+
+                        <Label layoutX="22.0" layoutY="210.0" text="James Island High School"
+                               style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #1B344E;" />
+                        <Label layoutX="22.0" layoutY="234.0" text="James Island · 3.2 miles away"
+                               style="-fx-font-size: 11px; -fx-text-fill: #7388A0;" />
+                        <Rectangle layoutX="1207.0" layoutY="209.0" width="40.0" height="22.0" arcWidth="16.0" arcHeight="16.0" fill="#DFF5F3" />
+                        <Label layoutX="1215.0" layoutY="214.0" text="Open" style="-fx-text-fill: #008A83; -fx-font-size: 11px;" />
+                        <Rectangle layoutX="22.0" layoutY="257.0" width="1225.0" height="6.0" arcWidth="4.0" arcHeight="4.0" fill="#EEF2F5" />
+                        <Rectangle layoutX="22.0" layoutY="257.0" width="441.0" height="6.0" arcWidth="4.0" arcHeight="4.0" fill="#058C88" />
+                        <Label layoutX="22.0" layoutY="272.0" text="96 spaces available"
+                               style="-fx-font-size: 11px; -fx-text-fill: #668099;" />
+                        <Label layoutX="1213.0" layoutY="272.0" text="54 / 150"
+                               style="-fx-font-size: 11px; -fx-text-fill: #7388A0;" />
+                        <Rectangle layoutX="22.0" layoutY="291.0" width="75.0" height="22.0" arcWidth="4.0" arcHeight="4.0" fill="#EFF3F9" />
+                        <Label layoutX="27.0" layoutY="296.0" text="Accessible"
+                               style="-fx-font-size: 11px; -fx-text-fill: #7C8DA3;" />
+                        <Rectangle layoutX="106.0" layoutY="291.0" width="99.0" height="22.0" arcWidth="4.0" arcHeight="4.0" fill="#EFF3F9" />
+                        <Label layoutX="113.0" layoutY="296.0" text="Family friendly"
+                               style="-fx-font-size: 11px; -fx-text-fill: #7C8DA3;" />
+                        <Line startX="22.0" startY="324.0" endX="1248.0" endY="324.0" stroke="#D8E2EC" />
+                        <Rectangle layoutX="21.0" layoutY="340.0" width="1227.0" height="50.0"
+                                   arcWidth="10.0" arcHeight="10.0" fill="#E6F0FE" />
+                        <SVGPath layoutX="42.0" layoutY="354.0"
+                                 content="M 8 0 C 3 0 0 4 0 8 C 0 14 8 21 8 21 C 8 21 16 14 16 8 C 16 4 13 0 8 0 Z"
+                                 fill="TRANSPARENT" stroke="#315D87" strokeWidth="1.7" />
+                        <Circle centerX="50.0" centerY="362.0" radius="2.4" fill="TRANSPARENT" stroke="#315D87" strokeWidth="1.4" />
+                        <Label layoutX="70.0" layoutY="356.0"
+                               text="Example names, distances, and capacity only. Confirm real availability with local authorities."
+                               style="-fx-font-size: 12px; -fx-text-fill: #32526F;" />
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
