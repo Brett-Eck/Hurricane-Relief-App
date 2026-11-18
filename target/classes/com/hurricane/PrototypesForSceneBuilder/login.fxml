@@ -19,11 +19,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.shape.SVGPath?>
 
-<!-- Self-contained Login UI prototype for Harbor Relief. No external CSS or images required.
-     Controller and navigation actions can be wired up after the prototype is approved. -->
+
 <GridPane xmlns="http://javafx.com/javafx/21"
-          xmlns:fx="http://javafx.com/fxml/1"
-          prefHeight="1080.0" prefWidth="1920.0"
+    xmlns:fx="http://javafx.com/fxml/1"
+    prefHeight="1080.0" prefWidth="1920.0"
           minHeight="750.0" minWidth="1200.0"
           style="-fx-font-family: Arial;">
     <columnConstraints>
@@ -34,41 +33,30 @@
         <RowConstraints vgrow="ALWAYS" percentHeight="100.0" />
     </rowConstraints>
     <children>
-        <!-- LEFT: brand, message, and lighthouse illustration -->
         <AnchorPane style="-fx-background-color: #112E49;" GridPane.columnIndex="0" GridPane.rowIndex="0">
             <children>
-                <!-- Illustration: editable Scene Builder vector shapes -->
                 <Pane prefHeight="420.0" prefWidth="960.0"
                       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                       AnchorPane.rightAnchor="0.0" styleClass="illustration-panel">
                     <children>
-                        <!-- moon and rolling coastal hills -->
                         <Circle centerX="838.0" centerY="76.0" radius="53.0" fill="#F5E7CB" />
                         <SVGPath content="M 0 200 C 105 130 170 143 272 228 C 376 310 453 280 555 178 C 675 50 770 38 960 125 L 960 420 L 0 420 Z"
                                  fill="#1D4B70" />
                         <SVGPath content="M 0 325 C 130 250 198 270 310 328 C 432 392 510 328 620 260 C 746 190 830 240 960 302 L 960 420 L 0 420 Z"
                                  fill="#078B90" />
-
-                        <!-- birds in the sky -->
                         <SVGPath content="M 110 154 Q 128 137 146 154 Q 166 137 184 155" fill="TRANSPARENT" stroke="#F5E2BA" strokeWidth="3.0" />
                         <SVGPath content="M 272 110 Q 286 99 300 111 Q 316 99 330 112" fill="TRANSPARENT" stroke="#F5E2BA" strokeWidth="2.8" />
-
-                        <!-- lighthouse: shadow, tower, lamp and striped paint -->
                         <SVGPath content="M 476 391 L 619 391 L 619 405 L 473 405 Z" fill="#092943" />
                         <SVGPath content="M 520 142 L 571 142 L 605 392 L 485 392 Z" fill="#E5EDF5" />
                         <SVGPath content="M 515 214 L 581 241 L 589 298 L 506 263 Z" fill="#1763D1" />
                         <Rectangle x="514.0" y="128.0" width="63.0" height="13.0" fill="#123C5D" />
                         <Rectangle x="521.0" y="98.0" width="49.0" height="29.0" fill="#F4E4C6" />
                         <Rectangle x="532.0" y="350.0" width="22.0" height="42.0" fill="#0E3352" />
-
-                        <!-- little coastal home -->
                         <SVGPath content="M 733 314 L 762 285 L 790 312 L 784 321 L 762 302 L 743 321 Z" fill="#092F4A" />
                         <Rectangle x="743.0" y="313.0" width="41.0" height="43.0" fill="#EBF5F4" />
                         <SVGPath content="M 595 417 Q 726 372 858 417" fill="TRANSPARENT" stroke="#86C0B8" strokeWidth="4.0" />
                     </children>
                 </Pane>
-
-                <!-- logo placeholder; replace when the team's final logo is ready -->
                 <AnchorPane layoutX="45.0" layoutY="58.0" prefHeight="76.0" prefWidth="440.0">
                     <children>
                         <Rectangle arcHeight="13.0" arcWidth="13.0" height="70.0" width="70.0" fill="#1558BD" />
@@ -90,8 +78,6 @@
                 </VBox>
             </children>
         </AnchorPane>
-
-        <!-- RIGHT: login form -->
         <AnchorPane style="-fx-background-color: #F2F5F9;" GridPane.columnIndex="1" GridPane.rowIndex="0">
             <children>
                 <Hyperlink fx:id="backHomeLink" layoutX="22.0" layoutY="48.0"
