@@ -6,7 +6,9 @@
       "name": "App",
       "request": "launch",
       "mainClass": "com.hurricane/com.hurricane.App",
-      "projectName": "hellofx"
+      "projectName": "hellofx",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",

@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
+import com.controllers.MapController;
+import com.location.Address;
+
 /**
  * JavaFX App
  */
@@ -17,17 +20,62 @@ public class App extends Application {
     private static Scene scene;
 
     /**
-     * Starts the application and displays the primary screen.
+     * Starts the map screen and requests the demo driving route.
      *
      * @param stage the main application window
      * @throws IOException if the FXML file cannot be loaded
      */
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("home"), 640, 480);
+        FXMLLoader loader = createLoader("map_view");
+        Parent root = loader.load();
+        MapController controller = loader.getController();
+        scene = new Scene(root, 900, 650);
         stage.setTitle("Hurricane Relief");
         stage.setScene(scene);
         stage.show();
+
+        Address userAddress = new Address(
+                "1 Vendue Range",
+                "Charleston",
+                "SC",
+                "29401"
+        );
+
+        Address[] addresses = {
+                new Address(
+                        "1 Vendue Range",
+                        "Charleston",
+                        "SC",
+                        "29401"
+                ),
+
+                new Address(
+                        "2950 Carner Avenue",
+                        "North Charleston",
+                        "SC",
+                        "29405"
+                ),
+
+                new Address(
+                        "3841 Leeds Avenue",
+                        "North Charleston",
+                        "SC",
+                        "29405"
+                ),
+
+                new Address(
+                        "3625 Ashley Phosphate Road",
+                        "North Charleston",
+                        "SC",
+                        "29418"
+                )
+        };
+
+        //controller.showAddressOnMap(userAddress);
+        //controller.showAddressesOnMap(addresses);
+
+        controller.showRouteOnMap(userAddress, addresses[1]);
     }
 
     /**
@@ -48,12 +96,15 @@ public class App extends Application {
      * @throws IOException if the file cannot be loaded
      */
     private static Parent loadFXML(String fxml) throws IOException {
+        return createLoader(fxml).load();
+    }
+
+    private static FXMLLoader createLoader(String fxml) throws IOException {
         URL resource = App.class.getResource("/com/hurricane/" + fxml + ".fxml");
         if (resource == null) {
             throw new IOException("FXML resource not found: " + fxml + ".fxml");
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(resource);
-        return fxmlLoader.load();
+        return new FXMLLoader(resource);
     }
 
     /**

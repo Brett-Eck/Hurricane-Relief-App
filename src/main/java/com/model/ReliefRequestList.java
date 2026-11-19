@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.io.IOException;
 
 /**
  * Manages relief requests in the system, including searching,
@@ -46,6 +47,16 @@ public class ReliefRequestList {
      */
     public ArrayList<ReliefRequest> getReliefRequests() {
         return new ArrayList<>(reliefRequests);
+    }
+
+    /**
+     * Replaces the cached list with the saved JSON data. Failed reads leave the cache intact.
+     * Unsaved changes are replaced, so callers should save edits before reloading.
+     */
+    public ArrayList<ReliefRequest> reloadReliefRequests() throws IOException {
+        ArrayList<ReliefRequest> loaded = dataLoader.loadReliefRequests();
+        reliefRequests = loaded;
+        return getReliefRequests();
     }
 
     /**

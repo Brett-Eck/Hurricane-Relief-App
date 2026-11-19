@@ -5,6 +5,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import org.json.simple.parser.ParseException;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.time.LocalDate;
@@ -136,12 +140,27 @@ public ArrayList<User> getUsers() {
      * @return the list of loaded relief requests
      */
     public ArrayList<ReliefRequest> getReliefRequests() {
+        try {
+            return loadReliefRequests();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    /** Reads the runtime request file, reporting failures instead of returning a partial list. */
+    public ArrayList<ReliefRequest> loadReliefRequests() throws IOException {
+        return loadReliefRequests(getJsonFile("reliefRequests.json").toPath());
+    }
+
+    /** Reads a request file without changing it. Useful for alternate data sources and tests. */
+    public ArrayList<ReliefRequest> loadReliefRequests(Path file) throws IOException {
         ArrayList<ReliefRequest> reliefRequests = new ArrayList<>();
         
-        try {
-            FileReader reader = new FileReader(getJsonFile("reliefRequests.json"));
+        try (var reader = Files.newBufferedReader(file)) {
             JSONObject root = (JSONObject) new JSONParser().parse(reader);
             JSONArray requestsJSON = (JSONArray) root.get("reliefRequests");
+            if (requestsJSON == null) throw new IOException("Missing reliefRequests array");
 
             for(int i = 0; i < requestsJSON.size(); ++i) {
                 JSONObject requestJSON = (JSONObject)requestsJSON.get(i);
@@ -177,17 +196,21 @@ public ArrayList<User> getUsers() {
                 String description = (String)requestJSON.get("description");
                 String phoneNumber = (String)requestJSON.get("phoneNumber");
                 JSONObject locationJSON = (JSONObject)requestJSON.get("location");
-                String street = (String) locationJSON.getOrDefault("street", "");
-                String city = (String) locationJSON.getOrDefault("city", "");
-                String state = (String) locationJSON.getOrDefault("state", "");
-                int zipCode = ((Long)locationJSON.get("zipCode")).intValue();
+                Location location = null;
+                if (locationJSON != null) {
+                    String street = (String) locationJSON.getOrDefault("street", "");
+                    String city = (String) locationJSON.getOrDefault("city", "");
+                    String state = (String) locationJSON.getOrDefault("state", "");
+                    Number zip = (Number) locationJSON.get("zipCode");
+                    location = new Location(street, city, state, zip == null ? 0 : zip.intValue());
+                }
                 
 
-                reliefRequests.add(new ReliefRequest(username, victims, hazards, photo, assistanceTypes, status, description, phoneNumber, id, new Location(street, city, state, zipCode)));
+                reliefRequests.add(new ReliefRequest(username, victims, hazards, photo, assistanceTypes, status, description, phoneNumber, id, location));
             }
  
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ParseException | RuntimeException e) {
+            throw new IOException("Invalid relief request data in " + file, e);
         }
         return reliefRequests;
     }
