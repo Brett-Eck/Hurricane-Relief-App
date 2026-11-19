@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx/26"
+    xmlns:fx="http://javafx.com/fxml/1"
+    stylesheets="@../styles.css"
+    styleClass="app-page"
+    prefWidth="1144" prefHeight="644"
+    minWidth="1144" minHeight="644"
+    maxWidth="1144" maxHeight="644">
+    <children>
+        <Rectangle styleClass="bg-canvas" x="0" y="0" width="1144" height="644" />
+        <Rectangle styleClass="bg-brand" x="0" y="0" width="179" height="644" />
+        <Rectangle styleClass="bg-white" x="179" y="0" width="965" height="68" />
+        <Rectangle styleClass="bg-line" x="179" y="68" width="965" height="1" />
+        <Rectangle styleClass="bg-primary" x="16" y="24" width="30" height="30" arcWidth="10" arcHeight="10" />
+        <Label
+            styleClass="brand, inverse"
+            text="Harbor Relief"
+            layoutX="52" layoutY="30"
+            prefWidth="125" prefHeight="18" />
+        <Label
+            styleClass="caption, inverse"
+            text="HERE FOR EACH OTHER"
+            layoutX="52" layoutY="51"
+            prefWidth="125" />
+        <Rectangle
+            styleClass="bg-primary"
+            x="24" y="245"
+            width="113" height="31"
+            arcWidth="10" arcHeight="10" />
+        <Rectangle styleClass="bg-line" x="24" y="248" width="1.5" height="24" />
+        <Button
+            fx:id="navOverview"
+            styleClass="nav-button"
+            text="    Overview"
+            layoutX="25" layoutY="101"
+            prefWidth="112" prefHeight="31"
+            minWidth="112" minHeight="31"
+            maxWidth="112" maxHeight="31"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <SVGPath
+            styleClass="icon, stroke-light"
+            content="M3 11 L12 3 L21 11 L21 21 L14 21 L14 15 L10 15 L10 21 L3 21 Z"
+            layoutX="34" layoutY="106" />
+        <Button
+            fx:id="navReliefRequests"
+            styleClass="nav-button"
+            text="    Relief Requests"
+            layoutX="25" layoutY="149"
+            prefWidth="112" prefHeight="31"
+            minWidth="112" minHeight="31"
+            maxWidth="112" maxHeight="31"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <SVGPath
+            styleClass="icon, stroke-light"
+            content="M7 4 L4 4 L4 23 L20 23 L20 4 L17 4 M9 2 L15 2 L15 7 L9 7 Z M8 12 L16 12 M8 16 L15 16"
+            layoutX="34" layoutY="154" />
+        <Button
+            fx:id="navFindShelter"
+            styleClass="nav-button"
+            text="    Find Shelter"
+            layoutX="25" layoutY="197"
+            prefWidth="112" prefHeight="31"
+            minWidth="112" minHeight="31"
+            maxWidth="112" maxHeight="31"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <SVGPath
+            styleClass="icon, stroke-light"
+            content="M12 22 C17 17 21 12 21 8 A9 9 0 1 0 3 8 C3 12 7 17 12 22 Z M12 4 A4 4 0 1 1 12 12 A4 4 0 1 1 12 4 Z"
+            layoutX="34" layoutY="202" />
+        <Button
+            fx:id="navStormUpdates"
+            styleClass="nav-button"
+            text="    Storm Updates"
+            layoutX="25.0" layoutY="257.0"
+            prefWidth="112" prefHeight="31"
+            minWidth="112" minHeight="31"
+            maxWidth="112" maxHeight="31"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <SVGPath
+            styleClass="icon, stroke-light"
+            content="M6 18 C2 18 1 15 2 12 C3 9 5 8 8 8 C8 3 13 2 16 5 C19 4 22 7 22 10 C26 13 23 18 20 18 Z M8 21 L8 24 M14 21 L14 24 M20 21 L20 24"
+            layoutX="34" layoutY="250" />
+        <SVGPath
+            styleClass="icon, stroke-muted"
+            content="M8 1 C4 1 1 4 1 8 C1 13 8 19 8 19 C8 19 15 13 15 8 C15 4 12 1 8 1 Z M8 5 A3 3 0 1 1 8 11 A3 3 0 1 1 8 5 Z"
+            layoutX="216" layoutY="29" />
+        <Button
+            fx:id="locationSelector"
+            styleClass="link-button"
+            text="Charleston, South Carolina  ⌄"
+            layoutX="238.0" layoutY="25.0"
+            prefWidth="170" prefHeight="28"
+            minWidth="170" minHeight="28"
+            maxWidth="170" maxHeight="28"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Label
+            fx:id="stormSectionLabel"
+            styleClass="eyebrow, text-teal"
+            text="STORM UPDATES"
+            layoutX="272" layoutY="109"
+            prefWidth="270" prefHeight="13" />
+        <Label
+            fx:id="stormPageTitle"
+            styleClass="page-title"
+            text="Stay aware. Stay prepared."
+            layoutX="272" layoutY="129"
+            prefWidth="470" prefHeight="28" />
+        <Rectangle
+            fx:id="stormHeroBanner"
+            styleClass="bg-brand"
+            x="272" y="163"
+            width="758" height="118"
+            arcWidth="20" arcHeight="20" />
+        <Pane
+            layoutX="681" layoutY="163"
+            prefWidth="349" prefHeight="118"
+            minWidth="349" minHeight="118"
+            maxWidth="349" maxHeight="118">
+            <clip>
+                <SVGPath content="M0 0 L339 0 Q349 0 349 10 L349 107 Q349 117 339 117 L0 117 Z" />
+            </clip>
+            <children>
+                <SVGPath
+                    styleClass="bg-brand"
+                    content="M0 62 C32 27 50 23 76 36 C100 48 121 68 144 54 C172 40 176 10 208 5 C240 -2 290 5 349 4 L349 117 L0 117 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-teal"
+                    content="M0 108 C28 84 51 75 76 80 C106 84 130 105 157 97 C191 85 203 58 238 57 C277 55 320 79 349 94 L349 117 L0 117 Z"
+                    layoutX="0" layoutY="0" />
+                <Circle styleClass="bg-sand" centerX="281" centerY="-3" radius="19" />
+                <SVGPath
+                    styleClass="icon, stroke-light"
+                    content="M55 14 Q62 6 69 14 Q75 7 82 13"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-line"
+                    content="M185 94 L194 11 L207 11 L219 94 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-primary"
+                    content="M193 42 L213 48 L216 65 L190 55 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-sand"
+                    content="M194 11 L207 11 L208 4 L193 4 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-warning"
+                    content="M193 0 L207 0 L207 3 L193 3 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-brand"
+                    content="M183 94 L219 94 L219 98 L183 98 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-brand"
+                    content="M197 79 L205 79 L205 95 L197 95 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-brand"
+                    content="M240 71 L253 60 L266 71 L263 73 L253 65 L243 73 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-success"
+                    content="M245 72 L253 65 L262 72 L262 83 L245 83 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="icon, stroke-light"
+                    content="M286 108 Q320 99 346 108"
+                    layoutX="0" layoutY="0" />
+            </children>
+        </Pane>
+        <Label
+            styleClass="eyebrow, inverse"
+            text="PREPAREDNESS STARTS WITH INFORMATION"
+            layoutX="290" layoutY="180"
+            prefWidth="345" prefHeight="13" />
+        <Label
+            fx:id="stormHeroHeading"
+            styleClass="hero-title, inverse"
+            text="A clearer view of what’s ahead."
+            layoutX="290" layoutY="199"
+            prefWidth="395" prefHeight="26" />
+        <Label
+            styleClass="caption, inverse"
+            text="Use official weather and local emergency resources for current"
+            layoutX="290" layoutY="225"
+            prefWidth="400" prefHeight="13" />
+        <Label
+            styleClass="caption, inverse"
+            text="conditions."
+            layoutX="290" layoutY="238"
+            prefWidth="320" prefHeight="12" />
+        <Rectangle
+            fx:id="officialInformationCard"
+            styleClass="bg-white, card"
+            x="272" y="294"
+            width="758" height="103"
+            arcWidth="22" arcHeight="22" />
+        <Label
+            fx:id="officialInfoTitle"
+            styleClass="heading"
+            text="Official information"
+            layoutX="285" layoutY="309"
+            prefWidth="245" prefHeight="18" />
+        <Label
+            styleClass="caption, muted"
+            text="Live weather information to be used at your discretion"
+            layoutX="285" layoutY="334"
+            prefWidth="485" prefHeight="17" />
+        <Button
+            fx:id="nationalHurricaneCenterButton"
+            styleClass="inverse"
+            text="National Hurricane Center"
+            layoutX="285" layoutY="360"
+            prefWidth="112" prefHeight="25"
+            minWidth="112" minHeight="25"
+            maxWidth="112" maxHeight="25"
+            alignment="CENTER"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Button
+            fx:id="nationalWeatherServiceButton"
+            styleClass="secondary-button"
+            text="National Weather Service"
+            layoutX="402" layoutY="360"
+            prefWidth="111" prefHeight="25"
+            minWidth="111" minHeight="25"
+            maxWidth="111" maxHeight="25"
+            alignment="CENTER"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Button
+            fx:id="scEmergencyManagementButton"
+            styleClass="secondary-button"
+            text="SC Emergency Management"
+            layoutX="518" layoutY="360"
+            prefWidth="121" prefHeight="25"
+            minWidth="121" minHeight="25"
+            maxWidth="121" maxHeight="25"
+            alignment="CENTER"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+    </children>
+</AnchorPane>

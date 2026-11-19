@@ -4,13 +4,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.GridPane;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-
-import com.controllers.MapController;
-import com.location.Address;
 
 /**
  * JavaFX App
@@ -18,64 +19,37 @@ import com.location.Address;
 public class App extends Application {
 
     private static Scene scene;
+    private static ScrollPane viewport;
 
     /**
-     * Starts the map screen and requests the demo driving route.
+     * Starts the application with a view sized to the available screen space.
      *
      * @param stage the main application window
      * @throws IOException if the FXML file cannot be loaded
      */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = createLoader("map_view");
-        Parent root = loader.load();
-        MapController controller = loader.getController();
-        scene = new Scene(root, 900, 650);
+        Parent view = loadFXML("storm-updates");
+        viewport = new ScrollPane();
+        viewport.setFitToWidth(true);
+        viewport.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        viewport.getStyleClass().add("app-page");
+        installView(view);
+
+        Rectangle2D available = Screen.getPrimary().getVisualBounds();
+        double width = Math.min(view.prefWidth(-1), available.getWidth());
+        double height = Math.min(view.prefHeight(width), available.getHeight());
+        scene = new Scene(viewport, width, height);
+        scene.getStylesheets().add(App.class.getResource("styles.css").toExternalForm());
         stage.setTitle("Hurricane Relief");
+        stage.setMinWidth(Math.min(960, width));
+        stage.setMinHeight(Math.min(640, height));
         stage.setScene(scene);
         stage.show();
-
-        Address userAddress = new Address(
-                "1 Vendue Range",
-                "Charleston",
-                "SC",
-                "29401"
-        );
-
-        Address[] addresses = {
-                new Address(
-                        "1 Vendue Range",
-                        "Charleston",
-                        "SC",
-                        "29401"
-                ),
-
-                new Address(
-                        "2950 Carner Avenue",
-                        "North Charleston",
-                        "SC",
-                        "29405"
-                ),
-
-                new Address(
-                        "3841 Leeds Avenue",
-                        "North Charleston",
-                        "SC",
-                        "29405"
-                ),
-
-                new Address(
-                        "3625 Ashley Phosphate Road",
-                        "North Charleston",
-                        "SC",
-                        "29418"
-                )
-        };
-
-        //controller.showAddressOnMap(userAddress);
-        //controller.showAddressesOnMap(addresses);
-
-        controller.showRouteOnMap(userAddress, addresses[1]);
+        // Stage dimensions include the title bar; Scene dimensions do not.
+        stage.setWidth(Math.min(stage.getWidth(), available.getWidth()));
+        stage.setHeight(Math.min(stage.getHeight(), available.getHeight()));
+        stage.centerOnScreen();
     }
 
     /**
@@ -85,7 +59,20 @@ public class App extends Application {
      * @throws IOException if the file cannot be loaded
      */
     public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+        installView(loadFXML(fxml));
+        viewport.setVvalue(0);
+    }
+
+    private static void installView(Parent view) {
+        if (view instanceof GridPane grid) {
+            // Responsive columns can resize without shrinking their text or controls.
+            grid.setMinSize(0, 0);
+            viewport.setFitToHeight(true);
+            viewport.setContent(grid);
+        } else {
+            viewport.setFitToHeight(false);
+            viewport.setContent(new ScaledView(view));
+        }
     }
 
     /**
@@ -100,7 +87,7 @@ public class App extends Application {
     }
 
     private static FXMLLoader createLoader(String fxml) throws IOException {
-        URL resource = App.class.getResource("/com/hurricane/" + fxml + ".fxml");
+        URL resource = App.class.getResource("/com/hurricane/FXMLFiles/" + fxml + ".fxml");
         if (resource == null) {
             throw new IOException("FXML resource not found: " + fxml + ".fxml");
         }

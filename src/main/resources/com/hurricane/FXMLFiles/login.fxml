@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<GridPane
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1"
+    stylesheets="@../styles.css"
+    styleClass="app-page, large-ui"
+    prefWidth="1920.0" prefHeight="1080.0"
+    minWidth="1200.0" minHeight="750.0">
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="50.0" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="50.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints percentHeight="100.0" vgrow="ALWAYS" />
+    </rowConstraints>
+    <children>
+        <AnchorPane styleClass="bg-brand" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <children>
+                <Pane
+                    prefWidth="960.0" prefHeight="420.0"
+                    AnchorPane.bottomAnchor="0.0"
+                    AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0">
+                    <children>
+                        <Circle styleClass="bg-sand" centerX="838.0" centerY="76.0" radius="53.0" />
+                        <SVGPath
+                            styleClass="bg-brand"
+                            content="M 0 200 C 105 130 170 143 272 228 C 376 310 453 280 555 178 C 675 50 770 38 960 125 L 960 420 L 0 420 Z" />
+                        <SVGPath
+                            styleClass="bg-teal"
+                            content="M 0 325 C 130 250 198 270 310 328 C 432 392 510 328 620 260 C 746 190 830 240 960 302 L 960 420 L 0 420 Z" />
+                        <SVGPath
+                            styleClass="icon, stroke-light"
+                            content="M 110 154 Q 128 137 146 154 Q 166 137 184 155" />
+                        <SVGPath
+                            styleClass="icon, stroke-light"
+                            content="M 272 110 Q 286 99 300 111 Q 316 99 330 112" />
+                        <SVGPath styleClass="bg-brand" content="M 476 391 L 619 391 L 619 405 L 473 405 Z" />
+                        <SVGPath styleClass="bg-success" content="M 520 142 L 571 142 L 605 392 L 485 392 Z" />
+                        <SVGPath styleClass="bg-primary" content="M 515 214 L 581 241 L 589 298 L 506 263 Z" />
+                        <Rectangle styleClass="bg-brand" x="514.0" y="128.0" width="63.0" height="13.0" />
+                        <Rectangle styleClass="bg-sand" x="521.0" y="98.0" width="49.0" height="29.0" />
+                        <Rectangle styleClass="bg-brand" x="532.0" y="350.0" width="22.0" height="42.0" />
+                        <SVGPath
+                            styleClass="bg-brand"
+                            content="M 733 314 L 762 285 L 790 312 L 784 321 L 762 302 L 743 321 Z" />
+                        <Rectangle styleClass="bg-canvas" x="743.0" y="313.0" width="41.0" height="43.0" />
+                        <SVGPath styleClass="icon, stroke-teal" content="M 595 417 Q 726 372 858 417" />
+                    </children>
+                </Pane>
+                <AnchorPane layoutX="45.0" layoutY="58.0" prefWidth="440.0" prefHeight="76.0">
+                    <children>
+                        <Rectangle
+                            styleClass="bg-primary"
+                            width="70.0" height="70.0"
+                            arcWidth="13.0" arcHeight="13.0" />
+                        <SVGPath
+                            styleClass="bg-primary"
+                            content="M 9 29 L 35 8 L 60 29 L 53 34 L 53 57 L 39 57 L 39 42 L 30 42 L 30 57 L 17 57 L 17 34 Z" />
+                        <Label styleClass="brand, inverse" text="Harbor Relief" layoutX="91.0" layoutY="2.0" />
+                        <Label
+                            styleClass="caption, inverse"
+                            text="HERE FOR EACH OTHER"
+                            layoutX="91.0" layoutY="48.0" />
+                    </children>
+                </AnchorPane>
+                <VBox
+                    layoutY="260.0"
+                    AnchorPane.leftAnchor="32.0"
+                    AnchorPane.rightAnchor="32.0"
+                    spacing="20.0">
+                    <children>
+                        <Label styleClass="eyebrow, inverse" text="A SAFE HARBOR. A HELPING HAND" />
+                        <Label
+                            styleClass="hero-title, inverse"
+                            text="Weathering the&#10;storm.&#10;Rebuilding together."
+                            maxWidth="650.0"
+                            wrapText="true" />
+                        <Label
+                            styleClass="inverse"
+                            text="A place to find support, offer a helping hand, and&#10;to help your community as a whole."
+                            maxWidth="580.0"
+                            wrapText="true" />
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <StackPane styleClass="bg-canvas" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <children>
+                <Hyperlink fx:id="backHomeLink" text="← Back to Home" StackPane.alignment="TOP_LEFT">
+                    <StackPane.margin>
+                        <Insets top="24" left="22"/>
+                    </StackPane.margin>
+                </Hyperlink>
+                <VBox prefWidth="360" maxWidth="360" maxHeight="-Infinity" spacing="8" alignment="CENTER_LEFT">
+                    <children>
+                        <Label styleClass="eyebrow, text-teal" text="YOUR COMMUNITY IS HERE" />
+                        <Label styleClass="page-title" text="Welcome Back.">
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label styleClass="muted" text="Log in to find help and follow your requests.">
+                            <VBox.margin>
+                                <Insets bottom="34.0" top="9.0" />
+                            </VBox.margin>
+                        </Label>
+                        <VBox prefWidth="320.0" maxWidth="320.0" spacing="8.0">
+                            <children>
+                                <Label styleClass="field-label" text="Email address" />
+                                <TextField
+                                    fx:id="emailField"
+                                    styleClass="bg-white"
+                                    promptText="you@example.com"
+                                    prefHeight="48" />
+                            </children>
+                        </VBox>
+                        <VBox prefWidth="320.0" maxWidth="320.0" spacing="8.0">
+                            <VBox.margin>
+                                <Insets top="25.0" />
+                            </VBox.margin>
+                            <children>
+                                <Label styleClass="field-label" text="Password" />
+                                <PasswordField
+                                    fx:id="passwordField"
+                                    styleClass="bg-white"
+                                    promptText="Enter your password"
+                                    prefHeight="48" />
+                            </children>
+                        </VBox>
+                        <HBox prefWidth="320.0" maxWidth="320.0" alignment="CENTER_LEFT" spacing="52.0">
+                            <VBox.margin>
+                                <Insets bottom="28.0" top="28.0" />
+                            </VBox.margin>
+                            <children>
+                                <CheckBox fx:id="rememberMeCheckBox" text="Remember me" />
+                                <Hyperlink fx:id="forgotPasswordLink" text="Forgot password?" />
+                            </children>
+                        </HBox>
+                        <Button
+                            fx:id="loginButton"
+                            styleClass="inverse"
+                            text="Log in →"
+                            prefWidth="320.0" prefHeight="49.0"
+                            maxWidth="320.0" />
+                        <HBox prefWidth="320.0" maxWidth="320.0" alignment="CENTER" spacing="4.0">
+                            <VBox.margin>
+                                <Insets top="17.0" />
+                            </VBox.margin>
+                            <children>
+                                <Label styleClass="caption, muted" text="Don't have an account?" />
+                                <Hyperlink fx:id="signupLink" text="Sign up" />
+                            </children>
+                        </HBox>
+                        <Line styleClass="icon, stroke-light" startX="0.0" startY="0.0" endX="320.0" endY="0.0">
+                            <VBox.margin>
+                                <Insets top="26.0" />
+                            </VBox.margin>
+                        </Line>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</GridPane>

@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.ReliefRequestController" spacing="10">
-    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
-    <Label text="Relief requests" style="-fx-font-size: 22; -fx-font-weight: bold;"/>
+
+<VBox
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.controllers.ReliefRequestController"
+    stylesheets="@styles.css"
+    styleClass="app-page, page-padding"
+    spacing="10">
+    <Label styleClass="page-title" text="Relief requests" />
     <HBox spacing="12">
-        <Button text="Open provider map" onAction="#openProviderMap"/>
-        <Button fx:id="refreshButton" text="Refresh saved requests" onAction="#refresh"/>
+        <Button text="Open provider map" onAction="#openProviderMap" />
+        <Button fx:id="refreshButton" text="Refresh saved requests" onAction="#refresh" />
     </HBox>
-    <Label text="The map opens on the provider's website in your browser." wrapText="true"/>
+    <Label text="The map opens on the provider's website in your browser." wrapText="true" />
     <ListView fx:id="requestList" VBox.vgrow="ALWAYS">
-        <placeholder><Label text="No saved requests"/></placeholder>
+        <placeholder>
+            <Label text="No saved requests" />
+        </placeholder>
     </ListView>
-    <Button fx:id="copyDestinationButton" text="Copy destination for provider map" onAction="#copyDestination"/>
-    <Label text="Paste the destination into the provider map. The provider currently does not support prefilled route links." wrapText="true"/>
-    <Separator/>
-    <Label text="Live API instructions — starting address:"/>
-    <TextField fx:id="startingStreet" promptText="Street address" accessibleText="Starting street address"/>
+    <Button
+        fx:id="copyDestinationButton"
+        text="Copy destination for provider map"
+        onAction="#copyDestination" />
+    <Label
+        text="Paste the destination into the provider map. The provider currently does not support prefilled route links."
+        wrapText="true" />
+    <Separator />
+    <Label text="Live API instructions — starting address:" />
+    <TextField fx:id="startingStreet" promptText="Street address" accessibleText="Starting street address" />
     <HBox spacing="8">
-        <TextField fx:id="startingCity" promptText="City" accessibleText="Starting city" HBox.hgrow="ALWAYS"/>
-        <TextField fx:id="startingState" promptText="State" accessibleText="Starting state" prefWidth="80"/>
-        <TextField fx:id="startingZip" promptText="ZIP" accessibleText="Starting ZIP code" prefWidth="100"/>
+        <TextField fx:id="startingCity" promptText="City" accessibleText="Starting city" HBox.hgrow="ALWAYS" />
+        <TextField fx:id="startingState" promptText="State" accessibleText="Starting state" prefWidth="80" />
+        <TextField fx:id="startingZip" promptText="ZIP" accessibleText="Starting ZIP code" prefWidth="100" />
     </HBox>
-    <Button fx:id="directionsButton" text="Fetch API directions" onAction="#getDirections"/>
-    <TextArea fx:id="directions" editable="false" wrapText="true" prefRowCount="6"
-              accessibleText="Live API driving instructions" promptText="Instructions for the selected request appear here."/>
-    <Label fx:id="summary" wrapText="true"/>
+    <Button fx:id="directionsButton" text="Fetch API directions" onAction="#getDirections" />
+    <TextArea
+        fx:id="directions"
+        promptText="Instructions for the selected request appear here."
+        accessibleText="Live API driving instructions"
+        editable="false"
+        prefRowCount="6"
+        wrapText="true" />
+    <Label fx:id="summary" wrapText="true" />
 </VBox>

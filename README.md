@@ -28,6 +28,25 @@ Run the existing model tests with `./mvnw test`. On Windows, use `mvnw.cmd` inst
 - `json/`: runtime data; run from the repository root so reads and writes use this directory.
 - `target/`: generated Maven output, ignored by Git.
 
+### FXML and styling
+
+The screens in `src/main/resources/com/hurricane/FXMLFiles/` use the shared JavaFX stylesheet
+`src/main/resources/com/hurricane/styles.css`. Each FXML declares its stylesheet, so Scene Builder
+can show the same styles as the running app.
+
+Keep text, `fx:id`, event handlers, control structure, and layout coordinates in FXML. The shared
+stylesheet defines one palette and reusable roles: ordinary buttons are primary actions;
+`secondary-button`, `link-button`, and `nav-button` cover the other actions. Use `page-title`,
+`heading`, `caption`, and `muted` for text, and `card` or `bg-*` for surfaces and artwork.
+The larger Scene Builder layouts use `large-ui` to scale the same text styles. There are no
+screen-specific style variants. Change the palette at the top of CSS to update every page.
+`map.css` belongs to the WebView's HTML map and uses browser CSS.
+
+Login and signup use responsive grid columns at their normal font size; their forms center in
+the available space. Fixed Scene Builder canvases use `ScaledView` to fit the window width,
+with vertical scrolling for tall pages. Initial window bounds include the title bar and stay
+within the usable screen area. Navigation chooses the appropriate sizing for each view.
+
 In VS Code, reload the Maven project after pulling this directory change. If old source folders still appear, run **Java: Clean Java Language Server Workspace** from the Command Palette. Select **Hurricane Relief App** to launch the GUI. This uses `Launcher` to start JavaFX with the IDE's dependency classpath. The terminal alternative is `./mvnw javafx:run`.
 
 The optional, separate `LocationApp/` project is not part of the root Maven build.

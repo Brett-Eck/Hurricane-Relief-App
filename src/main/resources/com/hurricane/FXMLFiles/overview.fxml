@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx/26"
+    xmlns:fx="http://javafx.com/fxml/1"
+    stylesheets="@../styles.css"
+    styleClass="app-page"
+    prefWidth="1144" prefHeight="712"
+    minWidth="1144" minHeight="712"
+    maxWidth="1144" maxHeight="712">
+    <children>
+        <Rectangle styleClass="bg-canvas" x="0" y="0" width="1144" height="712" />
+        <Rectangle styleClass="bg-brand" x="0" y="0" width="179" height="712" />
+        <Rectangle styleClass="bg-white" x="179" y="0" width="965" height="68" />
+        <Rectangle styleClass="bg-line" x="179" y="68" width="965" height="1" />
+        <Rectangle styleClass="bg-primary" x="16" y="24" width="30" height="30" arcWidth="10" arcHeight="10" />
+        <Label
+            styleClass="brand, inverse"
+            text="Harbor Relief"
+            layoutX="52" layoutY="30"
+            prefWidth="125" prefHeight="18" />
+        <Label
+            styleClass="caption, inverse"
+            text="HERE FOR EACH OTHER"
+            layoutX="52" layoutY="51"
+            prefWidth="125" />
+        <Rectangle
+            styleClass="bg-primary"
+            x="24" y="101"
+            width="113" height="31"
+            arcWidth="10" arcHeight="10" />
+        <Rectangle styleClass="bg-line" x="24" y="104" width="1.5" height="24" />
+        <Button
+            fx:id="navOverview"
+            styleClass="nav-button"
+            text="    Overview"
+            layoutX="25" layoutY="101"
+            prefWidth="112" prefHeight="31"
+            minWidth="112" minHeight="31"
+            maxWidth="112" maxHeight="31"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <SVGPath
+            styleClass="icon, stroke-light"
+            content="M3 11 L12 3 L21 11 L21 21 L14 21 L14 15 L10 15 L10 21 L3 21 Z"
+            layoutX="34" layoutY="106" />
+        <Button
+            fx:id="navReliefRequests"
+            styleClass="nav-button"
+            text="    Relief Requests"
+            layoutX="25" layoutY="149"
+            prefWidth="112" prefHeight="31"
+            minWidth="112" minHeight="31"
+            maxWidth="112" maxHeight="31"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <SVGPath
+            styleClass="icon, stroke-light"
+            content="M7 4 L4 4 L4 23 L20 23 L20 4 L17 4 M9 2 L15 2 L15 7 L9 7 Z M8 12 L16 12 M8 16 L15 16"
+            layoutX="34" layoutY="154" />
+        <Button
+            fx:id="navFindShelter"
+            styleClass="nav-button"
+            text="    Find Shelter"
+            layoutX="25" layoutY="197"
+            prefWidth="112" prefHeight="31"
+            minWidth="112" minHeight="31"
+            maxWidth="112" maxHeight="31"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <SVGPath
+            styleClass="icon, stroke-light"
+            content="M12 22 C17 17 21 12 21 8 A9 9 0 1 0 3 8 C3 12 7 17 12 22 Z M12 4 A4 4 0 1 1 12 12 A4 4 0 1 1 12 4 Z"
+            layoutX="34" layoutY="202" />
+        <Button
+            fx:id="navStormUpdates"
+            styleClass="nav-button"
+            text="    Storm Updates"
+            layoutX="25" layoutY="245"
+            prefWidth="112" prefHeight="31"
+            minWidth="112" minHeight="31"
+            maxWidth="112" maxHeight="31"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <SVGPath
+            styleClass="icon, stroke-light"
+            content="M6 18 C2 18 1 15 2 12 C3 9 5 8 8 8 C8 3 13 2 16 5 C19 4 22 7 22 10 C26 13 23 18 20 18 Z M8 21 L8 24 M14 21 L14 24 M20 21 L20 24"
+            layoutX="34" layoutY="250" />
+        <SVGPath
+            styleClass="icon, stroke-muted"
+            content="M8 1 C4 1 1 4 1 8 C1 13 8 19 8 19 C8 19 15 13 15 8 C15 4 12 1 8 1 Z M8 5 A3 3 0 1 1 8 11 A3 3 0 1 1 8 5 Z"
+            layoutX="204.0" layoutY="30.0" />
+        <Button
+            fx:id="locationSelector"
+            styleClass="link-button"
+            text="Charleston, South Carolina  ⌄"
+            layoutX="224.0" layoutY="26.0"
+            prefWidth="170" prefHeight="28"
+            minWidth="170" minHeight="28"
+            maxWidth="170" maxHeight="28"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Label
+            fx:id="welcomeEyebrow"
+            styleClass="eyebrow, text-teal"
+            text="WELCOME BACK, “USER”"
+            layoutX="283" layoutY="97"
+            prefWidth="250" prefHeight="11" />
+        <Label
+            fx:id="overviewHeading"
+            styleClass="page-title"
+            text="Relief starts with community."
+            layoutX="283" layoutY="117"
+            prefWidth="435" prefHeight="27" />
+        <Button
+            fx:id="createRequestButton"
+            styleClass="inverse"
+            text="＋  Create request"
+            layoutX="959" layoutY="103"
+            prefWidth="82" prefHeight="26"
+            minWidth="82" minHeight="26"
+            maxWidth="82" maxHeight="26"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Rectangle
+            fx:id="heroBackground"
+            styleClass="bg-brand"
+            x="282" y="148"
+            width="758" height="117"
+            arcWidth="20" arcHeight="20" />
+        <Pane
+            layoutX="691" layoutY="148"
+            prefWidth="349" prefHeight="117"
+            minWidth="349" minHeight="117"
+            maxWidth="349" maxHeight="117">
+            <clip>
+                <SVGPath content="M0 0 L339 0 Q349 0 349 10 L349 107 Q349 117 339 117 L0 117 Z" />
+            </clip>
+            <children>
+                <SVGPath
+                    styleClass="bg-brand"
+                    content="M0 62 C32 27 50 23 76 36 C100 48 121 68 144 54 C172 40 176 10 208 5 C240 -2 290 5 349 4 L349 117 L0 117 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-teal"
+                    content="M0 108 C28 84 51 75 76 80 C106 84 130 105 157 97 C191 85 203 58 238 57 C277 55 320 79 349 94 L349 117 L0 117 Z"
+                    layoutX="0" layoutY="0" />
+                <Circle styleClass="bg-sand" centerX="281" centerY="-3" radius="19" />
+                <SVGPath
+                    styleClass="icon, stroke-light"
+                    content="M55 14 Q62 6 69 14 Q75 7 82 13"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-line"
+                    content="M185 94 L194 11 L207 11 L219 94 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-primary"
+                    content="M193 42 L213 48 L216 65 L190 55 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-sand"
+                    content="M194 11 L207 11 L208 4 L193 4 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-warning"
+                    content="M193 0 L207 0 L207 3 L193 3 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-brand"
+                    content="M183 94 L219 94 L219 98 L183 98 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-brand"
+                    content="M197 79 L205 79 L205 95 L197 95 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-brand"
+                    content="M240 71 L253 60 L266 71 L263 73 L253 65 L243 73 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="bg-success"
+                    content="M245 72 L253 65 L262 72 L262 83 L245 83 Z"
+                    layoutX="0" layoutY="0" />
+                <SVGPath
+                    styleClass="icon, stroke-light"
+                    content="M286 108 Q320 99 346 108"
+                    layoutX="0" layoutY="0" />
+            </children>
+        </Pane>
+        <Label
+            styleClass="eyebrow, inverse"
+            text="A SAFE HARBOR. A HELPING HAND."
+            layoutX="300" layoutY="165"
+            prefWidth="295" prefHeight="12" />
+        <Label
+            styleClass="hero-title, inverse"
+            text="Help is closer than you think."
+            layoutX="300" layoutY="183"
+            prefWidth="385" prefHeight="22" />
+        <Label
+            styleClass="caption, inverse"
+            text="Request support, find a safe place to stay, and take the next step"
+            layoutX="300" layoutY="208"
+            prefWidth="378" prefHeight="14" />
+        <Label
+            styleClass="caption, inverse"
+            text="toward recovery."
+            layoutX="300" layoutY="220"
+            prefWidth="200" prefHeight="14" />
+        <Button
+            fx:id="exploreSheltersButton"
+            styleClass="link-button, inverse"
+            text="Explore nearby shelters →"
+            layoutX="298" layoutY="234"
+            prefWidth="128" prefHeight="20"
+            minWidth="128" minHeight="20"
+            maxWidth="128" maxHeight="20"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Rectangle
+            styleClass="bg-white, card"
+            x="282" y="279"
+            width="245" height="48"
+            arcWidth="16" arcHeight="16" />
+        <Rectangle
+            styleClass="bg-white, card"
+            x="537" y="279"
+            width="245" height="48"
+            arcWidth="16" arcHeight="16" />
+        <Rectangle
+            styleClass="bg-white, card"
+            x="792" y="279"
+            width="248" height="48"
+            arcWidth="16" arcHeight="16" />
+        <Rectangle styleClass="bg-info" x="297" y="293" width="24" height="23" arcWidth="12" arcHeight="12" />
+        <Label
+            styleClass="icon-text, strong, muted"
+            text="▤"
+            layoutX="303" layoutY="297"
+            prefWidth="18" prefHeight="15" />
+        <Label
+            fx:id="statActiveRequests"
+            styleClass="page-title"
+            text="2"
+            layoutX="328" layoutY="291"
+            prefWidth="29" prefHeight="20" />
+        <Label
+            styleClass="caption, muted"
+            text="Your active requests"
+            layoutX="328" layoutY="311"
+            prefWidth="194" prefHeight="12" />
+        <Rectangle
+            styleClass="bg-success"
+            x="553" y="293"
+            width="24" height="23"
+            arcWidth="12" arcHeight="12" />
+        <Label
+            styleClass="icon-text, strong, muted"
+            text="⌂"
+            layoutX="559" layoutY="297"
+            prefWidth="18" prefHeight="15" />
+        <Label
+            fx:id="statNearbyShelters"
+            styleClass="page-title"
+            text="2"
+            layoutX="584" layoutY="291"
+            prefWidth="29" prefHeight="20" />
+        <Label
+            styleClass="caption, muted"
+            text="Nearby sample shelters"
+            layoutX="584" layoutY="311"
+            prefWidth="194" prefHeight="12" />
+        <Rectangle
+            styleClass="bg-warning"
+            x="809" y="293"
+            width="24" height="23"
+            arcWidth="12" arcHeight="12" />
+        <Label
+            styleClass="icon-text, strong, muted"
+            text="✓"
+            layoutX="815" layoutY="297"
+            prefWidth="18" prefHeight="15" />
+        <Label
+            fx:id="statCompletedRequests"
+            styleClass="page-title"
+            text="1"
+            layoutX="840" layoutY="291"
+            prefWidth="29" prefHeight="20" />
+        <Label
+            styleClass="caption, muted"
+            text="Completed request"
+            layoutX="840" layoutY="311"
+            prefWidth="194" prefHeight="12" />
+        <Rectangle
+            styleClass="bg-white, card"
+            x="282" y="341"
+            width="496" height="323"
+            arcWidth="22" arcHeight="22" />
+        <Label
+            styleClass="heading"
+            text="Your relief requests"
+            layoutX="297" layoutY="356"
+            prefWidth="260" prefHeight="17" />
+        <Label
+            styleClass="caption, muted"
+            text="3 total"
+            layoutX="741" layoutY="356"
+            prefWidth="24" prefHeight="15" />
+        <Button
+            fx:id="filterAllRequests"
+            styleClass="link-button"
+            text="All requests"
+            layoutX="295" layoutY="379"
+            prefWidth="41" prefHeight="23"
+            minWidth="41" minHeight="23"
+            maxWidth="41" maxHeight="23"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Button
+            fx:id="filterActiveRequests"
+            styleClass="link-button"
+            text="Active"
+            layoutX="340" layoutY="379"
+            prefWidth="28" prefHeight="23"
+            minWidth="28" minHeight="23"
+            maxWidth="28" maxHeight="23"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Button
+            fx:id="filterCompletedRequests"
+            styleClass="link-button"
+            text="Completed"
+            layoutX="372" layoutY="379"
+            prefWidth="54" prefHeight="23"
+            minWidth="54" minHeight="23"
+            maxWidth="54" maxHeight="23"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Rectangle styleClass="bg-line" x="298" y="400" width="467" height="1" />
+        <Rectangle styleClass="bg-primary" x="298" y="400" width="35" height="2" />
+        <Rectangle styleClass="bg-canvas" x="297" y="417" width="22" height="22" arcWidth="12" arcHeight="12" />
+        <SVGPath
+            styleClass="icon, stroke-muted"
+            content="M7 1 L13 9 L10 9 L14 14 L0 14 L4 9 L1 9 Z M7 13 L7 19"
+            layoutX="302" layoutY="420" />
+        <Label
+            styleClass="caption, strong"
+            text="Fallen tree blocking driveway"
+            layoutX="328" layoutY="416"
+            prefWidth="303" prefHeight="15" />
+        <Label
+            styleClass="caption, muted"
+            text="Debris removal · West Ashley"
+            layoutX="328" layoutY="432"
+            prefWidth="307" prefHeight="14" />
+        <Label
+            styleClass="caption, muted"
+            text="HR-1024  ·  Submitted Nov 9"
+            layoutX="328" layoutY="446"
+            prefWidth="265" prefHeight="12" />
+        <Rectangle styleClass="bg-info" x="701" y="416" width="64" height="14" arcWidth="14" arcHeight="14" />
+        <Label
+            styleClass="caption, strong, badge, text-primary"
+            text="In progress"
+            layoutX="701" layoutY="417"
+            prefWidth="64" prefHeight="12"
+            alignment="CENTER" />
+        <Button
+            fx:id="viewRequest1Button"
+            styleClass="link-button"
+            text="➜"
+            layoutX="740" layoutY="433"
+            prefWidth="26" prefHeight="20"
+            minWidth="26" minHeight="20"
+            maxWidth="26" maxHeight="20"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Rectangle styleClass="bg-line" x="298" y="471" width="467" height="1" />
+        <Rectangle styleClass="bg-canvas" x="297" y="484" width="22" height="22" arcWidth="12" arcHeight="12" />
+        <SVGPath
+            styleClass="icon, stroke-muted"
+            content="M2 4 C5 1 7 6 10 4 M2 9 C5 6 7 11 10 9 M2 14 C5 11 7 16 10 14"
+            layoutX="303" layoutY="486" />
+        <Label
+            styleClass="caption, strong"
+            text="Drinking water for our household"
+            layoutX="328" layoutY="483"
+            prefWidth="303" prefHeight="15" />
+        <Label
+            styleClass="caption, muted"
+            text="Essential supplies · James Island"
+            layoutX="328" layoutY="499"
+            prefWidth="307" prefHeight="14" />
+        <Label
+            styleClass="caption, muted"
+            text="HR-1031  ·  Submitted Nov 8"
+            layoutX="328" layoutY="513"
+            prefWidth="265" prefHeight="12" />
+        <Rectangle styleClass="bg-sand" x="714" y="483" width="51" height="14" arcWidth="14" arcHeight="14" />
+        <Label
+            styleClass="caption, strong, badge, text-warning"
+            text="Received"
+            layoutX="714" layoutY="484"
+            prefWidth="51" prefHeight="12"
+            alignment="CENTER" />
+        <Button
+            fx:id="viewRequest2Button"
+            styleClass="link-button"
+            text="➜"
+            layoutX="740" layoutY="500"
+            prefWidth="26" prefHeight="20"
+            minWidth="26" minHeight="20"
+            maxWidth="26" maxHeight="20"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Rectangle styleClass="bg-line" x="298" y="538" width="467" height="1" />
+        <Rectangle styleClass="bg-canvas" x="297" y="550" width="22" height="22" arcWidth="12" arcHeight="12" />
+        <SVGPath
+            styleClass="icon, stroke-muted"
+            content="M1 8 L10 1 L19 8 M4 7 L4 17 L16 17 L16 7 M9 17 L9 11 L12 11 L12 17"
+            layoutX="299" layoutY="553" />
+        <Label
+            styleClass="caption, strong"
+            text="Help securing damaged windows"
+            layoutX="328" layoutY="549"
+            prefWidth="303" prefHeight="15" />
+        <Label
+            styleClass="caption, muted"
+            text="Home repairs · West Ashley"
+            layoutX="328" layoutY="565"
+            prefWidth="307" prefHeight="14" />
+        <Label
+            styleClass="caption, muted"
+            text="HR-1066  ·  Submitted Nov 7"
+            layoutX="328" layoutY="579"
+            prefWidth="265" prefHeight="12" />
+        <Rectangle
+            styleClass="bg-success"
+            x="714" y="549"
+            width="51" height="14"
+            arcWidth="14" arcHeight="14" />
+        <Label
+            styleClass="caption, strong, badge, text-success, text-teal"
+            text="Completed"
+            layoutX="714" layoutY="550"
+            prefWidth="51" prefHeight="12"
+            alignment="CENTER" />
+        <Button
+            fx:id="viewRequest3Button"
+            styleClass="link-button"
+            text="➜"
+            layoutX="740" layoutY="566"
+            prefWidth="26" prefHeight="20"
+            minWidth="26" minHeight="20"
+            maxWidth="26" maxHeight="20"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Rectangle styleClass="bg-info" x="297" y="623" width="468" height="36" arcWidth="12" arcHeight="12" />
+        <SVGPath
+            styleClass="icon, stroke-primary"
+            content="M2 7 Q8 0 14 7 M8 7 L8 15 M4 16 Q8 12 12 16"
+            layoutX="306" layoutY="634" />
+        <Label
+            styleClass="caption, muted"
+            text="Your neighbors are here to help."
+            layoutX="330" layoutY="629"
+            prefWidth="310" prefHeight="11" />
+        <Label
+            styleClass="heading"
+            text="Follow each request as it moves forward."
+            layoutX="330" layoutY="640"
+            prefWidth="316" prefHeight="11" />
+        <Rectangle
+            styleClass="bg-white, card"
+            x="790" y="341"
+            width="250" height="202"
+            arcWidth="22" arcHeight="22" />
+        <Label
+            styleClass="heading"
+            text="Nearby shelters"
+            layoutX="805" layoutY="355"
+            prefWidth="180" prefHeight="17" />
+        <Button
+            fx:id="viewAllSheltersButton"
+            styleClass="link-button"
+            text="View all →"
+            layoutX="1004" layoutY="356"
+            prefWidth="27" prefHeight="16"
+            minWidth="27" minHeight="16"
+            maxWidth="27" maxHeight="16"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+        <Label
+            styleClass="heading"
+            text="Charleston Community Center"
+            layoutX="805" layoutY="391"
+            prefWidth="195" prefHeight="15" />
+        <Rectangle
+            styleClass="bg-success"
+            x="1005" y="392"
+            width="20" height="12"
+            arcWidth="12" arcHeight="12" />
+        <Label
+            styleClass="caption, strong, badge, text-success, text-teal"
+            text="Open"
+            layoutX="1005" layoutY="392"
+            prefWidth="20" prefHeight="12"
+            alignment="CENTER" />
+        <Label
+            styleClass="caption, muted"
+            text="West Ashley · 1.8 miles away"
+            layoutX="805" layoutY="406"
+            prefWidth="210" prefHeight="12" />
+        <Rectangle styleClass="bg-line" x="805" y="424" width="220" height="3" arcWidth="4" arcHeight="4" />
+        <Rectangle styleClass="bg-teal" x="805" y="424" width="162" height="3" arcWidth="4" arcHeight="4" />
+        <Label
+            styleClass="caption, muted"
+            text="43 spaces available"
+            layoutX="805" layoutY="432"
+            prefWidth="175" prefHeight="12" />
+        <Label
+            styleClass="caption, muted"
+            text="57 / 100"
+            layoutX="979" layoutY="432"
+            prefWidth="47" prefHeight="12"
+            alignment="CENTER_RIGHT" />
+        <Label
+            styleClass="caption, muted"
+            text="Pet friendly   Medical support"
+            layoutX="805" layoutY="444"
+            prefWidth="200" prefHeight="12" />
+        <Rectangle styleClass="bg-line" x="805" y="463" width="220" height="1" />
+        <Label
+            styleClass="heading"
+            text="James Island High School"
+            layoutX="805" layoutY="469"
+            prefWidth="195" prefHeight="15" />
+        <Rectangle
+            styleClass="bg-success"
+            x="1005" y="470"
+            width="20" height="12"
+            arcWidth="12" arcHeight="12" />
+        <Label
+            styleClass="caption, strong, badge, text-success, text-teal"
+            text="Open"
+            layoutX="1005" layoutY="470"
+            prefWidth="20" prefHeight="12"
+            alignment="CENTER" />
+        <Label
+            styleClass="caption, muted"
+            text="James Island · 3.2 miles away"
+            layoutX="805" layoutY="484"
+            prefWidth="210" prefHeight="12" />
+        <Rectangle styleClass="bg-line" x="805" y="502" width="220" height="3" arcWidth="4" arcHeight="4" />
+        <Rectangle styleClass="bg-teal" x="805" y="502" width="99" height="3" arcWidth="4" arcHeight="4" />
+        <Label
+            styleClass="caption, muted"
+            text="36 spaces available"
+            layoutX="805" layoutY="510"
+            prefWidth="175" prefHeight="12" />
+        <Label
+            styleClass="caption, muted"
+            text="54 / 150"
+            layoutX="979" layoutY="510"
+            prefWidth="47" prefHeight="12"
+            alignment="CENTER_RIGHT" />
+        <Label
+            styleClass="caption, muted"
+            text="Accessible   Family friendly"
+            layoutX="805" layoutY="522"
+            prefWidth="200" prefHeight="12" />
+        <Rectangle styleClass="bg-info" x="790" y="556" width="250" height="72" arcWidth="20" arcHeight="20" />
+        <Circle styleClass="icon, stroke-primary" centerX="820" centerY="590" radius="9" />
+        <SVGPath
+            styleClass="icon, stroke-primary"
+            content="M4 8 A6 6 0 0 1 16 8 M5 12 Q10 18 15 12 M10 2 L10 5"
+            layoutX="814" layoutY="580" />
+        <Label
+            styleClass="eyebrow, muted"
+            text="STAY INFORMED"
+            layoutX="841" layoutY="568"
+            prefWidth="160" prefHeight="11" />
+        <Label
+            styleClass="heading"
+            text="Know what’s ahead."
+            layoutX="841" layoutY="582"
+            prefWidth="170" prefHeight="15" />
+        <Label
+            styleClass="caption, muted"
+            text="Weather updates and community resources."
+            layoutX="841" layoutY="599"
+            prefWidth="190" prefHeight="14" />
+        <Button
+            fx:id="viewStormUpdatesButton"
+            styleClass="nav-button"
+            text="View storm updates →"
+            layoutX="839" layoutY="610"
+            prefWidth="113" prefHeight="16"
+            minWidth="113" minHeight="16"
+            maxWidth="113" maxHeight="16"
+            alignment="CENTER_LEFT"
+            focusTraversable="false"
+            mnemonicParsing="false" />
+    </children>
+</AnchorPane>

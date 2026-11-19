@@ -1,0 +1,129 @@
+/* Shared JavaFX theme. Layout and control sizes stay in FXML. */
+.app-page {
+    -app-brand: #112f4b;
+    -app-primary: #1552b3;
+    -app-teal: #078b90;
+    -app-sand: #f5e7cb;
+    -app-canvas: #f3f6fb;
+    -app-line: #dce5ef;
+    -app-muted: #6b8198;
+    -app-text: #19334d;
+    -app-success: #12826b;
+    -app-warning: #9a772a;
+    -fx-font-family: "System";
+    -fx-font-size: 10px;
+    -fx-background-color: -app-canvas;
+}
+/* The larger Scene Builder layouts use the same theme at a larger text size. */
+.large-ui { -fx-font-size: 16px; }
+.scroll-pane.app-page > .viewport { -fx-background-color: -app-canvas; }
+.label { -fx-text-fill: -app-text; }
+
+/* Buttons share their appearance and interaction states across every page. */
+.button {
+    -fx-background-color: -app-primary;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-text-fill: white;
+    -fx-padding: 0.4em 0.9em;
+    -fx-cursor: hand;
+}
+.button:hover { -fx-background-color: derive(-app-primary, 15%); }
+.button:pressed { -fx-background-color: derive(-app-primary, -15%); }
+.button:disabled, .hyperlink:disabled { -fx-opacity: 0.5; }
+.secondary-button {
+    -fx-background-color: white;
+    -fx-border-color: -app-line;
+    -fx-text-fill: -app-primary;
+}
+.secondary-button:hover { -fx-background-color: #eaf2ff; }
+.link-button, .hyperlink {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: -app-primary;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+.link-button:hover, .hyperlink:hover {
+    -fx-background-color: transparent;
+    -fx-underline: true;
+}
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 4;
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-padding: 0 0 0 2.8em;
+}
+.nav-button:hover { -fx-background-color: derive(-app-brand, 25%); }
+
+/* Inputs, including fields placed on cards and authentication forms. */
+.text-input, .combo-box-base {
+    -fx-background-color: white;
+    -fx-border-color: -app-line;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-padding: 0.3em 0.6em;
+    -fx-text-fill: -app-text;
+    -fx-prompt-text-fill: -app-muted;
+    -fx-focus-color: -app-primary;
+    -fx-faint-focus-color: transparent;
+}
+.text-input:focused, .combo-box-base:focused { -fx-border-color: -app-primary; }
+.text-area .content { -fx-background-color: white; }
+
+/* Reusable text roles. Sizes are relative to the page's base font. */
+.page-title { -fx-font-size: 2em; -fx-font-weight: bold; }
+.heading { -fx-font-size: 1.2em; -fx-font-weight: bold; }
+.hero-title { -fx-font-size: 2.1em; -fx-font-weight: bold; }
+.caption { -fx-font-size: 0.8em; }
+.field-label { -fx-font-size: 0.9em; -fx-font-weight: bold; }
+.strong { -fx-font-weight: bold; }
+.eyebrow {
+    -fx-font-size: 0.8em;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-teal;
+}
+.brand { -fx-font-family: "Georgia"; -fx-font-size: 1.5em; -fx-font-weight: bold; }
+.icon-text { -fx-font-size: 1.3em; -fx-text-fill: -app-primary; }
+.muted { -fx-text-fill: -app-muted; }
+.text-primary { -fx-text-fill: -app-primary; }
+.text-teal { -fx-text-fill: -app-teal; }
+.text-success { -fx-text-fill: -app-success; }
+.text-warning { -fx-text-fill: -app-warning; }
+.inverse { -fx-text-fill: white; }
+.badge { -fx-font-size: 0.8em; -fx-font-weight: bold; }
+
+/* One palette for pane backgrounds and the existing vector illustrations. */
+.icon {
+    -fx-fill: transparent;
+    -fx-stroke-width: 1.5;
+    -fx-stroke-line-cap: round;
+    -fx-stroke-line-join: round;
+}
+.stroke-light { -fx-stroke: white; }
+.stroke-muted { -fx-stroke: -app-muted; }
+.stroke-primary { -fx-stroke: -app-primary; }
+.stroke-teal { -fx-stroke: -app-teal; }
+.no-fill { -fx-fill: transparent; }
+.bg-brand { -fx-background-color: -app-brand; -fx-fill: -app-brand; }
+.bg-primary { -fx-background-color: -app-primary; -fx-fill: -app-primary; }
+.bg-teal { -fx-background-color: -app-teal; -fx-fill: -app-teal; }
+.bg-sand { -fx-background-color: -app-sand; -fx-fill: -app-sand; }
+.bg-white { -fx-background-color: white; -fx-fill: white; }
+.bg-canvas { -fx-background-color: -app-canvas; -fx-fill: -app-canvas; }
+.bg-line { -fx-background-color: -app-line; -fx-fill: -app-line; }
+.bg-muted { -fx-background-color: -app-muted; -fx-fill: -app-muted; }
+.bg-info { -fx-background-color: #eaf2ff; -fx-fill: #eaf2ff; }
+.bg-success { -fx-background-color: #dff4ef; -fx-fill: #dff4ef; }
+.bg-warning { -fx-background-color: #fff1d9; -fx-fill: #fff1d9; }
+
+/* Optional surfaces and spacing; no screen-specific variants. */
+.card {
+    -fx-background-color: white;
+    -fx-fill: white;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(17,47,75,0.10), 6, 0, 0, 2);
+}
+.page-padding { -fx-padding: 16; }
+.section-padding { -fx-padding: 12 16; }
